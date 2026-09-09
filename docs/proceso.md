@@ -47,3 +47,9 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **3.1 — Crear árbol base de carpetas**
 
 ![](images/clipboard-1151236143.png)
+
+## **FASE 4 — `03_BASE_ENTORNO_ENV`**
+
+#### **4.1 — Crear `.env.example` y actualizar `.env` completo**
+
+![](images/clipboard-2998955148.png)
