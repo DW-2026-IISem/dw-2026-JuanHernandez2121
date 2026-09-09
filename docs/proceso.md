@@ -125,3 +125,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.3 — config/logger/logger.config.ts**
 
 ![](images/clipboard-2093264850.png)
+
+#### **6.4 — config/logger/logger.module.ts**
+
+![](images/clipboard-3193487141.png)
