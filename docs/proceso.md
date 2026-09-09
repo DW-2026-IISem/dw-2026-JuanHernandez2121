@@ -185,3 +185,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.18 — common/filters/global-exception.filter.ts**
 
 ![](images/clipboard-2915089724.png)
+
+#### **6.19 — common/filters/sequelize-exception.filter.ts**
+
+![](images/clipboard-1028782586.png)
