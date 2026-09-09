@@ -37,3 +37,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **2.4 — Actualizar scripts npm en package.json**
 
 ![](images/clipboard-1155584981.png)
+
+#### **2.5 — Verificar arranque base**
+
+![](images/clipboard-2664551511.png)
