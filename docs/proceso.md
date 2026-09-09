@@ -133,3 +133,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.5 — config/jwt/jwt.constants.ts**
 
 ![](images/clipboard-1991651233.png)
+
+#### **6.6 — config/jwt/jwt.config.ts**
+
+![](images/clipboard-631052361.png)
