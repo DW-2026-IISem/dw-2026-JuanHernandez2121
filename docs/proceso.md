@@ -69,3 +69,9 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **4.5 — Factory registerAs de entorno**
 
 ![](images/clipboard-1374441791.png)
+
+## **FASE 5 — `04_BASE_DATABASE_SEQUELIZE`**
+
+#### **5.1 — Constante SEQUELIZE_TOKEN**
+
+![](images/clipboard-712050827.png)
