@@ -26,7 +26,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 
 ![](images/clipboard-898863254.png)
 
-#### **2.2 — Dependencias de desarrollo** 
+#### **2.2 — Dependencias de desarrollo**
 
 ![](images/clipboard-2407444961.png)
 
