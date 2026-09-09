@@ -19,3 +19,9 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **1.4 — Crear `.env` mínimo (puerto)**
 
 ![](images/clipboard-1482328124.png)
+
+## **FASE 2 — `01_BASE_DEPS_Y_PUERTO`**
+
+#### **2.1 — Dependencias de producción**
+
+![](images/clipboard-898863254.png)
