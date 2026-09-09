@@ -53,3 +53,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **4.1 — Crear `.env.example` y actualizar `.env` completo**
 
 ![](images/clipboard-2998955148.png)
+
+#### **4.2 — Interface de entorno**
+
+![](images/clipboard-3947818235.png)
