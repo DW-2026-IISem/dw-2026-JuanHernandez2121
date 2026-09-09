@@ -75,3 +75,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **5.1 — Constante SEQUELIZE_TOKEN**
 
 ![](images/clipboard-712050827.png)
+
+#### **5.2 — Tipos auxiliares de database config**
+
+![](images/clipboard-309026772.png)
