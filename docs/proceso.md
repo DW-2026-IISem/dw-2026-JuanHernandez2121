@@ -103,3 +103,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **5.8 — DatabaseSeederService (sin seeders aún)**
 
 ![](images/clipboard-1659642230.png)
+
+#### **5.9 — Módulo global Sequelize**
+
+![](images/clipboard-3725634154.png)
