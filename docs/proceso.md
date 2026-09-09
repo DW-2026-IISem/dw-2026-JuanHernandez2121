@@ -61,3 +61,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **4.3 — Validación de entorno con class-validator**
 
 ![](images/clipboard-1333180203.png)
+
+#### **4.4 — Resolver de credenciales por motor**
+
+![](images/clipboard-3021671294.png)
