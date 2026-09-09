@@ -95,3 +95,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **5.6 — Opciones Sequelize por dialecto**
 
 ![](images/clipboard-3994258583.png)
+
+#### **5.7 — Factory Sequelize (sin modelos aún)**
+
+![](images/clipboard-3747912352.png)
