@@ -41,3 +41,9 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **2.5 — Verificar arranque base**
 
 ![](images/clipboard-2664551511.png)
+
+## **FASE 3 — `02_BASE_ESTRUCTURA_CA`**
+
+#### **3.1 — Crear árbol base de carpetas**
+
+![](images/clipboard-1151236143.png)
