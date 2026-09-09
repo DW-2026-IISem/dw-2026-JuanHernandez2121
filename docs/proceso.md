@@ -141,3 +141,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.7 — config/swagger/swagger.constants.ts**
 
 ![](images/clipboard-2128399399.png)
+
+#### **6.8 — config/swagger/swagger.config.ts**
+
+![](images/clipboard-1351920581.png)
