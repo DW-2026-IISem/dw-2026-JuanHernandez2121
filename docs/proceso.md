@@ -107,3 +107,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **5.9 — Módulo global Sequelize**
 
 ![](images/clipboard-3725634154.png)
+
+#### **5.10 — Verificar conexión a BD**
+
+![](images/clipboard-779193474.png)
