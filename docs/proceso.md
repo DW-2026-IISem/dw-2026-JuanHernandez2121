@@ -177,3 +177,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.16 — common/exceptions/entity-not-found.exception.ts**
 
 ![](images/clipboard-1192041365.png)
+
+#### **6.17 — common/exceptions/validation.exception.ts**
+
+![](images/clipboard-2650872101.png)
