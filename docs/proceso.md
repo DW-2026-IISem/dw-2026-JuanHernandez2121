@@ -149,3 +149,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.9 — common/enums/status.enum.ts**
 
 ![](images/clipboard-2747646899.png)
+
+#### **6.10 — common/enums/http-method.enum.ts**
+
+![](images/clipboard-1978589494.png)
