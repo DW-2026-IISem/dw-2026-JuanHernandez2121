@@ -29,3 +29,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **2.2 — Dependencias de desarrollo** 
 
 ![](images/clipboard-2407444961.png)
+
+#### **2.3 — Script para liberar puerto (evita EADDRINUSE)**
+
+![](images/clipboard-660548908.png)
