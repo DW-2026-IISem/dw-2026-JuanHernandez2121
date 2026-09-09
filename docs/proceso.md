@@ -65,3 +65,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **4.4 — Resolver de credenciales por motor**
 
 ![](images/clipboard-3021671294.png)
+
+#### **4.5 — Factory registerAs de entorno**
+
+![](images/clipboard-1374441791.png)
