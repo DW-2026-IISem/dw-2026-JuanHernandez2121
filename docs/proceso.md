@@ -15,3 +15,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **1.3 — Crear proyecto NestJS**
 
 ![](images/clipboard-2508159013.png)
+
+#### **1.4 — Crear `.env` mínimo (puerto)**
+
+![](images/clipboard-1482328124.png)
