@@ -111,3 +111,9 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **5.10 — Verificar conexión a BD**
 
 ![](images/clipboard-779193474.png)
+
+## **FASE 6 — `05_BASE_APP_COMMON_SECURITY`**
+
+#### **6.1 — config/app/app.constants.ts**
+
+![](images/clipboard-757015699.png)
