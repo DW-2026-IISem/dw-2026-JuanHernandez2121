@@ -117,3 +117,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.1 — config/app/app.constants.ts**
 
 ![](images/clipboard-757015699.png)
+
+#### **6.2 — config/app/app.config.ts**
+
+![](images/clipboard-2797768496.png)
