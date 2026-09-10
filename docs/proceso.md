@@ -257,3 +257,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.36 — common/utils/string.util.ts**
 
 ![](images/clipboard-2140339656.png)
+
+#### **6.37 — infrastructure/security/hashing/password-hasher.interface.ts**
+
+![](images/clipboard-1540997099.png)
