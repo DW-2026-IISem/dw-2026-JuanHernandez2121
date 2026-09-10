@@ -407,3 +407,9 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **7.29 — Verificar tabla física `clients` y API**
 
 ![](images/clipboard-964740617.png)
+
+## **FASE 8 — `07_BUSINESS_PRODUCT_TYPES`**
+
+#### **8.1 — features/business/product-types/domain/entities/product-type.entity.ts**
+
+![](images/clipboard-2001160170.png)
