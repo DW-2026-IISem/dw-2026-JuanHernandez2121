@@ -1,8 +1,12 @@
 import { Sequelize } from 'sequelize-typescript';
+
 import { DatabaseDialect } from '../../../config/environment/env.interface.js';
+
 import { getSequelizeOptions } from './sequelize.options.js';
 
 import { ClientModel } from '../../../features/business/clients/infrastructure/persistence/models/client.model.js';
+
+import { ProductTypeModel } from '../../../features/business/product-types/infrastructure/persistence/models/product-type.model.js';
 
 import mysql2 from 'mysql2';
 import pg from 'pg';
@@ -11,6 +15,7 @@ import oracledb from 'oracledb';
 
 export const ALL_MODELS = [
   ClientModel,
+  ProductTypeModel,
 ];
 
 export async function createSequelizeInstance(
@@ -49,17 +54,20 @@ export async function createSequelizeInstance(
 
   try {
     await sequelize.authenticate();
+
     console.log(`✅ Conexión exitosa a ${dialect.toUpperCase()}`);
   } catch (error: any) {
     console.error(
       `❌ Error conectando a ${dialect.toUpperCase()}:`,
       error.message,
     );
+
     throw error;
   }
 
   if (process.env.NODE_ENV !== 'production') {
     await sequelize.sync({ alter: false });
+
     console.log('✅ Tablas sincronizadas');
   }
 
