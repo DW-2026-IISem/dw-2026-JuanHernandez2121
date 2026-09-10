@@ -315,3 +315,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **7.6 — features/business/clients/domain/validators/client-phone.validator.ts**
 
 ![](images/clipboard-2430915385.png)
+
+#### **7.7 — features/business/clients/infrastructure/persistence/models/client.model.ts**
+
+![](images/clipboard-2171629823.png)
