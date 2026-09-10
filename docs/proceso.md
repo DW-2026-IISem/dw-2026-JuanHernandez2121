@@ -237,3 +237,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.31 — common/interfaces/api-response.interface.ts**
 
 ![](images/clipboard-135716071.png)
+
+#### **6.32 — common/types/nullable.type.ts**
+
+![](images/clipboard-2380901041.png)
