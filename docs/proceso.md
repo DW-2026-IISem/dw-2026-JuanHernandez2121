@@ -197,3 +197,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.21 — common/interceptors/logging.interceptor.ts**
 
 ![](images/clipboard-3292927976.png)
+
+#### **6.22 — common/interceptors/timeout.interceptor.ts**
+
+![](images/clipboard-2972586912.png)
