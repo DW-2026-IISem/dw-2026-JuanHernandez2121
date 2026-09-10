@@ -281,3 +281,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.42 — Actualizar main.ts (bootstrap completo)**
 
 ![](images/clipboard-99477889.png)
+
+#### **6.43 — Actualizar app.module.ts (base sin features ni guards)**
+
+![](images/clipboard-2363657640.png)
