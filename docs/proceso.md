@@ -332,7 +332,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 
 ![](images/clipboard-1848262437.png)
 
-#### **7.11 — features/business/clients/application/dto/client-filter.dto.ts** 
+#### **7.11 — features/business/clients/application/dto/client-filter.dto.ts**
 
 ![](images/clipboard-3060292404.png)
 
@@ -343,3 +343,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **7.13 — features/business/clients/application/dto/create-client.dto.ts**
 
 ![](images/clipboard-2992947826.png)
+
+#### **7.14 — features/business/clients/application/dto/update-client.dto.ts**
+
+![](images/clipboard-917233092.png)
