@@ -221,3 +221,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.27 — common/decorators/current-user.decorator.ts**
 
 ![](images/clipboard-511774849.png)
+
+#### **6.28 — common/decorators/resource.decorator.ts**
+
+![](images/clipboard-184131715.png)
