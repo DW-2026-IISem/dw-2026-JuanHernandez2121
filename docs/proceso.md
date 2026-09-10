@@ -209,3 +209,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.24 — common/pipes/parse-positive-int.pipe.ts**
 
 ![](images/clipboard-2888465971.png)
+
+#### **6.25 — common/decorators/public.decorator.ts**
+
+![](images/clipboard-3717651419.png)
