@@ -289,3 +289,9 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.44 — Verificar bootstrap transversal**
 
 ![](images/clipboard-3821043683.png)
+
+## **FASE 7 — `06_BUSINESS_CLIENTS`**
+
+#### **7.1 — features/business/clients/domain/entities/client.entity.ts**
+
+![](images/clipboard-2086159183.png)
