@@ -269,3 +269,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.39 — infrastructure/security/tokens/token.interface.ts**
 
 ![](images/clipboard-300919328.png)
+
+#### **6.40 — infrastructure/security/tokens/token.service.ts**
+
+![](images/clipboard-3562656589.png)
