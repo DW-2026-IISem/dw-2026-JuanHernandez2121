@@ -6,8 +6,11 @@ import { appConfig } from './config/app/app.config.js';
 import { jwtConfig } from './config/jwt/jwt.config.js';
 
 import { LoggerModule } from './config/logger/logger.module.js';
+
 import { SequelizeDatabaseModule } from './infrastructure/database/sequelize/sequelize.module.js';
+
 import { SecurityModule } from './infrastructure/security/security.module.js';
+
 import { BusinessModule } from './features/business/business.module.js';
 
 import { AppController } from './app.controller.js';
@@ -26,11 +29,7 @@ import { AppService } from './app.service.js';
     LoggerModule,
     BusinessModule,
   ],
-
   controllers: [AppController],
-
-  providers: [
-    AppService,
-  ],
+  providers: [AppService],
 })
 export class AppModule {}
