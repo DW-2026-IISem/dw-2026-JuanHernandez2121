@@ -477,3 +477,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **8.17 — features/business/product-types/application/use-cases/update-product-type.use-case.ts**
 
 ![](images/clipboard-2357435504.png)
+
+#### **8.18 — features/business/product-types/presentation/http/serializers/product-type.serializer.ts**
+
+![](images/clipboard-2894736484.png)
