@@ -355,3 +355,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **7.16 — features/business/clients/application/use-cases/create-client.use-case.ts**
 
 ![](images/clipboard-3409915000.png)
+
+#### **7.17 — features/business/clients/application/use-cases/delete-client.use-case.ts**
+
+![](images/clipboard-2171503545.png)
