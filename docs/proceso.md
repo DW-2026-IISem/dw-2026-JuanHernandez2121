@@ -437,3 +437,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **8.7 — features/business/product-types/infrastructure/persistence/seeders/product-types.seeder.ts**
 
 ![](images/clipboard-3319449383.png)
+
+#### **8.8 — features/business/product-types/application/dto/create-product-type.dto.ts**
+
+![](images/clipboard-3595544263.png)
