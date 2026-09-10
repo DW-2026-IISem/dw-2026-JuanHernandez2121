@@ -249,3 +249,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **6.34 — common/utils/pagination.util.ts**
 
 ![](images/clipboard-513214439.png)
+
+#### **6.35 — common/utils/date.util.ts**
+
+![](images/clipboard-1796060711.png)
