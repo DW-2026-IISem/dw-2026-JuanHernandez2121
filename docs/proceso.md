@@ -543,3 +543,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **9.7 — features/business/products/domain/validators/product-stock.validator.ts**
 
 ![](images/clipboard-572040453.png)
+
+#### **9.8 -features/business/products/infrastructure/persistence/models/product.model.ts**
+
+![](images/clipboard-1171549256.png)
