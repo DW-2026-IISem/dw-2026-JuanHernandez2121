@@ -519,3 +519,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **9.1 — features/business/products/domain/entities/product.entity.ts**
 
 ![](images/clipboard-3274276967.png)
+
+#### **9.2 — features/business/products/domain/exceptions/invalid-product-price.exception.ts**
+
+![](images/clipboard-4200516580.png)
