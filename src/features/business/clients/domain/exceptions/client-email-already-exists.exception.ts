@@ -1,4 +1,4 @@
-import { DomainException } from '../../../../../common/exceptions/domain.exception.js';
+import { DomainException } from '../../../../../common/exceptions/domain.exception';
 
 export class ClientEmailAlreadyExistsException extends DomainException {
   constructor(email: string) {
