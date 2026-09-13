@@ -3,41 +3,39 @@ import {
   Column,
   CreatedAt,
   DataType,
+  HasMany,
   Model,
   PrimaryKey,
   Table,
   UpdatedAt,
+  Unique,
 } from 'sequelize-typescript';
-import { Status } from '../../../../../../common/enums/status.enum.js';
 
-@Table({ tableName: 'clients' })
+@Table({ tableName: 'clientes' })
 export class ClientModel extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
   declare id: number;
 
-  @Column({ type: DataType.STRING(150), allowNull: false })
-  declare name: string;
+  @Column({ type: DataType.STRING(30), allowNull: false })
+  declare tipoDocumento: string;
 
-  @Column({ type: DataType.STRING(255), allowNull: true })
-  declare address: string | null;
+  @Unique
+  @Column({ type: DataType.STRING(30), allowNull: false })
+  declare numeroDocumento: string;
+
+  @Column({ type: DataType.STRING(150), allowNull: false })
+  declare nombre: string;
 
   @Column({ type: DataType.STRING(30), allowNull: true })
-  declare phone: string | null;
+  declare telefono: string | null;
 
-  @Column({ type: DataType.STRING(150), allowNull: true, unique: true })
+  @Column({ type: DataType.STRING(150), allowNull: true })
   declare email: string | null;
 
-  @Column({ type: DataType.STRING(255), allowNull: true })
-  declare password: string | null;
-
-  @Column({
-    type: DataType.ENUM(...Object.values(Status)),
-    allowNull: false,
-    defaultValue: Status.ACTIVE,
-  })
-  declare status: Status;
+  @Column({ type: DataType.BOOLEAN, allowNull: false, defaultValue: true })
+  declare isActive: boolean;
 
   @CreatedAt
   declare createdAt: Date;
