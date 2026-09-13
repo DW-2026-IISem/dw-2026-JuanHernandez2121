@@ -1,21 +1,15 @@
 import { Sequelize } from 'sequelize-typescript';
-
 import { DatabaseDialect } from '../../../config/environment/env.interface.js';
-
 import { getSequelizeOptions } from './sequelize.options.js';
 
 import { ClientModel } from '../../../features/business/clients/infrastructure/persistence/models/client.model.js';
-
 import { ProductTypeModel } from '../../../features/business/product-types/infrastructure/persistence/models/product-type.model.js';
-
-import mysql2 from 'mysql2';
-import pg from 'pg';
-import tedious from 'tedious';
-import oracledb from 'oracledb';
+import { ProductModel } from '../../../features/business/products/infrastructure/persistence/models/product.model.js';
 
 export const ALL_MODELS = [
   ClientModel,
   ProductTypeModel,
+  ProductModel,
 ];
 
 export async function createSequelizeInstance(
@@ -27,19 +21,19 @@ export async function createSequelizeInstance(
 
   switch (dialect) {
     case DatabaseDialect.MySQL:
-      dialectModule = mysql2;
+      dialectModule = require('mysql2');
       break;
 
     case DatabaseDialect.Postgres:
-      dialectModule = pg;
+      dialectModule = require('pg');
       break;
 
     case DatabaseDialect.MSSQL:
-      dialectModule = tedious;
+      dialectModule = require('tedious');
       break;
 
     case DatabaseDialect.Oracle:
-      dialectModule = oracledb;
+      dialectModule = require('oracledb');
       break;
 
     default:
