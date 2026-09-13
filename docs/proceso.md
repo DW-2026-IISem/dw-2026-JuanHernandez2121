@@ -741,3 +741,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.26 — Actualizar business.module.ts**
 
 ![](images/clipboard-2946129616.png)
+
+#### **.27 — Actualizar database-seeder.service.ts**
+
+![](images/clipboard-1099345396.png)
