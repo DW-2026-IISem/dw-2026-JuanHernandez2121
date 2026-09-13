@@ -1,24 +1,26 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Status } from '../../../../../common/enums/status.enum.js';
 
 export class ClientResponseDto {
   @ApiProperty({ example: 1 })
   id: number;
 
-  @ApiProperty({ example: 'Juan Pérez' })
-  name: string;
+  @ApiProperty({ example: 'CC' })
+  tipoDocumento: string;
 
-  @ApiPropertyOptional({ example: 'Calle Principal 123' })
-  address?: string;
+  @ApiProperty({ example: '1001001001' })
+  numeroDocumento: string;
+
+  @ApiProperty({ example: 'Juan Pérez' })
+  nombre: string;
 
   @ApiPropertyOptional({ example: '+57 300 1234567' })
-  phone?: string;
+  telefono?: string;
 
   @ApiPropertyOptional({ example: 'juan.perez@example.com' })
   email?: string;
 
-  @ApiProperty({ enum: Status, example: Status.ACTIVE })
-  status: Status;
+  @ApiProperty({ example: true })
+  isActive: boolean;
 
   @ApiProperty()
   createdAt: Date;
