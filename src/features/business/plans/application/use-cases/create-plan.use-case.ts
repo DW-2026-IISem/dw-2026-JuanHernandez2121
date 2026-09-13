@@ -22,7 +22,7 @@ export class CreatePlanUseCase {
       search: dto.nombre,
     });
 
-    const existing = plans.data.find(
+    const existing = plans.items.find(
       (plan) => plan.nombre.toLowerCase() === dto.nombre.toLowerCase(),
     );
 
