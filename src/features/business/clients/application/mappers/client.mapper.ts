@@ -1,18 +1,17 @@
-import { Status } from '../../../../../common/enums/status.enum.js';
-import { Client } from '../../domain/entities/client.entity.js';
-import { ClientResponseDto } from '../dto/client-response.dto.js';
-import { ClientModel } from '../../infrastructure/persistence/models/client.model.js';
+import { Client } from '../../domain/entities/client.entity';
+import { ClientResponseDto } from '../dto/client-response.dto';
+import { ClientModel } from '../../infrastructure/persistence/models/client.model';
 
 export class ClientMapper {
   static toDomain(model: ClientModel): Client {
     return Client.reconstitute({
       id: model.id,
-      name: model.name,
-      address: model.address ?? undefined,
-      phone: model.phone ?? undefined,
+      tipoDocumento: model.tipoDocumento,
+      numeroDocumento: model.numeroDocumento,
+      nombre: model.nombre,
+      telefono: model.telefono ?? undefined,
       email: model.email ?? undefined,
-      password: model.password ?? undefined,
-      status: model.status,
+      isActive: model.isActive,
       createdAt: model.createdAt,
       updatedAt: model.updatedAt,
     });
@@ -21,11 +20,12 @@ export class ClientMapper {
   static toResponse(entity: Client): ClientResponseDto {
     return {
       id: entity.id!,
-      name: entity.name,
-      address: entity.address,
-      phone: entity.phone,
+      tipoDocumento: entity.tipoDocumento,
+      numeroDocumento: entity.numeroDocumento,
+      nombre: entity.nombre,
+      telefono: entity.telefono,
       email: entity.email,
-      status: entity.status,
+      isActive: entity.isActive,
       createdAt: entity.createdAt!,
       updatedAt: entity.updatedAt!,
     };
@@ -34,12 +34,12 @@ export class ClientMapper {
   static toPersistence(entity: Client): Partial<ClientModel> {
     return {
       id: entity.id,
-      name: entity.name,
-      address: entity.address ?? null,
-      phone: entity.phone ?? null,
+      tipoDocumento: entity.tipoDocumento,
+      numeroDocumento: entity.numeroDocumento,
+      nombre: entity.nombre,
+      telefono: entity.telefono ?? null,
       email: entity.email ?? null,
-      password: entity.password ?? null,
-      status: entity.status ?? Status.ACTIVE,
+      isActive: entity.isActive,
     };
   }
 }
