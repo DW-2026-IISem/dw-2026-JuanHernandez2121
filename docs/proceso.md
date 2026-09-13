@@ -759,3 +759,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.1 — features/business/clients/domain/entities/client.entity.ts**
 
 ![](images/clipboard-502749970.png)
+
+#### **.2 — features/business/clients/domain/exceptions/client-email-already-exists.exception.ts**
+
+![](images/clipboard-2707586672.png)
