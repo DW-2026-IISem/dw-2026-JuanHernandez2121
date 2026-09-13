@@ -4,6 +4,8 @@ import { seedClients } from '../../../features/business/clients/infrastructure/p
 
 import { seedProductTypes } from '../../../features/business/product-types/infrastructure/persistence/seeders/product-types.seeder.js';
 
+import { seedProducts } from '../../../features/business/products/infrastructure/persistence/seeders/products.seeder.js';
+
 /**
  * Ejecuta seeders en orden de dependencias.
  * Solo en entornos no productivos.
@@ -20,6 +22,7 @@ export class DatabaseSeederService implements OnModuleInit {
     try {
       await seedClients();
       await seedProductTypes();
+      await seedProducts();
 
       this.logger.log('✅ Seeders ejecutados');
     } catch (error: any) {
