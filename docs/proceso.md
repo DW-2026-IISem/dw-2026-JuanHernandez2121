@@ -791,3 +791,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.9 — features/business/clients/infrastructure/persistence/migrations/create-clients-table.migration.ts**
 
 ![](images/clipboard-3909888825.png)
+
+#### **.10 — features/business/clients/infrastructure/persistence/seeders/clients.seeder.ts**
+
+![](images/clipboard-840076094.png)
