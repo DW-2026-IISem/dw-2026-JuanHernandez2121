@@ -1,5 +1,6 @@
-import { PaginatedResult } from '../../../../../common/interfaces/pagination.interface';
-import { Product } from '../entities/product.entity';
+import { PaginatedResult } from '../../../../../common/interfaces/pagination.interface.js';
+
+import { Product } from '../entities/product.entity.js';
 
 export const PRODUCT_REPOSITORY = 'PRODUCT_REPOSITORY';
 
