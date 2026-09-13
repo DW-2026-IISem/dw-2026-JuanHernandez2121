@@ -1,5 +1,5 @@
-import { PaginatedResult } from '../../../../../common/interfaces/pagination.interface.js';
-import { Client } from '../entities/client.entity.js';
+import { PaginatedResult } from '../../../../../common/interfaces/pagination.interface';
+import { Client } from '../entities/client.entity';
 
 export const CLIENT_REPOSITORY = 'CLIENT_REPOSITORY';
 
@@ -15,5 +15,6 @@ export interface IClientRepository {
   delete(id: number): Promise<void>;
   findById(id: number): Promise<Client | null>;
   findByEmail(email: string): Promise<Client | null>;
+  findByNumeroDocumento(numeroDocumento: string): Promise<Client | null>;
   findAll(params: ClientFindAllParams): Promise<PaginatedResult<Client>>;
 }
