@@ -2,12 +2,14 @@ export const createClientsTableMigration = {
   name: 'create-clients-table',
 
   async up(): Promise<void> {
-    // En desarrollo, Sequelize crea la tabla automáticamente
-    // mediante sequelize.sync().
+    // Sequelize sync handles table creation in development.
+    // Production: CREATE TABLE clientes (
+    // id, tipoDocumento, numeroDocumento, nombre,
+    // telefono, email, isActive, createdAt, updatedAt
+    // )
   },
 
   async down(): Promise<void> {
-    // En producción, aquí se implementaría la eliminación
-    // de la tabla clients.
+    // Production: DROP TABLE clientes
   },
 };
