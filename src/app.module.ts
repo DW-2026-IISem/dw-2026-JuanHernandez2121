@@ -23,7 +23,6 @@ import { AppService } from './app.service.js';
       load: [envConfig, appConfig, jwtConfig],
       envFilePath: '.env',
     }),
-
     SequelizeDatabaseModule,
     SecurityModule,
     LoggerModule,
