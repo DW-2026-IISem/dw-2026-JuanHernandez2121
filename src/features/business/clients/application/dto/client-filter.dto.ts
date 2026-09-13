@@ -17,7 +17,7 @@ export class ClientFilterDto {
   @IsPositive()
   limit?: number;
 
-  @ApiPropertyOptional({ example: 'juan' })
+  @ApiPropertyOptional({ example: 'Juan' })
   @IsOptional()
   @IsString()
   search?: string;
