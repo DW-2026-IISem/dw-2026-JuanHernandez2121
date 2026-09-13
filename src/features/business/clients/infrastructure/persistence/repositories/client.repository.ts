@@ -3,14 +3,14 @@ import { Op } from 'sequelize';
 import {
   buildPaginatedResult,
   normalizePagination,
-} from '../../../../../../common/utils/pagination.util.js';
-import { Client } from '../../../domain/entities/client.entity.js';
+} from '../../../../../../common/utils/pagination.util';
+import { Client } from '../../../domain/entities/client.entity';
 import {
   ClientFindAllParams,
   IClientRepository,
-} from '../../../domain/interfaces/client-repository.interface.js';
-import { ClientMapper } from '../../../application/mappers/client.mapper.js';
-import { ClientModel } from '../models/client.model.js';
+} from '../../../domain/interfaces/client-repository.interface';
+import { ClientMapper } from '../../../application/mappers/client.mapper';
+import { ClientModel } from '../models/client.model';
 
 @Injectable()
 export class ClientRepository implements IClientRepository {
@@ -41,6 +41,15 @@ export class ClientRepository implements IClientRepository {
     return model ? ClientMapper.toDomain(model) : null;
   }
 
+  async findByNumeroDocumento(
+    numeroDocumento: string,
+  ): Promise<Client | null> {
+    const model = await ClientModel.findOne({
+      where: { numeroDocumento },
+    });
+    return model ? ClientMapper.toDomain(model) : null;
+  }
+
   async findAll(params: ClientFindAllParams) {
     const { page, limit, offset } = normalizePagination(
       params.page,
@@ -50,7 +59,8 @@ export class ClientRepository implements IClientRepository {
     const where = params.search
       ? {
           [Op.or]: [
-            { name: { [Op.like]: `%${params.search}%` } },
+            { nombre: { [Op.like]: `%${params.search}%` } },
+            { numeroDocumento: { [Op.like]: `%${params.search}%` } },
             { email: { [Op.like]: `%${params.search}%` } },
           ],
         }
