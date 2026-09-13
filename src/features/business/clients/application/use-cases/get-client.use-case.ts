@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ClientNotFoundException } from '../../domain/exceptions/client-not-found.exception.js';
+import { ClientNotFoundException } from '../../domain/exceptions/client-not-found.exception';
 import {
   CLIENT_REPOSITORY,
   type IClientRepository,
-} from '../../domain/interfaces/client-repository.interface.js';
-import { ClientMapper } from '../mappers/client.mapper.js';
+} from '../../domain/interfaces/client-repository.interface';
+import { ClientMapper } from '../mappers/client.mapper';
 
 @Injectable()
 export class GetClientUseCase {
