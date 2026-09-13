@@ -1,47 +1,45 @@
 import { Inject, Injectable } from '@nestjs/common';
-import {
-  type IPasswordHasher,
-  PASSWORD_HASHER,
-} from '../../../../../infrastructure/security/hashing/password-hasher.interface.js';
-import { ClientEmailAlreadyExistsException } from '../../domain/exceptions/client-email-already-exists.exception.js';
-import { Client } from '../../domain/entities/client.entity.js';
+import { ClientEmailAlreadyExistsException } from '../../domain/exceptions/client-email-already-exists.exception';
+import { Client } from '../../domain/entities/client.entity';
 import {
   CLIENT_REPOSITORY,
   type IClientRepository,
-} from '../../domain/interfaces/client-repository.interface.js';
-import { CreateClientDto } from '../dto/create-client.dto.js';
-import { ClientMapper } from '../mappers/client.mapper.js';
+} from '../../domain/interfaces/client-repository.interface';
+import { CreateClientDto } from '../dto/create-client.dto';
+import { ClientMapper } from '../mappers/client.mapper';
 
 @Injectable()
 export class CreateClientUseCase {
   constructor(
     @Inject(CLIENT_REPOSITORY)
     private readonly clientRepository: IClientRepository,
-    @Inject(PASSWORD_HASHER)
-    private readonly passwordHasher: IPasswordHasher,
   ) {}
 
   async execute(dto: CreateClientDto) {
     if (dto.email) {
-      const existing = await this.clientRepository.findByEmail(dto.email);
+      const existingByEmail = await this.clientRepository.findByEmail(dto.email);
 
-      if (existing) {
+      if (existingByEmail) {
         throw new ClientEmailAlreadyExistsException(dto.email);
       }
     }
 
-    let password = dto.password;
+    const existingByNumeroDocumento =
+      await this.clientRepository.findByNumeroDocumento(dto.numeroDocumento);
 
-    if (password) {
-      password = await this.passwordHasher.hash(password);
+    if (existingByNumeroDocumento) {
+      throw new Error(
+        `El número de documento '${dto.numeroDocumento}' ya está registrado`,
+      );
     }
 
     const client = Client.create({
-      name: dto.name,
-      address: dto.address,
-      phone: dto.phone,
+      tipoDocumento: dto.tipoDocumento,
+      numeroDocumento: dto.numeroDocumento,
+      nombre: dto.nombre,
+      telefono: dto.telefono,
       email: dto.email,
-      password,
+      isActive: true,
     });
 
     const created = await this.clientRepository.create(client);
