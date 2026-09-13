@@ -1,24 +1,18 @@
 import { Inject, Injectable } from '@nestjs/common';
-import {
-  type IPasswordHasher,
-  PASSWORD_HASHER,
-} from '../../../../../infrastructure/security/hashing/password-hasher.interface.js';
-import { ClientEmailAlreadyExistsException } from '../../domain/exceptions/client-email-already-exists.exception.js';
-import { ClientNotFoundException } from '../../domain/exceptions/client-not-found.exception.js';
+import { ClientEmailAlreadyExistsException } from '../../domain/exceptions/client-email-already-exists.exception';
+import { ClientNotFoundException } from '../../domain/exceptions/client-not-found.exception';
 import {
   CLIENT_REPOSITORY,
   type IClientRepository,
-} from '../../domain/interfaces/client-repository.interface.js';
-import { UpdateClientDto } from '../dto/update-client.dto.js';
-import { ClientMapper } from '../mappers/client.mapper.js';
+} from '../../domain/interfaces/client-repository.interface';
+import { UpdateClientDto } from '../dto/update-client.dto';
+import { ClientMapper } from '../mappers/client.mapper';
 
 @Injectable()
 export class UpdateClientUseCase {
   constructor(
     @Inject(CLIENT_REPOSITORY)
     private readonly clientRepository: IClientRepository,
-    @Inject(PASSWORD_HASHER)
-    private readonly passwordHasher: IPasswordHasher,
   ) {}
 
   async execute(id: number, dto: UpdateClientDto) {
@@ -36,13 +30,29 @@ export class UpdateClientUseCase {
       }
     }
 
-    const updateData = { ...dto };
+    if (
+      dto.numeroDocumento &&
+      dto.numeroDocumento !== client.numeroDocumento
+    ) {
+      const existing = await this.clientRepository.findByNumeroDocumento(
+        dto.numeroDocumento,
+      );
 
-    if (dto.password) {
-      updateData.password = await this.passwordHasher.hash(dto.password);
+      if (existing) {
+        throw new Error(
+          `El número de documento '${dto.numeroDocumento}' ya está registrado`,
+        );
+      }
     }
 
-    client.update(updateData);
+    client.update({
+      tipoDocumento: dto.tipoDocumento,
+      numeroDocumento: dto.numeroDocumento,
+      nombre: dto.nombre,
+      telefono: dto.telefono,
+      email: dto.email,
+      isActive: dto.isActive,
+    });
 
     const updated = await this.clientRepository.update(client);
 
