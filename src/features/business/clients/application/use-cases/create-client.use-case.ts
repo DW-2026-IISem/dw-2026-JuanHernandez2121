@@ -39,7 +39,7 @@ export class CreateClientUseCase {
       nombre: dto.nombre,
       telefono: dto.telefono,
       email: dto.email,
-      isActive: true,
+      
     });
 
     const created = await this.clientRepository.create(client);

@@ -51,7 +51,7 @@ export class UpdateClientUseCase {
       nombre: dto.nombre,
       telefono: dto.telefono,
       email: dto.email,
-      isActive: dto.isActive,
+      
     });
 
     const updated = await this.clientRepository.update(client);
