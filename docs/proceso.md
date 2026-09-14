@@ -632,7 +632,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 
 ![](images/clipboard-580737957.png)
 
-#### **9.30 — Verificar tabla** 
+#### **9.30 — Verificar tabla**
 
 ![](images/clipboard-1362823857.png)
 
@@ -871,3 +871,9 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.29 — Verificar tabla física `clients` y API**
 
 ![](images/clipboard-2120717391.png)
+
+# Entidad MEMBRESIA – Proyecto ActivaFit
+
+#### **.1 — features/business/clients/domain/entities/client.entity.ts**
+
+![](images/clipboard-1374341003.png)
