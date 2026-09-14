@@ -953,3 +953,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.20 — features/business/clients/application/use-cases/update-client.use-case.ts**
 
 ![](images/clipboard-834620135.png)
+
+#### **.21 — features/business/clients/presentation/http/serializers/client.serializer.ts**
+
+![](images/clipboard-2177528225.png)
