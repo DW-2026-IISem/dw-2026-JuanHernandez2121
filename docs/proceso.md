@@ -1107,3 +1107,11 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.29 — Verificar tabla física `clients` y API**
 
 ![](images/clipboard-1745237456.png)
+
+# 
+
+# Entidad ENTRENADOR – Proyecto ActivaFi
+
+#### **.1 — features/business/clients/domain/entities/client.entity.ts**
+
+![](images/clipboard-4080620250.png)
