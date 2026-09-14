@@ -7,9 +7,9 @@ export class AttendanceMapper {
   static toDomain(model: AttendanceModel): Attendance {
     return Attendance.reconstitute({
       id: model.id,
-      name: model.name,
-      description: model.description ?? undefined,
-      membershipId: model.membershipId,
+      nombre: model.name,
+      descripcion: model.description ?? undefined,
+      membresiaId: model.membershipId,
       status: model.status,
       createdAt: model.createdAt,
       updatedAt: model.updatedAt,
@@ -19,9 +19,9 @@ export class AttendanceMapper {
   static toResponse(entity: Attendance): AttendanceResponseDto {
     return {
       id: entity.id!,
-      name: entity.name,
-      description: entity.description,
-      membershipId: entity.membershipId,
+      name: entity.nombre,
+      description: entity.descripcion,
+      membershipId: entity.membresiaId,
       status: entity.status,
       createdAt: entity.createdAt!,
       updatedAt: entity.updatedAt!,
@@ -31,9 +31,9 @@ export class AttendanceMapper {
   static toPersistence(entity: Attendance): Partial<AttendanceModel> {
     return {
       id: entity.id,
-      name: entity.name,
-      description: entity.description ?? null,
-      membershipId: entity.membershipId,
+      name: entity.nombre,
+      description: entity.descripcion ?? null,
+      membershipId: entity.membresiaId,
       status: entity.status ?? Status.ACTIVE,
     };
   }

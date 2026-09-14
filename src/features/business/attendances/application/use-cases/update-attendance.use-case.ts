@@ -16,13 +16,21 @@ export class UpdateAttendanceUseCase {
 
   async execute(id: number, dto: UpdateAttendanceDto) {
     const attendance = await this.attendanceRepository.findById(id);
+
     if (!attendance) {
       throw new AttendanceNotFoundException(id);
     }
 
-    attendance.update(dto);
+    attendance.update({
+      ...(dto.name !== undefined && { nombre: dto.name }),
+      ...(dto.description !== undefined && { descripcion: dto.description }),
+      ...(dto.membershipId !== undefined && {
+        membresiaId: dto.membershipId,
+      }),
+    });
 
     const updated = await this.attendanceRepository.update(attendance);
+
     return AttendanceMapper.toResponse(updated);
   }
 }
