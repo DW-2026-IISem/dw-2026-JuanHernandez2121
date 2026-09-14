@@ -4,10 +4,12 @@ import { getSequelizeOptions } from './sequelize.options';
 
 import { ClientModel } from '../../../features/business/clients/infrastructure/persistence/models/client.model';
 import { PlanModel } from '../../../features/business/plans/infrastructure/persistence/models/plan.model';
+import { MembershipModel } from '../../../features/business/memberships/infrastructure/persistence/models/membership.model';
 
 export const ALL_MODELS = [
   ClientModel,
   PlanModel,
+  MembershipModel,
 ];
 
 export async function createSequelizeInstance(

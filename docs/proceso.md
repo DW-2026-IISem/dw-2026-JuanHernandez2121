@@ -965,3 +965,11 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.23 — features/business/clients/index.ts**
 
 ![](images/clipboard-363714873.png)
+
+#### **.24 — features/business/clients/clients.module.ts**
+
+![](images/clipboard-1719431917.png)
+
+#### **.25 — Actualizar sequelize.factory.ts (registrar modelos)**
+
+![](images/clipboard-1787456860.png)
