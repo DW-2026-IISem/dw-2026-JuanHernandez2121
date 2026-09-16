@@ -1223,3 +1223,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.28 — Actualizar app.module.ts**
 
 ![](images/clipboard-887050917.png)
+
+#### **.29 — Verificar tabla física `clients` y API**
+
+![](images/clipboard-3969560820.png)
