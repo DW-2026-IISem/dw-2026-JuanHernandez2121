@@ -978,7 +978,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 
 ![](images/clipboard-962898062.png)
 
-#### **.27 — Actualizar database-seeder.service.ts** 
+#### **.27 — Actualizar database-seeder.service.ts**
 
 ![](images/clipboard-1985945833.png)
 
@@ -1179,3 +1179,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.17 — features/business/clients/application/use-cases/delete-client.use-case.ts**
 
 ![](images/clipboard-2131283539.png)
+
+#### **.18 — features/business/clients/application/use-cases/get-client.use-case.ts**
+
+![](images/clipboard-1793392283.png)
