@@ -1315,3 +1315,7 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 #### **.3 — features/business/clients/domain/exceptions/client-not-found.exception.ts**
 
 ![](images/clipboard-1420285277.png)
+
+#### **.4 — features/business/clients/domain/interfaces/client-repository.interface.ts**
+
+![](images/clipboard-948095830.png)
