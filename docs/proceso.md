@@ -1298,6 +1298,12 @@ mkdir -p /home/portatiljq/apps/dlloweb/nestjs/express_sequelize chmod -R 755 /ho
 
 ![](images/clipboard-648001633.png)
 
-####  **— Verificar tabla física `clients` y API**
+#### **— Verificar tabla física `clients` y API**
 
 ![](images/clipboard-2549737472.png)
+
+# Entidad PAGO – Proyecto ActivaFit
+
+#### **.1 — features/business/clients/domain/entities/client.entity.ts**
+
+![](images/clipboard-1474918062.png)
