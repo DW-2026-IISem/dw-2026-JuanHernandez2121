@@ -1,4 +1,4 @@
-import { Status } from '../../../../../common/enums/status.enum';
+import { PaymentStatus } from '../enums/payment-status.enum';
 
 export interface PaymentProps {
   id?: number;
@@ -6,7 +6,7 @@ export interface PaymentProps {
   fechaPago: Date;
   metodoPago: string;
   membresiaId: number;
-  status?: Status;
+  status?: PaymentStatus;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -17,7 +17,7 @@ export class Payment {
   fechaPago: Date;
   metodoPago: string;
   membresiaId: number;
-  status: Status;
+  status: PaymentStatus;
   createdAt?: Date;
   updatedAt?: Date;
 
@@ -27,7 +27,7 @@ export class Payment {
     this.fechaPago = props.fechaPago;
     this.metodoPago = props.metodoPago;
     this.membresiaId = props.membresiaId;
-    this.status = props.status ?? Status.ACTIVE;
+    this.status = props.status ?? PaymentStatus.PENDING;
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;
   }
@@ -63,7 +63,6 @@ export class Payment {
       if (props.monto <= 0) {
         throw new Error('El monto del pago debe ser mayor a cero');
       }
-
       this.monto = props.monto;
     }
 
@@ -75,7 +74,6 @@ export class Payment {
       if (!props.metodoPago.trim()) {
         throw new Error('El método de pago es requerido');
       }
-
       this.metodoPago = props.metodoPago;
     }
 
@@ -83,12 +81,7 @@ export class Payment {
       if (props.membresiaId <= 0) {
         throw new Error('La membresía es requerida');
       }
-
       this.membresiaId = props.membresiaId;
     }
-  }
-
-  deactivate(): void {
-    this.status = Status.INACTIVE;
   }
 }
