@@ -4,4 +4,10 @@
 
 # **1. ISS-00 — Requisitos previos**
 
-![](images/clipboard-3079919.png)
+![](images/clipboard-1321157513.png)
+
+# **2. ISS-01 — Esqueleto del proyecto**
+
+## **2.2 Estructura de carpetas (features)**
+
+![](images/clipboard-3029986986.png)
