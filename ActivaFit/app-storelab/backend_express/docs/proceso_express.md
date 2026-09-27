@@ -29,3 +29,9 @@
 ### **2.5.2 `src/config/index.ts` (esqueleto)**
 
 ![](images/clipboard-2391363093.png)
+
+# **3. ISS-02 — Infraestructura de base de datos**
+
+## **3.2 Configuración Sequelize (`database/db.ts`)**
+
+![](images/clipboard-1530252348.png)
