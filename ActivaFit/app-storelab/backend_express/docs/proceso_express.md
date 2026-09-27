@@ -19,3 +19,9 @@
 ## **2.4 TypeScript (`tsconfig.json`)**
 
 ![](images/clipboard-791827079.png)
+
+## **2.5 Servidor y App (esqueleto HTTP)**
+
+### **2.5.1 `src/server.ts`**
+
+![](images/clipboard-3082927853.png)
