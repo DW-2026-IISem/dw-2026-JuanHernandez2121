@@ -25,3 +25,7 @@
 ### **2.5.1 `src/server.ts`**
 
 ![](images/clipboard-3082927853.png)
+
+### **2.5.2 `src/config/index.ts` (esqueleto)**
+
+![](images/clipboard-2391363093.png)
