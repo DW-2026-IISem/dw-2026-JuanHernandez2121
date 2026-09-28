@@ -49,3 +49,7 @@
 ## **4.2 Esqueleto controller / routes + carpeta HTTP**
 
 ![](images/clipboard-3340179267.png)
+
+## **4.3 Agregador Routes + cableado en Config**
+
+![](images/clipboard-2367671331.png)
