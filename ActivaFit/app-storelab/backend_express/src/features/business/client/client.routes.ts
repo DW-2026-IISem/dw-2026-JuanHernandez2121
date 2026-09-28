@@ -6,6 +6,14 @@ export class ClientRoutes {
 
   public routes(app: Application): void {
     // ================== RUTAS SIN AUTENTICACIÓN / SIN MIDDLEWARE JWT ==================
-    // (rellenar en ISS-03-B…E)
+    // getAll
+    app
+      .route("/api/clientes")
+      .get(this.clientController.getAll.bind(this.clientController));
+
+    // getOne
+    app
+      .route("/api/clientes/:id")
+      .get(this.clientController.getOne.bind(this.clientController));
   }
 }
