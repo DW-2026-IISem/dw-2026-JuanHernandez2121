@@ -39,3 +39,9 @@
 ## **3.3 Carpeta seeders (reservada)**
 
 ![](images/clipboard-3376259878.png)
+
+# **4. ISS-03-A — Feature Client — fundación (modelo, esqueleto, HTTP, cableado)**
+
+## **4.1 Modelo Client**
+
+![](images/clipboard-2241345054.png)
