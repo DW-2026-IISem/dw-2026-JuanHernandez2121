@@ -35,3 +35,7 @@
 ## **3.2 Configuración Sequelize (`database/db.ts`)**
 
 ![](images/clipboard-1530252348.png)
+
+## **3.3 Carpeta seeders (reservada)**
+
+![](images/clipboard-3376259878.png)
