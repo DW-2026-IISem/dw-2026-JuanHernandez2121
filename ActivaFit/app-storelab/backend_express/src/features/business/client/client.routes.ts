@@ -15,5 +15,10 @@ export class ClientRoutes {
     app
       .route("/api/clientes/:id")
       .get(this.clientController.getOne.bind(this.clientController));
+
+    // create
+    app
+      .route("/api/clientes")
+      .post(this.clientController.create.bind(this.clientController));
   }
 }

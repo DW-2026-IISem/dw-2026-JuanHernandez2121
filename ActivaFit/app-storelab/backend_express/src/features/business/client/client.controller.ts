@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Client } from "./client.model";
+import { Client, ClientI } from "./client.model";
 
 function paramId(req: Request): number {
   const raw = req.params.id;
