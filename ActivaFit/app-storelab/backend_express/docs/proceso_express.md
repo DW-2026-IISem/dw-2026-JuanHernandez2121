@@ -103,3 +103,13 @@
 ### **HTTP — archivo nuevo**
 
 ![](images/clipboard-2636762021.png)
+
+### **Estado final Client (CRUD completo) — archivos consolidados**
+
+![](images/clipboard-1475319441.png)
+
+# **9. ISS-04 — Seeders con Faker (feature + runner externo)**
+
+## **9.1 Seeder dentro del feature Client**
+
+![](images/clipboard-2761820191.png)
