@@ -131,3 +131,7 @@
 # **10. ISS-05 — Swagger / OpenAPI (feature + registry externo)**
 
 ![](images/clipboard-2006233592.png)
+
+## **10.2 Registry externo + montaje en Config**
+
+![](images/clipboard-574949129.png)
