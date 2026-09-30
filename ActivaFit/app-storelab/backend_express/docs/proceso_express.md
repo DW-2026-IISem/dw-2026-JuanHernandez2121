@@ -83,3 +83,7 @@
 ### **Rutas — PARCHE `client.routes.ts`**
 
 ![](images/clipboard-3807988544.png)
+
+### **HTTP — archivo nuevo**
+
+![](images/clipboard-146009563.png)
