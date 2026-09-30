@@ -79,3 +79,7 @@
 # **7. ISS-03-D — Feature Client — Update (PUT) y Update (PATCH)**
 
 ![](images/clipboard-1653635119.png)
+
+### **Rutas — PARCHE `client.routes.ts`**
+
+![](images/clipboard-3807988544.png)

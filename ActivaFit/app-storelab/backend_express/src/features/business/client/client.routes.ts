@@ -20,5 +20,11 @@ export class ClientRoutes {
     app
       .route("/api/clientes")
       .post(this.clientController.create.bind(this.clientController));
+
+    // update (PUT / PATCH)
+    app
+      .route("/api/clientes/:id")
+      .put(this.clientController.updatePut.bind(this.clientController))
+      .patch(this.clientController.updatePatch.bind(this.clientController));
   }
 }
