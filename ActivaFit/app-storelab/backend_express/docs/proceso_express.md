@@ -59,3 +59,15 @@
 ![](images/clipboard-417314586.png)
 
 ![](images/clipboard-2172827154.png)
+
+# **6. ISS-03-C — Feature Client — Crear cliente**
+
+![](images/clipboard-4083026285.png)
+
+### **Rutas — PARCHE `client.routes.ts`**
+
+![](images/clipboard-1903929686.png)
+
+### **HTTP — archivo nuevo**
+
+![](images/clipboard-3305515819.png)
