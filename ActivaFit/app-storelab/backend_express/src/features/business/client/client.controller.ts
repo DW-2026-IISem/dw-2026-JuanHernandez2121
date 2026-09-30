@@ -38,7 +38,27 @@ export class ClientController {
   }
 
   // ================== CREATE ==================
-  // (rellenar en ISS-03-C)
+  public async create(req: Request, res: Response) {
+    try {
+      const body = req.body as ClientI;
+      const client = await Client.create({
+        name: body.name,
+        address: body.address,
+        phone: body.phone,
+        email: body.email,
+        password: body.password,
+        status: body.status ?? "active",
+      });
+
+      const { password, ...safe } = client.toJSON() as ClientI & { password?: string };
+      res.status(201).json({ client: safe });
+    } catch (error) {
+      res.status(500).json({
+        error: "Error creating client",
+        detail: String(error),
+      });
+    }
+  }
 
   // ================== UPDATE ==================
   // (rellenar en ISS-03-D)
