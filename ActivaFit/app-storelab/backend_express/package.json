@@ -1,0 +1,29 @@
+{
+  "name": "activa-fit-backend-express",
+  "version": "1.0.0",
+  "description": "Backend Express de ActivaFit ASI",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --watch src --ext ts --exec ts-node -- src/server.ts",
+    "db:seed": "ts-node -- src/database/seeders/index.ts"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.15.3",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.5.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

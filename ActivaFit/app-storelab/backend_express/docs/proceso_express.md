@@ -123,3 +123,7 @@
 ### **9.2.2 Runner**
 
 ![](images/clipboard-4186342172.png)
+
+### **Cierre del ISS**
+
+![](images/clipboard-86261357.png)
