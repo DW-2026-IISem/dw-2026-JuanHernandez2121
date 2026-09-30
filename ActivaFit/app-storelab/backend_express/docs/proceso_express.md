@@ -113,3 +113,9 @@
 ## **9.1 Seeder dentro del feature Client**
 
 ![](images/clipboard-2761820191.png)
+
+## **9.2 SeedersRunner + conteos por entidad (`database/seeders`)**
+
+### **9.2.1 Conteos**
+
+![](images/clipboard-3009419263.png)
