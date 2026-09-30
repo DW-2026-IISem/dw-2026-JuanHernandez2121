@@ -119,3 +119,7 @@
 ### **9.2.1 Conteos**
 
 ![](images/clipboard-3009419263.png)
+
+### **9.2.2 Runner**
+
+![](images/clipboard-4186342172.png)
