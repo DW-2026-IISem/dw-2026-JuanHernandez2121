@@ -61,7 +61,60 @@ export class ClientController {
   }
 
   // ================== UPDATE ==================
-  // (rellenar en ISS-03-D)
+  public async updatePut(req: Request, res: Response) {
+    try {
+      const id = paramId(req);
+      const body = req.body as ClientI;
+      const client = await Client.findByPk(id);
+
+      if (!client) {
+        res.status(404).json({ error: "Client not found" });
+        return;
+      }
+
+      await client.update({
+        name: body.name,
+        address: body.address,
+        phone: body.phone,
+        email: body.email,
+        password: body.password ?? client.password,
+        status: body.status ?? client.status,
+      });
+
+      const { password, ...safe } = client.toJSON() as ClientI & { password?: string };
+      res.status(200).json({ client: safe });
+    } catch (error) {
+      res.status(500).json({
+        error: "Error updating client (PUT)",
+        detail: String(error),
+      });
+    }
+  }
+
+  public async updatePatch(req: Request, res: Response) {
+    try {
+      const id = paramId(req);
+      const body = req.body as Partial<ClientI>;
+      const client = await Client.findByPk(id);
+
+      if (!client) {
+        res.status(404).json({ error: "Client not found" });
+        return;
+      }
+
+      await client.update(body);
+
+      const { password, ...safe } = client.toJSON() as ClientI & { password?: string };
+      res.status(200).json({ client: safe });
+    } catch (error) {
+      res.status(500).json({
+        error: "Error updating client (PATCH)",
+        detail: String(error),
+      });
+    }
+  }
+
+  // ================== DELETE ==================
 
   // ================== DELETE ==================
   // (rellenar en ISS-03-E)

@@ -71,3 +71,11 @@
 ### **HTTP — archivo nuevo**
 
 ![](images/clipboard-3305515819.png)
+
+### **Cierre del ISS**
+
+![](images/clipboard-2151117829.png)
+
+# **7. ISS-03-D — Feature Client — Update (PUT) y Update (PATCH)**
+
+![](images/clipboard-1653635119.png)
