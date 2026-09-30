@@ -26,5 +26,15 @@ export class ClientRoutes {
       .route("/api/clientes/:id")
       .put(this.clientController.updatePut.bind(this.clientController))
       .patch(this.clientController.updatePatch.bind(this.clientController));
+
+    // delete físico
+    app
+      .route("/api/clientes/:id")
+      .delete(this.clientController.deletePhysical.bind(this.clientController));
+
+    // delete lógico
+    app
+      .route("/api/clientes/:id/deactivate")
+      .patch(this.clientController.deleteLogical.bind(this.clientController));
   }
 }

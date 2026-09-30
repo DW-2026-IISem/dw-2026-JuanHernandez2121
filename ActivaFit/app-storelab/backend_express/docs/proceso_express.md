@@ -91,3 +91,11 @@
 ### **Cierre del ISS**
 
 ![](images/clipboard-3924921925.png)
+
+# **8. ISS-03-E — Feature Client — Eliminar (físico y lógico)**
+
+![](images/clipboard-3835800169.png)
+
+### **Rutas — PARCHE `client.routes.ts`**
+
+![](images/clipboard-3000243181.png)
