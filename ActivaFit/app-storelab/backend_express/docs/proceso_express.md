@@ -127,3 +127,7 @@
 ### **Cierre del ISS**
 
 ![](images/clipboard-86261357.png)
+
+# **10. ISS-05 — Swagger / OpenAPI (feature + registry externo)**
+
+![](images/clipboard-2006233592.png)
