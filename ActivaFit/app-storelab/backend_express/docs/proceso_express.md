@@ -87,3 +87,7 @@
 ### **HTTP — archivo nuevo**
 
 ![](images/clipboard-146009563.png)
+
+### **Cierre del ISS**
+
+![](images/clipboard-3924921925.png)
