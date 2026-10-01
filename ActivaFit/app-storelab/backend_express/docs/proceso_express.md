@@ -135,3 +135,9 @@
 ## **10.2 Registry externo + montaje en Config**
 
 ![](images/clipboard-574949129.png)
+
+# 11. ISS-06 — Feature Plan
+
+### 11.1 Modelo `plan.model.ts`
+
+![](images/clipboard-2648708129.png)
