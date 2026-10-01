@@ -153,3 +153,7 @@
 ### 11.3 HTTP — REST Client
 
 ![](images/clipboard-2313766303.png)
+
+### 11.4 Cableado Routes + Config
+
+![](images/clipboard-552076874.png)
