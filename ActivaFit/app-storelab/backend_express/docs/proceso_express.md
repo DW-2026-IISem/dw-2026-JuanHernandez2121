@@ -157,3 +157,7 @@
 ### 11.4 Cableado Routes + Config
 
 ![](images/clipboard-552076874.png)
+
+### 11.5 Seeder de PLAN
+
+![](images/clipboard-1909603546.png)
