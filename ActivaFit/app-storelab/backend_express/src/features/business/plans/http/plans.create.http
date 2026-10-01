@@ -1,0 +1,15 @@
+### Feature Plan — CREATE
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+
+# @name createPlan
+POST {{baseUrl}}/api/planes
+Content-Type: application/json
+
+{
+  "nombre": "Plan Premium",
+  "descripcion": "Acceso completo al gimnasio y todas sus áreas",
+  "precio": 80000,
+  "duracion": 30,
+  "is_active": true
+}

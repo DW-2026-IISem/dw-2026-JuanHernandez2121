@@ -1,0 +1,12 @@
+### Feature Plan — DELETE físico / DELETE lógico (is_active = false)
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+@id = 1
+
+# @name deletePlanPhysical
+DELETE {{baseUrl}}/api/planes/{{id}}
+
+###
+
+# @name deletePlanLogical
+PATCH {{baseUrl}}/api/planes/{{id}}/deactivate

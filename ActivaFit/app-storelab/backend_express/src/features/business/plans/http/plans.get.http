@@ -1,0 +1,12 @@
+### Feature Plan — GET ALL / GET ONE
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+@id = 1
+
+# @name getAllPlans
+GET {{baseUrl}}/api/planes
+
+###
+
+# @name getOnePlan
+GET {{baseUrl}}/api/planes/{{id}}

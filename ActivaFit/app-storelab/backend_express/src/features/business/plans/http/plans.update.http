@@ -1,0 +1,26 @@
+### Feature Plan — UPDATE (PUT) / UPDATE (PATCH)
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+@id = 1
+
+# @name updatePlanPut
+PUT {{baseUrl}}/api/planes/{{id}}
+Content-Type: application/json
+
+{
+  "nombre": "Plan Premium Actualizado",
+  "descripcion": "Plan completo con acceso a todas las áreas",
+  "precio": 90000,
+  "duracion": 30,
+  "is_active": true
+}
+
+###
+
+# @name updatePlanPatch
+PATCH {{baseUrl}}/api/planes/{{id}}
+Content-Type: application/json
+
+{
+  "descripcion": "Descripción parcial del plan"
+}

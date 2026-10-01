@@ -149,3 +149,7 @@
 ### 11.3 Rutas de PLAN
 
 ![](images/clipboard-96103041.png)
+
+### 11.3 HTTP — REST Client
+
+![](images/clipboard-2313766303.png)
