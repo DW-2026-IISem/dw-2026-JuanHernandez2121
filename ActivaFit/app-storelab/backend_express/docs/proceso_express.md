@@ -143,3 +143,9 @@
 ![](images/clipboard-2648708129.png)
 
 ### 11.2 Controller de PLAN
+
+![](images/clipboard-4106731814.png)
+
+### 11.3 Rutas de PLAN
+
+![](images/clipboard-96103041.png)
