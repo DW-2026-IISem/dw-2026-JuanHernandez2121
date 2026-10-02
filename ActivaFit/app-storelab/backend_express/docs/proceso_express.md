@@ -161,3 +161,7 @@
 ### 11.5 Seeder de PLAN
 
 ![](images/clipboard-1909603546.png)
+
+### 11.6 Swagger PLAN
+
+![](images/clipboard-3793795573.png)

@@ -1,187 +1,244 @@
 import { Request, Response } from "express";
-import { Plan, PlanI } from "./plan.model";
-
-function paramId(req: Request): number {
-  const raw = req.params.id;
-  const value = Array.isArray(raw) ? raw[0] : raw;
-  return Number(value);
-}
+import { Plan } from "./plan.model";
 
 export class PlanController {
-  // ================== READ ==================
 
-  public async getAll(req: Request, res: Response) {
+  private paramId(req: Request): number | null {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id <= 0) {
+      return null;
+    }
+
+    return id;
+  }
+
+  // GET /api/planes
+  public async getAll(req: Request, res: Response): Promise<Response> {
     try {
       const plans = await Plan.findAll({
-        where: { is_active: true },
+        where: {
+          isActive: true,
+        },
+        order: [["id", "ASC"]],
       });
 
-      res.status(200).json({ plans });
+      return res.status(200).json({
+        plans,
+      });
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         error: "Error fetching plans",
         detail: String(error),
       });
     }
   }
 
-  public async getOne(req: Request, res: Response) {
+  // GET /api/planes/:id
+  public async getOne(req: Request, res: Response): Promise<Response> {
     try {
-      const id = paramId(req);
+      const id = this.paramId(req);
+
+      if (id === null) {
+        return res.status(400).json({
+          error: "ID de plan inválido",
+        });
+      }
 
       const plan = await Plan.findByPk(id);
 
       if (!plan) {
-        res.status(404).json({
-          error: "Plan not found",
+        return res.status(404).json({
+          error: "Plan no encontrado",
         });
-        return;
       }
 
-      res.status(200).json({ plan });
+      return res.status(200).json(plan);
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         error: "Error fetching plan",
         detail: String(error),
       });
     }
   }
 
-  // ================== CREATE ==================
-
-  public async create(req: Request, res: Response) {
+  // POST /api/planes
+  public async create(req: Request, res: Response): Promise<Response> {
     try {
-      const body = req.body as PlanI;
+      const {
+        nombre,
+        descripcion,
+        isActive,
+      } = req.body;
+
+      if (!nombre) {
+        return res.status(400).json({
+          error: "El campo nombre es obligatorio",
+        });
+      }
 
       const plan = await Plan.create({
-        nombre: body.nombre,
-        descripcion: body.descripcion ?? null,
-        precio: body.precio,
-        duracion: body.duracion,
-        is_active: body.is_active ?? true,
+        nombre,
+        descripcion: descripcion ?? null,
+        isActive: isActive ?? true,
       });
 
-      res.status(201).json({ plan });
+      return res.status(201).json(plan);
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         error: "Error creating plan",
         detail: String(error),
       });
     }
   }
 
-  // ================== UPDATE ==================
-
-  public async updatePut(req: Request, res: Response) {
+  // PUT /api/planes/:id
+  public async updatePut(req: Request, res: Response): Promise<Response> {
     try {
-      const id = paramId(req);
-      const body = req.body as PlanI;
+      const id = this.paramId(req);
+
+      if (id === null) {
+        return res.status(400).json({
+          error: "ID de plan inválido",
+        });
+      }
 
       const plan = await Plan.findByPk(id);
 
       if (!plan) {
-        res.status(404).json({
-          error: "Plan not found",
+        return res.status(404).json({
+          error: "Plan no encontrado",
         });
-        return;
+      }
+
+      const {
+        nombre,
+        descripcion,
+        isActive,
+      } = req.body;
+
+      if (!nombre) {
+        return res.status(400).json({
+          error: "El campo nombre es obligatorio",
+        });
       }
 
       await plan.update({
-        nombre: body.nombre,
-        descripcion: body.descripcion ?? null,
-        precio: body.precio,
-        duracion: body.duracion,
-        is_active: body.is_active ?? plan.is_active,
+        nombre,
+        descripcion: descripcion ?? null,
+        isActive: isActive ?? true,
       });
 
-      res.status(200).json({ plan });
+      return res.status(200).json(plan);
     } catch (error) {
-      res.status(500).json({
-        error: "Error updating plan (PUT)",
+      return res.status(500).json({
+        error: "Error updating plan",
         detail: String(error),
       });
     }
   }
 
-  public async updatePatch(req: Request, res: Response) {
+  // PATCH /api/planes/:id
+  public async updatePatch(req: Request, res: Response): Promise<Response> {
     try {
-      const id = paramId(req);
-      const body = req.body as Partial<PlanI>;
+      const id = this.paramId(req);
 
-      const plan = await Plan.findByPk(id);
-
-      if (!plan) {
-        res.status(404).json({
-          error: "Plan not found",
+      if (id === null) {
+        return res.status(400).json({
+          error: "ID de plan inválido",
         });
-        return;
       }
 
-      await plan.update(body);
+      const plan = await Plan.findByPk(id);
 
-      res.status(200).json({ plan });
+      if (!plan) {
+        return res.status(404).json({
+          error: "Plan no encontrado",
+        });
+      }
+
+      const {
+        nombre,
+        descripcion,
+        isActive,
+      } = req.body;
+
+      await plan.update({
+        ...(nombre !== undefined && { nombre }),
+        ...(descripcion !== undefined && { descripcion }),
+        ...(isActive !== undefined && { isActive }),
+      });
+
+      return res.status(200).json(plan);
     } catch (error) {
-      res.status(500).json({
-        error: "Error updating plan (PATCH)",
+      return res.status(500).json({
+        error: "Error patching plan",
         detail: String(error),
       });
     }
   }
 
-  // ================== DELETE ==================
-
-  /** Eliminación física */
-  public async deletePhysical(req: Request, res: Response) {
+  // DELETE /api/planes/:id
+  public async deletePhysical(req: Request, res: Response): Promise<Response> {
     try {
-      const id = paramId(req);
+      const id = this.paramId(req);
+
+      if (id === null) {
+        return res.status(400).json({
+          error: "ID de plan inválido",
+        });
+      }
 
       const plan = await Plan.findByPk(id);
 
       if (!plan) {
-        res.status(404).json({
-          error: "Plan not found",
+        return res.status(404).json({
+          error: "Plan no encontrado",
         });
-        return;
       }
 
       await plan.destroy();
 
-      res.status(200).json({
-        message: "Plan permanently deleted",
-        id,
+      return res.status(200).json({
+        message: "Plan eliminado correctamente",
       });
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         error: "Error deleting plan",
         detail: String(error),
       });
     }
   }
 
-  /** Eliminación lógica → is_active = false */
-  public async deleteLogical(req: Request, res: Response) {
+  // PATCH /api/planes/:id/deactivate
+  public async deleteLogical(req: Request, res: Response): Promise<Response> {
     try {
-      const id = paramId(req);
+      const id = this.paramId(req);
+
+      if (id === null) {
+        return res.status(400).json({
+          error: "ID de plan inválido",
+        });
+      }
 
       const plan = await Plan.findByPk(id);
 
       if (!plan) {
-        res.status(404).json({
-          error: "Plan not found",
+        return res.status(404).json({
+          error: "Plan no encontrado",
         });
-        return;
       }
 
       await plan.update({
-        is_active: false,
+        isActive: false,
       });
 
-      res.status(200).json({
-        message: "Plan deactivated (logical delete)",
+      return res.status(200).json({
+        message: "Plan desactivado correctamente",
         plan,
       });
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         error: "Error deactivating plan",
         detail: String(error),
       });
