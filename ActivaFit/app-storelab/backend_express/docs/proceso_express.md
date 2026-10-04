@@ -279,3 +279,7 @@
 ## **18.4 `resource-match.ts` — casar la petición con el recurso**
 
 ![](images/clipboard-246757760.png)
+
+## **18.5 `auth-user.ts` — la identidad en `Request`**
+
+![](images/clipboard-4115284332.png)
