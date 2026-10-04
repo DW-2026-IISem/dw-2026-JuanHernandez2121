@@ -4,6 +4,7 @@ import { MembershipRoutes } from "../features/business/membership/membership.rou
 import { TrainerRoutes } from "../features/business/trainers/trainer.routes";
 import { RoutineRoutes } from "../features/business/routines/routine.routes";
 import { ExerciseRoutes } from "../features/business/exercises/exercise.routes";
+import { MeasurementRoutes } from "../features/business/measurements/measurement.routes";
 
 export class Routes {
   public clientRoutes: ClientRoutes = new ClientRoutes();
@@ -16,4 +17,6 @@ export class Routes {
     new RoutineRoutes();
   public exerciseRoutes: ExerciseRoutes =
     new ExerciseRoutes();
+  public measurementRoutes: MeasurementRoutes =
+    new MeasurementRoutes();
 }

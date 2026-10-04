@@ -251,3 +251,9 @@
 ### .3 — Routes
 
 ![](images/clipboard-2260688548.png)
+
+### Compilar
+
+![](images/clipboard-3560651293.png)
+
+![](images/clipboard-113350618.png)
