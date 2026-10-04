@@ -403,3 +403,9 @@
 ## **21.8 Pruebas HTTP**
 
 ## ![](images/clipboard-1824858877.png) 
+
+# **Unidad ISS-13 · Middlewares de acceso y las 3 modalidades**
+
+## **22.1 `authenticate` — modalidad JWT**
+
+## ![](images/clipboard-3943467181.png) 
