@@ -455,3 +455,7 @@
 ## **23.5 Swagger**
 
 ![](images/clipboard-3115178729.png)
+
+## **23.6 Pruebas HTTP**
+
+![](images/clipboard-766428644.png)
