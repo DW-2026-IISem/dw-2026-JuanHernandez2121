@@ -206,4 +206,10 @@
 
 ![](images/clipboard-1590483952.png)
 
-# 
+### .2  Controller Rutina
+
+![](images/clipboard-446816721.png)
+
+### .3 — Routes
+
+![](images/clipboard-2291478105.png)
