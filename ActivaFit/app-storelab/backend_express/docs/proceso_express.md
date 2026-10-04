@@ -395,3 +395,7 @@
 ## **21.5 ResourceRoles — repository, service, controller y rutas**
 
 ![![](images/clipboard-1498277111.png)](images/clipboard-1250398305.png)
+
+## **21.7 Seeder de la matriz y swagger**
+
+![](images/clipboard-1251389746.png)
