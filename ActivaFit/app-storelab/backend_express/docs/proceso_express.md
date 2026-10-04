@@ -343,3 +343,9 @@
 ## **20.1 Feature Roles — DTOs**
 
 ![](images/clipboard-4239343975.png)
+
+## **20.2 Feature Roles — repository, service, controller y rutas**
+
+![](images/clipboard-1158099624.png)
+
+![![](images/clipboard-410364962.png)](images/clipboard-2562562190.png)
