@@ -445,3 +445,9 @@
 ![](images/clipboard-1562992063.png)
 
 ![](images/clipboard-1768143530.png)
+
+## **23.4 Controller y rutas**
+
+![](images/clipboard-289604907.png)
+
+![](images/clipboard-3768169879.png)
