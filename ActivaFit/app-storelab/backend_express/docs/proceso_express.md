@@ -275,3 +275,7 @@
 ## **18.3 `jwt.ts` — firma y verificación del access token**
 
 ## ![](images/clipboard-3160086077.png) 
+
+## **18.4 `resource-match.ts` — casar la petición con el recurso**
+
+![](images/clipboard-246757760.png)
