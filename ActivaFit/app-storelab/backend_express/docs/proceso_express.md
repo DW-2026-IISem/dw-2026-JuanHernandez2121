@@ -349,3 +349,7 @@
 ![](images/clipboard-1158099624.png)
 
 ![![](images/clipboard-410364962.png)](images/clipboard-2562562190.png)
+
+## **20.3 Feature Roles — seeder y swagger**
+
+![](images/clipboard-992620060.png)
