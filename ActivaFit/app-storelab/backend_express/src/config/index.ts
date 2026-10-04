@@ -1,11 +1,32 @@
 import dotenv from "dotenv";
-import express, { Application } from "express";
+import express, { Application, ErrorRequestHandler } from "express";
 import morgan from "morgan";
-import cors from "cors";
-import { Routes } from "../routes";
+var cors = require("cors");
 
-// Cargar asociaciones como side-effect
-import "../features/business/membership/membership.associations";
+import { sequelize, getDatabaseInfo, testConnection } from "../database/db";
+
+// Business
+import "../features/business/clients/client.model";
+import "../features/business/product-types/product-type.model";
+import "../features/business/products/product.model";
+import "../features/business/sales/sale.model";
+import "../features/business/product-sales/product-sale.model";
+import "../features/business/products/products.associations";
+import "../features/business/sales/sales.associations";
+import "../features/business/product-sales/product-sales.associations";
+
+// Fase II — Auth con RBAC: primero los seis modelos,
+// después las asociaciones.
+import "../features/auth/users/user.model";
+import "../features/auth/roles/role.model";
+import "../features/auth/resources/resource.model";
+import "../features/auth/role-users/role-user.model";
+import "../features/auth/resource-roles/resource-role.model";
+import "../features/auth/refresh-tokens/refresh-token.model";
+import "../features/auth/rbac.associations";
+
+import { Routes } from "../routes/index";
+import { setupSwagger } from "../swagger/index";
 
 dotenv.config();
 
@@ -18,7 +39,8 @@ export class App {
     this.settings();
     this.middlewares();
     this.routes();
-    this.dbConnection();
+    this.docs();
+    this.errorHandling();
   }
 
   private settings(): void {
@@ -33,17 +55,102 @@ export class App {
   }
 
   private routes(): void {
-    this.routePrv.clientRoutes.routes(this.app);
-    this.routePrv.planRoutes.routes(this.app);
-    this.routePrv.membershipRoutes.routes(this.app);
+    // Fase I — Business
+    this.routePrv.clientsRoutes.routes(this.app);
+    this.routePrv.productTypesRoutes.routes(this.app);
+    this.routePrv.productsRoutes.routes(this.app);
+    this.routePrv.salesRoutes.routes(this.app);
+    this.routePrv.productSalesRoutes.routes(this.app);
+
+    // Fase II — Auth con RBAC
+    this.routePrv.sessionRoutes.routes(this.app);
+    this.routePrv.refreshTokensRoutes.routes(this.app);
+    this.routePrv.usersRoutes.routes(this.app);
+    this.routePrv.rolesRoutes.routes(this.app);
+    this.routePrv.resourcesRoutes.routes(this.app);
+    this.routePrv.roleUsersRoutes.routes(this.app);
+    this.routePrv.resourceRolesRoutes.routes(this.app);
+  }
+
+  private docs(): void {
+    setupSwagger(this.app);
+  }
+
+  private errorHandling(): void {
+    const bodyErrorHandler: ErrorRequestHandler = (
+      err,
+      _req,
+      res,
+      next
+    ) => {
+      if (err instanceof SyntaxError && "body" in err) {
+        res.status(400).json({ error: "Malformed JSON body" });
+        return;
+      }
+
+      next(err);
+    };
+
+    this.app.use(bodyErrorHandler);
   }
 
   private async dbConnection(): Promise<void> {
-    // Conexión a BD en ISS-02
+    try {
+      const dbInfo = getDatabaseInfo();
+
+      console.log(
+        `🔗 Intentando conectar a: ${dbInfo.engine.toUpperCase()}`
+      );
+
+      const isConnected = await testConnection();
+
+      if (!isConnected) {
+        throw new Error(
+          `No se pudo conectar a la base de datos ${dbInfo.engine.toUpperCase()}`
+        );
+      }
+
+      const force = process.env.DB_SYNC_FORCE === "true";
+
+      const isMysql =
+        sequelize.getDialect() === "mysql" ||
+        sequelize.getDialect() === "mariadb";
+
+      if (isMysql) {
+        await sequelize.query("SET FOREIGN_KEY_CHECKS = 0");
+      }
+
+      try {
+        await sequelize.sync({
+          force,
+          alter: !force,
+        });
+      } finally {
+        if (isMysql) {
+          await sequelize.query("SET FOREIGN_KEY_CHECKS = 1");
+        }
+      }
+
+      console.log(
+        force
+          ? "📦 Base de datos recreada (DB_SYNC_FORCE=true)"
+          : "📦 Base de datos sincronizada exitosamente"
+      );
+    } catch (error) {
+      console.error(
+        "❌ Error al conectar con la base de datos:",
+        error
+      );
+
+      process.exit(1);
+    }
   }
 
   async listen() {
+    await this.dbConnection();
+
     await this.app.listen(this.app.get("port"));
+
     console.log(
       `🚀 Servidor ejecutándose en puerto ${this.app.get("port")}`
     );
