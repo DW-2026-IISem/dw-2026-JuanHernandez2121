@@ -199,3 +199,11 @@
 ![](images/clipboard-3614586349.png)
 
 ![](images/clipboard-4245742728.png)
+
+# 14. ISS-09 — Rutina
+
+### .1 modelo Rutina
+
+![](images/clipboard-1590483952.png)
+
+# 
