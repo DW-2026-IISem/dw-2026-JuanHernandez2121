@@ -371,3 +371,9 @@
 ## **20.7 Pruebas HTTP**
 
 ![](images/clipboard-3628960284.png)
+
+# **Unidad ISS-12 · Features RoleUsers y ResourceRoles**
+
+## **21.1 DTOs de RoleUsers**
+
+![](images/clipboard-269493246.png)
