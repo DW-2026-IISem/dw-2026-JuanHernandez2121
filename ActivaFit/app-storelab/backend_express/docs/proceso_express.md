@@ -409,3 +409,7 @@
 ## **22.1 `authenticate` — modalidad JWT**
 
 ## ![](images/clipboard-3943467181.png) 
+
+## **22.2 `authorize` — modalidad JWT + RBAC**
+
+## ![](images/clipboard-337154135.png) 
