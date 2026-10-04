@@ -353,3 +353,7 @@
 ## **20.3 Feature Roles — seeder y swagger**
 
 ![](images/clipboard-992620060.png)
+
+## **20.4 Feature Resources — DTOs y catálogo semilla**
+
+![](images/clipboard-4032534021.png)
