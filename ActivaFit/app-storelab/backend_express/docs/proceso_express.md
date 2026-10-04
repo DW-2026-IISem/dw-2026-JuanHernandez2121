@@ -367,3 +367,7 @@
 ## **20.6 Feature Resources — seeder y swagger**
 
 ![](images/clipboard-2041373817.png)
+
+## **20.7 Pruebas HTTP**
+
+![](images/clipboard-3628960284.png)

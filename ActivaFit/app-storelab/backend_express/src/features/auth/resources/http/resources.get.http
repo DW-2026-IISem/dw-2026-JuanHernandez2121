@@ -1,0 +1,73 @@
+### Feature Resources — catálogo de puntos de acceso
+### Modalidad JWT + RBAC
+###
+### Un recurso es el par (method, path).
+### La ruta se guarda EN PATRÓN:
+### /api/productos/:id
+###
+### GET y POST sobre la misma ruta son recursos distintos.
+
+@baseUrl = http://localhost:4000
+
+# @name loginAdmin
+POST {{baseUrl}}/api/sesion/login
+Content-Type: application/json
+
+{
+  "identifier": "admin",
+  "password": "Admin123!"
+}
+
+@token = {{loginAdmin.response.body.$.access_token}}
+
+### GET ALL
+### Catálogo completo: 58 recursos después del seeder.
+GET {{baseUrl}}/api/recursos
+Authorization: Bearer {{token}}
+
+### GET ONE
+GET {{baseUrl}}/api/recursos/25
+Authorization: Bearer {{token}}
+
+### CREATE
+### Crear un nuevo punto de acceso.
+POST {{baseUrl}}/api/recursos
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "method": "GET",
+  "path": "/api/reportes/ventas/:id",
+  "description": "Consultar reporte de ventas"
+}
+
+### 409 — operación duplicada
+POST {{baseUrl}}/api/recursos
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "method": "GET",
+  "path": "/api/clientes",
+  "description": "Duplicado"
+}
+
+### UPDATE PUT
+PUT {{baseUrl}}/api/recursos/59
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "method": "GET",
+  "path": "/api/reportes/ventas/:id",
+  "description": "Reporte de ventas por id"
+}
+
+### DELETE LÓGICO
+### El recurso queda inactive.
+PATCH {{baseUrl}}/api/recursos/59/deactivate
+Authorization: Bearer {{token}}
+
+### DELETE FÍSICO
+DELETE {{baseUrl}}/api/recursos/59
+Authorization: Bearer {{token}}
