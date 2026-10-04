@@ -451,3 +451,7 @@
 ![](images/clipboard-289604907.png)
 
 ![](images/clipboard-3768169879.png)
+
+## **23.5 Swagger**
+
+![](images/clipboard-3115178729.png)
