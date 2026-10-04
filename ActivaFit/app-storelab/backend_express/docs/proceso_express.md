@@ -229,3 +229,7 @@
 ### .2  Controller Ejercicio
 
 ![](images/clipboard-612573958.png)
+
+### .3 — Routes
+
+![](images/clipboard-1595826916.png)
