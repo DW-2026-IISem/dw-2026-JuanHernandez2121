@@ -287,3 +287,7 @@
 ## **18.6 `error-response.ts` y PARCHE de `BaseController`**
 
 ![](images/clipboard-2467706156.png)
+
+## **18.7 `swagger-security.ts` — seguridad reutilizable para OpenAPI**
+
+![](images/clipboard-1698035125.png)
