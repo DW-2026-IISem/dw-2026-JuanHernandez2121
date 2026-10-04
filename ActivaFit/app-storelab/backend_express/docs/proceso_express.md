@@ -387,3 +387,7 @@
 ## **21.3 RoleUsers — seeder y swagger**
 
 ![](images/clipboard-787763701.png)
+
+## **21.4 DTOs de ResourceRoles**
+
+![](images/clipboard-1015380304.png)
