@@ -336,4 +336,10 @@
 
 ## **19.8 Pruebas HTTP**
 
-##  ![](images/clipboard-3401713666.png)
+## ![](images/clipboard-3401713666.png)
+
+# **Unidad ISS-11 · Features Roles y Resources**
+
+## **20.1 Feature Roles — DTOs**
+
+![](images/clipboard-4239343975.png)
