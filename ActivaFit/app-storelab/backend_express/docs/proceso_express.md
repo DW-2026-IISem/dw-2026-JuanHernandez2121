@@ -439,3 +439,9 @@
 ## **23.2 Repository**
 
 ![](images/clipboard-1998626238.png)
+
+## **23.3 Service — emitir, rotar, revocar**
+
+![](images/clipboard-1562992063.png)
+
+![](images/clipboard-1768143530.png)
