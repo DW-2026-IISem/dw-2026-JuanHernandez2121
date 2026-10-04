@@ -423,3 +423,9 @@
 ![![](images/clipboard-915602522.png)](images/clipboard-96544167.png)
 
 ![](images/clipboard-527465180.png)
+
+## **22.6 Verificación**
+
+![](images/clipboard-304600555.png)
+
+![](images/clipboard-3778572528.png)

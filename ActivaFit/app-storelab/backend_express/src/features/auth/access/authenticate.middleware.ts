@@ -6,6 +6,7 @@ import {
   verifyAccessToken,
 } from "../../../shared/auth/jwt";
 import { UsersRepository } from "../users/users.repository";
+import "../../../shared/auth/auth-user";
 
 const usersRepository = new UsersRepository();
 

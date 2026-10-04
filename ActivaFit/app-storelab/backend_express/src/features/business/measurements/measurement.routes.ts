@@ -1,5 +1,6 @@
 import { Application } from "express";
 import { MeasurementController } from "./measurement.controller";
+import { authenticate, authorize } from "../../auth/access";
 
 export class MeasurementRoutes {
   public measurementController: MeasurementController =
@@ -9,22 +10,15 @@ export class MeasurementRoutes {
     app
       .route("/api/mediciones")
       .get(
+        authenticate,
+        authorize,
         this.measurementController.getAll.bind(
           this.measurementController
         )
-      );
-
-    app
-      .route("/api/mediciones/:id")
-      .get(
-        this.measurementController.getOne.bind(
-          this.measurementController
-        )
-      );
-
-    app
-      .route("/api/mediciones")
+      )
       .post(
+        authenticate,
+        authorize,
         this.measurementController.create.bind(
           this.measurementController
         )
@@ -32,20 +26,30 @@ export class MeasurementRoutes {
 
     app
       .route("/api/mediciones/:id")
+      .get(
+        authenticate,
+        authorize,
+        this.measurementController.getOne.bind(
+          this.measurementController
+        )
+      )
       .put(
+        authenticate,
+        authorize,
         this.measurementController.updatePut.bind(
           this.measurementController
         )
       )
       .patch(
+        authenticate,
+        authorize,
         this.measurementController.updatePatch.bind(
           this.measurementController
         )
-      );
-
-    app
-      .route("/api/mediciones/:id")
+      )
       .delete(
+        authenticate,
+        authorize,
         this.measurementController.deletePhysical.bind(
           this.measurementController
         )
