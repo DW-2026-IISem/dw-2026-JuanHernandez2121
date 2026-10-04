@@ -429,3 +429,9 @@
 ![](images/clipboard-304600555.png)
 
 ![](images/clipboard-3778572528.png)
+
+# **Unidad ISS-14 · Feature RefreshTokens (sesiones)**
+
+## **23.1 DTOs del feature**
+
+![](images/clipboard-2768025662.png)
