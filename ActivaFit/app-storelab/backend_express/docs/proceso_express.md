@@ -300,6 +300,12 @@
 
 ![](images/clipboard-3685820212.png)
 
-## **14.10 Cableado de modelos en `config` y `seeders`**
+## **18.10 Cableado de modelos en `config` y `seeders`**
 
 ![](images/clipboard-4237970886.png)
+
+# **Unidad ISS-10 · Feature Users (identidad y contraseña)**
+
+## **19.1 DTOs del feature**
+
+![](images/clipboard-2934436219.png)
