@@ -183,3 +183,13 @@
 ### **Verificación relación**
 
 ![](images/clipboard-3253784068.png)
+
+# 13. ISS-08 — Entrenador
+
+### .1 modelo entrenador
+
+![](images/clipboard-2744777053.png)
+
+### .2  controller entrenador
+
+![](images/clipboard-2406484233.png)
