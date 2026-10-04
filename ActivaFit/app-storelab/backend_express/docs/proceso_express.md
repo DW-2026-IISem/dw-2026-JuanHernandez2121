@@ -325,3 +325,7 @@
 ## **19.5 Rutas (modalidad JWT + RBAC)**
 
 ![](images/clipboard-2624956741.png)
+
+## **19.6 Seeder de usuarios canónicos**
+
+![](images/clipboard-398823622.png)
