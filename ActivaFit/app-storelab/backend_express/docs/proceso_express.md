@@ -321,3 +321,7 @@
 ## **19.4 Controller**
 
 ![](images/clipboard-4072866063.png)
+
+## **19.5 Rutas (modalidad JWT + RBAC)**
+
+![](images/clipboard-2624956741.png)
