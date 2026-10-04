@@ -391,3 +391,7 @@
 ## **21.4 DTOs de ResourceRoles**
 
 ![](images/clipboard-1015380304.png)
+
+## **21.5 ResourceRoles — repository, service, controller y rutas**
+
+![![](images/clipboard-1498277111.png)](images/clipboard-1250398305.png)
