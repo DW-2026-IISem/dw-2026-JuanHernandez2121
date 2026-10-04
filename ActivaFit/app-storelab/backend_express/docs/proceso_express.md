@@ -363,3 +363,7 @@
 ![](images/clipboard-402290163.png)
 
 ![](images/clipboard-3319407453.png)
+
+## **20.6 Feature Resources — seeder y swagger**
+
+![](images/clipboard-2041373817.png)
