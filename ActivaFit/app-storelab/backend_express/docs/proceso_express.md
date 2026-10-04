@@ -165,3 +165,15 @@
 ### 11.6 Swagger PLAN
 
 ![](images/clipboard-3793795573.png)
+
+# 12. ISS-07 — Feature Membresía
+
+### .1 Modelo Membresía
+
+![](images/clipboard-2805190114.png)
+
+### .2 Controller + Routes — Membresía
+
+![](images/clipboard-2360424940.png)
+
+![](images/clipboard-2188503365.png)
