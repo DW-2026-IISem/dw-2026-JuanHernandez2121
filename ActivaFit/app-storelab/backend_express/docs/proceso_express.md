@@ -225,3 +225,7 @@
 ### .1 modelo Ejercicio
 
 ![](images/clipboard-1965944968.png)
+
+### .2  Controller Ejercicio
+
+![](images/clipboard-612573958.png)

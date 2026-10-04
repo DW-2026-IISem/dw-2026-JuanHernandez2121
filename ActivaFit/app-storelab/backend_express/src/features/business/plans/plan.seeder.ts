@@ -31,7 +31,7 @@ export async function seedPlans(count: number): Promise<number> {
       max: 200000,
     }),
     duracion: faker.helpers.arrayElement([15, 30, 60, 90]),
-    is_active: true,
+    isActive: true,
   }));
 
   await Plan.bulkCreate(rows);
