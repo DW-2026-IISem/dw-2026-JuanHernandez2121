@@ -243,3 +243,11 @@
 ### .1 modelo Medicion
 
 ![](images/clipboard-412587259.png)
+
+### .2  Controller medicion
+
+![](images/clipboard-3615042101.png)
+
+### .3 — Routes
+
+![](images/clipboard-2260688548.png)
