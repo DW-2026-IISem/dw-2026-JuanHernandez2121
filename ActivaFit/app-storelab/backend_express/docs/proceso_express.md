@@ -399,3 +399,7 @@
 ## **21.7 Seeder de la matriz y swagger**
 
 ![](images/clipboard-1251389746.png)
+
+## **21.8 Pruebas HTTP**
+
+## ![](images/clipboard-1824858877.png) 

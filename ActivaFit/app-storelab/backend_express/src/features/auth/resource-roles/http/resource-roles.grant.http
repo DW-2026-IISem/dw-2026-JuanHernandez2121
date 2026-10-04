@@ -1,0 +1,102 @@
+### Feature ResourceRoles — CONCEDER / RETIRAR PERMISOS
+
+@baseUrl = http://localhost:4000
+
+# @name loginAdmin
+POST {{baseUrl}}/api/sesion/login
+Content-Type: application/json
+
+{
+  "identifier": "admin",
+  "password": "Admin123!"
+}
+
+# @name loginSeller
+POST {{baseUrl}}/api/sesion/login
+Content-Type: application/json
+
+{
+  "identifier": "seller",
+  "password": "Seller123!"
+}
+
+@token = {{loginAdmin.response.body.$.access_token}}
+@sellerToken = {{loginSeller.response.body.$.access_token}}
+@sellerRoleId = 2
+
+### GET — concesiones activas
+GET {{baseUrl}}/api/concesiones-rol
+Authorization: Bearer {{token}}
+
+### GET — permisos de SELLER
+GET {{baseUrl}}/api/concesiones-rol?role_id={{sellerRoleId}}
+Authorization: Bearer {{token}}
+
+### GET — roles que conceden un recurso
+GET {{baseUrl}}/api/concesiones-rol?resource_id=1
+Authorization: Bearer {{token}}
+
+### GET — concesión por ID
+GET {{baseUrl}}/api/concesiones-rol/1
+Authorization: Bearer {{token}}
+
+### ESTADO INICIAL — SELLER no puede crear clientes
+POST {{baseUrl}}/api/clientes
+Authorization: Bearer {{sellerToken}}
+Content-Type: application/json
+
+{
+  "name": "Prueba RBAC",
+  "phone": "3000000000",
+  "email": "rbac.demo@example.com",
+  "password": "x"
+}
+
+### CONCEDER POST /api/clientes al SELLER
+# @name grantCreate
+POST {{baseUrl}}/api/concesiones-rol
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "role_id": 2,
+  "resource_id": 3
+}
+
+@grantId = {{grantCreate.response.body.$.grant.id}}
+
+### EFECTO INMEDIATO — SELLER puede crear clientes
+POST {{baseUrl}}/api/clientes
+Authorization: Bearer {{sellerToken}}
+Content-Type: application/json
+
+{
+  "name": "Prueba RBAC 2",
+  "phone": "3000000001",
+  "email": "rbac.demo2@example.com",
+  "password": "x"
+}
+
+### RETIRAR PERMISO
+PATCH {{baseUrl}}/api/concesiones-rol/{{grantId}}/deactivate
+Authorization: Bearer {{token}}
+
+### SELLER vuelve a perder el permiso
+POST {{baseUrl}}/api/clientes
+Authorization: Bearer {{sellerToken}}
+Content-Type: application/json
+
+{
+  "name": "Prueba RBAC 3",
+  "phone": "3000000002",
+  "email": "rbac.demo3@example.com",
+  "password": "x"
+}
+
+### REACTIVAR PERMISO
+PATCH {{baseUrl}}/api/concesiones-rol/{{grantId}}/reactivate
+Authorization: Bearer {{token}}
+
+### SELLER no puede administrar la matriz
+GET {{baseUrl}}/api/concesiones-rol
+Authorization: Bearer {{sellerToken}}
