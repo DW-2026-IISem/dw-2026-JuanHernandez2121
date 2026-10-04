@@ -1,0 +1,24 @@
+### Feature Trainer — UPDATE (PUT) / UPDATE (PATCH)
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+@id = 1
+
+# @name updateTrainerPut
+PUT {{baseUrl}}/api/entrenadores/{{id}}
+Content-Type: application/json
+
+{
+  "nombre": "Carlos Rodríguez Actualizado",
+  "descripcion": "Entrenador especializado en entrenamiento funcional",
+  "status": "ACTIVE"
+}
+
+###
+
+# @name updateTrainerPatch
+PATCH {{baseUrl}}/api/entrenadores/{{id}}
+Content-Type: application/json
+
+{
+  "descripcion": "Descripción actualizada del entrenador"
+}

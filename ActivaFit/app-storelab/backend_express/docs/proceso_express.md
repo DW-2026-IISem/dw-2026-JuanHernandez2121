@@ -193,3 +193,9 @@
 ### .2  controller entrenador
 
 ![](images/clipboard-2406484233.png)
+
+### .3 servidor
+
+![](images/clipboard-3614586349.png)
+
+![](images/clipboard-4245742728.png)

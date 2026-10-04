@@ -1,0 +1,12 @@
+### Feature Trainer — DELETE físico / DELETE lógico
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+@id = 1
+
+# @name deleteTrainerPhysical
+DELETE {{baseUrl}}/api/entrenadores/{{id}}
+
+###
+
+# @name deleteTrainerLogical
+PATCH {{baseUrl}}/api/entrenadores/{{id}}/deactivate
