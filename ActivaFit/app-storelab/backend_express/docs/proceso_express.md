@@ -377,3 +377,9 @@
 ## **21.1 DTOs de RoleUsers**
 
 ![](images/clipboard-269493246.png)
+
+## **21.2 RoleUsers — repository, service, controller y rutas**
+
+![](images/clipboard-604151157.png)
+
+![](images/clipboard-1885587106.png)
