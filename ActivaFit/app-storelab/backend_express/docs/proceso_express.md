@@ -219,3 +219,9 @@
 ![](images/clipboard-1754032909.png)
 
 ![](images/clipboard-922759109.png)
+
+# 15. ISS-10 — Ejercicio
+
+### .1 modelo Ejercicio
+
+![](images/clipboard-1965944968.png)
