@@ -329,3 +329,7 @@
 ## **19.6 Seeder de usuarios canónicos**
 
 ![](images/clipboard-398823622.png)
+
+## **19.7 Swagger del feature**
+
+![](images/clipboard-2154768240.png)
