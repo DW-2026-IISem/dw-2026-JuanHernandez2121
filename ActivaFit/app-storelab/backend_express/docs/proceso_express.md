@@ -333,3 +333,7 @@
 ## **19.7 Swagger del feature**
 
 ![](images/clipboard-2154768240.png)
+
+## **19.8 Pruebas HTTP**
+
+##  ![](images/clipboard-3401713666.png)

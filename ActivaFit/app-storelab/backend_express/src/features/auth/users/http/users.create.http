@@ -1,0 +1,80 @@
+### Feature Users — CREATE / UPDATE / DELETE (JWT + RBAC)
+
+@baseUrl = http://localhost:4000
+
+# @name loginAdmin
+POST {{baseUrl}}/api/sesion/login
+Content-Type: application/json
+
+{
+  "identifier": "admin",
+  "password": "Admin123!"
+}
+
+@token = {{loginAdmin.response.body.$.access_token}}
+@id = 2
+
+### CREATE — POST /api/usuarios
+POST {{baseUrl}}/api/usuarios
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "username": "nuevo.usuario",
+  "email": "nuevo.usuario@storelab.local",
+  "password": "Password123!",
+  "avatar": null
+}
+
+### 409 — username/email duplicado
+POST {{baseUrl}}/api/usuarios
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "email": "otro@storelab.local",
+  "password": "Password123!"
+}
+
+### UPDATE PUT
+PUT {{baseUrl}}/api/usuarios/{{id}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "username": "seller",
+  "email": "seller@storelab.local",
+  "avatar": "https://example.com/avatar.png"
+}
+
+### UPDATE PATCH
+PATCH {{baseUrl}}/api/usuarios/{{id}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "avatar": null
+}
+
+### CAMBIO DE CONTRASEÑA
+PATCH {{baseUrl}}/api/usuarios/{{id}}/password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "current_password": "Seller123!",
+  "new_password": "Seller456!"
+}
+
+### PERMISOS EFECTIVOS
+GET {{baseUrl}}/api/usuarios/{{id}}/permisos
+Authorization: Bearer {{token}}
+
+### DELETE LÓGICO
+PATCH {{baseUrl}}/api/usuarios/{{id}}/deactivate
+Authorization: Bearer {{token}}
+
+### DELETE FÍSICO
+DELETE {{baseUrl}}/api/usuarios/{{id}}
+Authorization: Bearer {{token}}
