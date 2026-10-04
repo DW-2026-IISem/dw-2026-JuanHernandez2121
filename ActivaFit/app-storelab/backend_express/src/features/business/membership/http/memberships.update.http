@@ -1,0 +1,26 @@
+### Feature Membership — UPDATE (PUT) / UPDATE (PATCH)
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+@id = 1
+
+# @name updateMembershipPut
+PUT {{baseUrl}}/api/membresias/{{id}}
+Content-Type: application/json
+
+{
+  "nombre": "Membresía Premium Actualizada",
+  "descripcion": "Acceso completo al gimnasio y beneficios adicionales",
+  "planId": 1,
+  "clienteId": 1,
+  "status": "active"
+}
+
+###
+
+# @name updateMembershipPatch
+PATCH {{baseUrl}}/api/membresias/{{id}}
+Content-Type: application/json
+
+{
+  "descripcion": "Descripción actualizada"
+}

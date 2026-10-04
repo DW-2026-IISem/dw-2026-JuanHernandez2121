@@ -1,0 +1,12 @@
+### Feature Membership — DELETE físico / DELETE lógico (status = inactive)
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+@id = 1
+
+# @name deleteMembershipPhysical
+DELETE {{baseUrl}}/api/membresias/{{id}}
+
+###
+
+# @name deleteMembershipLogical
+PATCH {{baseUrl}}/api/membresias/{{id}}/deactivate

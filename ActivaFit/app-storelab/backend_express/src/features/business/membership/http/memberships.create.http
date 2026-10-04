@@ -1,0 +1,15 @@
+### Feature Membership — CREATE
+### Leyenda: SIN AUTH (sin middleware JWT / sin autenticación)
+@baseUrl = http://localhost:4000
+
+# @name createMembership
+POST {{baseUrl}}/api/membresias
+Content-Type: application/json
+
+{
+  "nombre": "Membresía Premium",
+  "descripcion": "Membresía con acceso completo al gimnasio",
+  "planId": 1,
+  "clienteId": 1,
+  "status": "active"
+}
