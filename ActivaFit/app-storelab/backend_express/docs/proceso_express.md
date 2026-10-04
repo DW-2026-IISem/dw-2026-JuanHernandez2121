@@ -295,3 +295,7 @@
 ## **18.8 Los seis modelos Sequelize**
 
 ## ![](images/clipboard-3382259259.png) 
+
+## **18.9 `rbac.associations.ts` — el grafo en un solo lugar**
+
+![](images/clipboard-3685820212.png)
