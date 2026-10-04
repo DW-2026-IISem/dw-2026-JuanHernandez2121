@@ -213,3 +213,9 @@
 ### .3 — Routes
 
 ![](images/clipboard-2291478105.png)
+
+### Verificar compilación
+
+![](images/clipboard-1754032909.png)
+
+![](images/clipboard-922759109.png)
