@@ -1,68 +1,65 @@
 import { Application } from "express";
 import { MembershipController } from "./membership.controller";
+import { authenticate, authorize } from "../../auth/access";
 
 export class MembershipRoutes {
   public membershipController: MembershipController =
     new MembershipController();
 
   public routes(app: Application): void {
-
-    // ================== RUTAS SIN AUTENTICACIÓN ==================
-
-    // getAll
     app
       .route("/api/membresias")
       .get(
+        authenticate,
+        authorize,
         this.membershipController.getAll.bind(
           this.membershipController
         )
-      );
-
-    // getOne
-    app
-      .route("/api/membresias/:id")
-      .get(
-        this.membershipController.getOne.bind(
-          this.membershipController
-        )
-      );
-
-    // create
-    app
-      .route("/api/membresias")
+      )
       .post(
+        authenticate,
+        authorize,
         this.membershipController.create.bind(
           this.membershipController
         )
       );
 
-    // update PUT / PATCH
     app
       .route("/api/membresias/:id")
+      .get(
+        authenticate,
+        authorize,
+        this.membershipController.getOne.bind(
+          this.membershipController
+        )
+      )
       .put(
+        authenticate,
+        authorize,
         this.membershipController.updatePut.bind(
           this.membershipController
         )
       )
       .patch(
+        authenticate,
+        authorize,
         this.membershipController.updatePatch.bind(
           this.membershipController
         )
-      );
-
-    // delete físico
-    app
-      .route("/api/membresias/:id")
+      )
       .delete(
+        authenticate,
+        authorize,
         this.membershipController.deletePhysical.bind(
           this.membershipController
         )
       );
 
-    // delete lógico
     app
       .route("/api/membresias/:id/deactivate")
       .patch(
+        authenticate,
+        authorize,
         this.membershipController.deleteLogical.bind(
           this.membershipController
         )

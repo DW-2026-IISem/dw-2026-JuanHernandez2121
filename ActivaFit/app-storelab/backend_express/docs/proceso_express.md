@@ -413,3 +413,13 @@
 ## **22.2 `authorize` — modalidad JWT + RBAC**
 
 ## ![](images/clipboard-337154135.png) 
+
+## **22.3 Barrel de acceso**
+
+![](images/clipboard-492451884.png)
+
+## **22.4 PARCHE: las 5 rutas de negocio pasan a JWT + RBAC**
+
+![![](images/clipboard-915602522.png)](images/clipboard-96544167.png)
+
+![](images/clipboard-527465180.png)
