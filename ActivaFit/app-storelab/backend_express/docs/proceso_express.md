@@ -176,4 +176,10 @@
 
 ![](images/clipboard-2360424940.png)
 
-![](images/clipboard-2188503365.png)
+### .3 HTTP — Membresía
+
+![](images/clipboard-2414166898.png)
+
+### **Verificación relación**
+
+![](images/clipboard-3253784068.png)

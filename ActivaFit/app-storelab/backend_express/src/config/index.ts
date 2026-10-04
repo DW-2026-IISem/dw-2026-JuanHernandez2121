@@ -4,6 +4,9 @@ import morgan from "morgan";
 import cors from "cors";
 import { Routes } from "../routes";
 
+// Cargar asociaciones como side-effect
+import "../features/business/membership/membership.associations";
+
 dotenv.config();
 
 export class App {
@@ -32,6 +35,7 @@ export class App {
   private routes(): void {
     this.routePrv.clientRoutes.routes(this.app);
     this.routePrv.planRoutes.routes(this.app);
+    this.routePrv.membershipRoutes.routes(this.app);
   }
 
   private async dbConnection(): Promise<void> {
@@ -40,6 +44,8 @@ export class App {
 
   async listen() {
     await this.app.listen(this.app.get("port"));
-    console.log(`🚀 Servidor ejecutándose en puerto ${this.app.get("port")}`);
+    console.log(
+      `🚀 Servidor ejecutándose en puerto ${this.app.get("port")}`
+    );
   }
 }

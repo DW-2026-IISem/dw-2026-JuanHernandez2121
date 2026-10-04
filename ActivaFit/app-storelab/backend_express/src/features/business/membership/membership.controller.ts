@@ -46,7 +46,7 @@ async function assertActiveClient(
     };
   }
 
-  if (!client.is_active) {
+  if (client.status !== "active") {
     return {
       ok: false,
       status: 400,
