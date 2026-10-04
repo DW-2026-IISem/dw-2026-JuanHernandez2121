@@ -291,3 +291,7 @@
 ## **18.7 `swagger-security.ts` — seguridad reutilizable para OpenAPI**
 
 ![](images/clipboard-1698035125.png)
+
+## **18.8 Los seis modelos Sequelize**
+
+## ![](images/clipboard-3382259259.png) 
