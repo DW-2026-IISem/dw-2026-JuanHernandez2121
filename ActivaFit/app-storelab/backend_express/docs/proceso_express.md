@@ -309,3 +309,7 @@
 ## **19.1 DTOs del feature**
 
 ![](images/clipboard-2934436219.png)
+
+## **19.2 Repository**
+
+## ![](images/clipboard-1200684417.png) 
