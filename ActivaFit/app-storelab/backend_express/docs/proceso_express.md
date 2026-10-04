@@ -237,3 +237,9 @@
 ### Compilar
 
 ![![](images/clipboard-3709411536.png)](images/clipboard-3784697965.png)
+
+#  17. ISS-12 — Medición
+
+### .1 modelo Medicion
+
+![](images/clipboard-412587259.png)
