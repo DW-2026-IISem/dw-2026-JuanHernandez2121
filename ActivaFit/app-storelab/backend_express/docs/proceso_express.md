@@ -190,7 +190,7 @@
 
 ![](images/clipboard-2744777053.png)
 
-### .2  controller entrenador
+### .2 controller entrenador
 
 ![](images/clipboard-2406484233.png)
 
@@ -206,7 +206,7 @@
 
 ![](images/clipboard-1590483952.png)
 
-### .2  Controller Rutina
+### .2 Controller Rutina
 
 ![](images/clipboard-446816721.png)
 
@@ -226,7 +226,7 @@
 
 ![](images/clipboard-1965944968.png)
 
-### .2  Controller Ejercicio
+### .2 Controller Ejercicio
 
 ![](images/clipboard-612573958.png)
 
@@ -238,13 +238,13 @@
 
 ![![](images/clipboard-3709411536.png)](images/clipboard-3784697965.png)
 
-#  17. ISS-12 — Medición
+# 17. ISS-12 — Medición
 
 ### .1 modelo Medicion
 
 ![](images/clipboard-412587259.png)
 
-### .2  Controller medicion
+### .2 Controller medicion
 
 ![](images/clipboard-3615042101.png)
 
@@ -259,3 +259,11 @@
 ![](images/clipboard-113350618.png)
 
 ![](images/clipboard-54352869.png)
+
+# **Unidad ISS-09 · Auth base (seguridad y modelos)**
+
+## **Fase II: Auth con RBAC — ISS-09 — Base de seguridad compartida y modelos Auth**
+
+## **18.1 Dependencias y variables de entorno**
+
+![](images/clipboard-2733817.png)
