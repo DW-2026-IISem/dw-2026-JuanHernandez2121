@@ -274,7 +274,7 @@
 
 ## **18.3 `jwt.ts` — firma y verificación del access token**
 
-## ![](images/clipboard-3160086077.png) 
+## ![](images/clipboard-3160086077.png)
 
 ## **18.4 `resource-match.ts` — casar la petición con el recurso**
 
@@ -294,7 +294,7 @@
 
 ## **18.8 Los seis modelos Sequelize**
 
-## ![](images/clipboard-3382259259.png) 
+## ![](images/clipboard-3382259259.png)
 
 ## **18.9 `rbac.associations.ts` — el grafo en un solo lugar**
 
@@ -312,7 +312,7 @@
 
 ## **19.2 Repository**
 
-## ![](images/clipboard-1200684417.png) 
+## ![](images/clipboard-1200684417.png)
 
 ## **19.3 Service**
 
@@ -402,17 +402,17 @@
 
 ## **21.8 Pruebas HTTP**
 
-## ![](images/clipboard-1824858877.png) 
+## ![](images/clipboard-1824858877.png)
 
 # **Unidad ISS-13 · Middlewares de acceso y las 3 modalidades**
 
 ## **22.1 `authenticate` — modalidad JWT**
 
-## ![](images/clipboard-3943467181.png) 
+## ![](images/clipboard-3943467181.png)
 
 ## **22.2 `authorize` — modalidad JWT + RBAC**
 
-## ![](images/clipboard-337154135.png) 
+## ![](images/clipboard-337154135.png)
 
 ## **22.3 Barrel de acceso**
 
@@ -459,3 +459,9 @@
 ## **23.6 Pruebas HTTP**
 
 ![](images/clipboard-766428644.png)
+
+# **Unidad ISS-15 · Feature Session (login y perfil)**
+
+## **24.1 DTOs del feature**
+
+![](images/clipboard-1260213087.png)
