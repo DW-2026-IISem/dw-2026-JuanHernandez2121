@@ -7,6 +7,7 @@ import { ExerciseRoutes } from "../features/business/exercises/exercise.routes";
 import { MeasurementRoutes } from "../features/business/measurements/measurement.routes";
 import { UsersRoutes } from "../features/auth/users/users.routes";
 import { RefreshTokensRoutes } from "../features/auth/refresh-tokens/refresh-tokens.routes";
+import { SessionRoutes } from "../features/auth/session/session.routes";
 
 export class Routes {
   public clientRoutes: ClientRoutes = new ClientRoutes();
@@ -33,4 +34,7 @@ export class Routes {
 
   public refreshTokensRoutes: RefreshTokensRoutes =
     new RefreshTokensRoutes();
+
+  public sessionRoutes: SessionRoutes =
+    new SessionRoutes();
 }

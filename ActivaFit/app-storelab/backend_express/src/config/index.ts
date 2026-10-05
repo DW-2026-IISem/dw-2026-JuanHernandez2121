@@ -76,6 +76,7 @@ export class App {
     this.routePrv.measurementRoutes.routes(this.app);
     this.routePrv.usersRoutes.routes(this.app);
     this.routePrv.refreshTokensRoutes.routes(this.app);
+    this.routePrv.sessionRoutes.routes(this.app);
   }
 
   private docs(): void {
