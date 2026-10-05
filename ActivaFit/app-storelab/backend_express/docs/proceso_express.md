@@ -465,3 +465,9 @@
 ## **24.1 DTOs del feature**
 
 ![](images/clipboard-1260213087.png)
+
+## **24.2 Service**
+
+![](images/clipboard-4111727304.png)
+
+![](images/clipboard-3692132554.png)
