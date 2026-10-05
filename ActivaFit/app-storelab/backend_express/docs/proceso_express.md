@@ -487,3 +487,7 @@
 ![](images/clipboard-2654826304.png)
 
 ![](images/clipboard-153198175.png)
+
+## **24.6 Pruebas HTTP**
+
+![](images/clipboard-1165826952.png)
