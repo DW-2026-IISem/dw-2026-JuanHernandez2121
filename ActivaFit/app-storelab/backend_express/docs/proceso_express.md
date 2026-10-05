@@ -477,3 +477,7 @@
 ![](images/clipboard-1451385479.png)
 
 ![](images/clipboard-1288274100.png)
+
+## **24.4 Rutas — las tres modalidades en un solo archivo**
+
+![](images/clipboard-3895550509.png)
