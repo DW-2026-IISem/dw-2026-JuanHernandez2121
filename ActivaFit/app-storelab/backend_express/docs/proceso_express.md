@@ -481,3 +481,9 @@
 ## **24.4 Rutas — las tres modalidades en un solo archivo**
 
 ![](images/clipboard-3895550509.png)
+
+## **24.5 Swagger**
+
+![](images/clipboard-2654826304.png)
+
+![](images/clipboard-153198175.png)
