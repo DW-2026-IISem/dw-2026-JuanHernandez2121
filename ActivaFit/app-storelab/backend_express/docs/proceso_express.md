@@ -525,3 +525,9 @@
 ### **/api/permisos Token Seller**
 
 ![](images/clipboard-2904701793.png)
+
+## **25.3 Bloque B — Sin Autenticación**
+
+### **B1 Tabla Client** 
+
+![](images/clipboard-1916524036.png)

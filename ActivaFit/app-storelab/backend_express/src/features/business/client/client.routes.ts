@@ -9,58 +9,37 @@ export class ClientRoutes {
   public routes(app: Application): void {
     app
       .route("/api/clientes")
-      .get(
-        authenticate,
-        authorize,
-        this.clientController.getAll.bind(
+      .get(this.clientController.getAll.bind(
           this.clientController
         )
       )
-      .post(
-        authenticate,
-        authorize,
-        this.clientController.create.bind(
+      .post(this.clientController.create.bind(
           this.clientController
         )
       );
 
     app
       .route("/api/clientes/:id")
-      .get(
-        authenticate,
-        authorize,
-        this.clientController.getOne.bind(
+      .get(this.clientController.getOne.bind(
           this.clientController
         )
       )
-      .put(
-        authenticate,
-        authorize,
-        this.clientController.updatePut.bind(
+      .put(this.clientController.updatePut.bind(
           this.clientController
         )
       )
-      .patch(
-        authenticate,
-        authorize,
-        this.clientController.updatePatch.bind(
+      .patch(this.clientController.updatePatch.bind(
           this.clientController
         )
       )
-      .delete(
-        authenticate,
-        authorize,
-        this.clientController.deletePhysical.bind(
+      .delete(this.clientController.deletePhysical.bind(
           this.clientController
         )
       );
 
     app
       .route("/api/clientes/:id/deactivate")
-      .patch(
-        authenticate,
-        authorize,
-        this.clientController.deleteLogical.bind(
+      .patch(this.clientController.deleteLogical.bind(
           this.clientController
         )
       );
