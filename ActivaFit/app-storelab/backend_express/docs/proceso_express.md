@@ -498,7 +498,7 @@
 
 # **25. Pruebas funcionales Completas**
 
-## **25.1 Preparación** 
+## **25.1 Preparación**
 
 ![](images/clipboard-1621229793.png)
 
@@ -511,3 +511,9 @@
 ### **A2 — Login Seller**
 
 ![](images/clipboard-3082745639.png)
+
+### **/api/sesion/perfil**
+
+![](images/clipboard-2710689828.png)
+
+![](images/clipboard-4100149014.png)
