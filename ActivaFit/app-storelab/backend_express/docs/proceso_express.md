@@ -531,3 +531,7 @@
 ### **B1 Tabla Client** 
 
 ![](images/clipboard-1916524036.png)
+
+### **B1 Tabla Merbership**
+
+![](images/clipboard-1281763315.png)
