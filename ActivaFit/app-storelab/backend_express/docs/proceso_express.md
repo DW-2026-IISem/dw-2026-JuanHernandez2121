@@ -517,3 +517,7 @@
 ![](images/clipboard-2710689828.png)
 
 ![](images/clipboard-4100149014.png)
+
+### **/api/permisos Token Admin**
+
+![](images/clipboard-2688435560.png)
