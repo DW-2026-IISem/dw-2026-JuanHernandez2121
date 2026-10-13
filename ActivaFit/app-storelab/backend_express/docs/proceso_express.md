@@ -521,3 +521,7 @@
 ### **/api/permisos Token Admin**
 
 ![](images/clipboard-2688435560.png)
+
+### **/api/permisos Token Seller**
+
+![](images/clipboard-2904701793.png)
