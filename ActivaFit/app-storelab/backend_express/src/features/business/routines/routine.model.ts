@@ -5,6 +5,8 @@ export interface RoutineI {
   id?: number;
   nombre: string;
   descripcion?: string | null;
+  entrenadorId?: number | null;
+  clienteId?: number | null;
   status: "ACTIVE" | "INACTIVE";
   createdAt?: Date;
   updatedAt?: Date;
@@ -14,6 +16,8 @@ export class Routine extends Model<RoutineI> implements RoutineI {
   public id!: number;
   public nombre!: string;
   public descripcion!: string | null;
+  public entrenadorId!: number | null;
+  public clienteId!: number | null;
   public status!: "ACTIVE" | "INACTIVE";
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -35,6 +39,18 @@ Routine.init(
     descripcion: {
       type: DataTypes.TEXT,
       allowNull: true,
+    },
+
+    entrenadorId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      field: "entrenadorId",
+    },
+
+    clienteId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      field: "clienteId",
     },
 
     status: {

@@ -53,6 +53,8 @@ export class RoutineController {
       const routine = await Routine.create({
         nombre: body.nombre,
         descripcion: body.descripcion ?? null,
+        entrenadorId: body.entrenadorId ?? null,
+        clienteId: body.clienteId ?? null,
         status: body.status ?? "ACTIVE",
       });
 
@@ -82,6 +84,8 @@ export class RoutineController {
       await routine.update({
         nombre: body.nombre,
         descripcion: body.descripcion ?? null,
+        entrenadorId: body.entrenadorId ?? null,
+        clienteId: body.clienteId ?? null,
         status: body.status ?? routine.status,
       });
 
@@ -115,6 +119,14 @@ export class RoutineController {
 
         ...(body.descripcion !== undefined && {
           descripcion: body.descripcion,
+        }),
+
+        ...(body.entrenadorId !== undefined && {
+          entrenadorId: body.entrenadorId,
+        }),
+
+        ...(body.clienteId !== undefined && {
+          clienteId: body.clienteId,
         }),
 
         ...(body.status !== undefined && {

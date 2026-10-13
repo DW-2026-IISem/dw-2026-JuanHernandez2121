@@ -1,11 +1,9 @@
 /**
- * Catálogo de los 58 recursos del sistema.
+ * Catálogo RBAC de ActivaFit.
  *
  * Un recurso es un par (method, path).
- * Un permiso es la concesión de un recurso a un rol.
- *
- * ADMIN recibe los 58 recursos.
- * SELLER recibe los 7 marcados con seller: true.
+ * ADMIN recibe todos.
+ * SELLER recibe los marcados con seller: true.
  *
  * Las operaciones de sesión no son recursos RBAC.
  */
@@ -17,185 +15,83 @@ export interface CatalogResource {
   seller?: boolean;
 }
 
+function crud(
+  base: string,
+  label: string,
+  options?: { sellerRead?: boolean; sellerWrite?: boolean; deactivate?: boolean }
+): CatalogResource[] {
+  const sellerRead = options?.sellerRead === true;
+  const sellerWrite = options?.sellerWrite === true;
+  const items: CatalogResource[] = [
+    {
+      method: "GET",
+      path: base,
+      description: `Listar ${label}`,
+      seller: sellerRead || undefined,
+    },
+    {
+      method: "GET",
+      path: `${base}/:id`,
+      description: `Consultar ${label}`,
+      seller: sellerRead || undefined,
+    },
+    {
+      method: "POST",
+      path: base,
+      description: `Crear ${label}`,
+      seller: sellerWrite || undefined,
+    },
+    {
+      method: "PUT",
+      path: `${base}/:id`,
+      description: `Reemplazar ${label}`,
+    },
+    {
+      method: "PATCH",
+      path: `${base}/:id`,
+      description: `Modificar ${label}`,
+    },
+    {
+      method: "DELETE",
+      path: `${base}/:id`,
+      description: `Eliminar ${label}`,
+    },
+  ];
+
+  if (options?.deactivate !== false) {
+    items.push({
+      method: "PATCH",
+      path: `${base}/:id/deactivate`,
+      description: `Desactivar ${label}`,
+    });
+  }
+
+  return items;
+}
+
 export const RESOURCE_CATALOG: readonly CatalogResource[] = [
-  // Clientes (7)
-  {
-    method: "GET",
-    path: "/api/clientes",
-    description: "Listar clientes",
-    seller: true,
-  },
-  {
-    method: "GET",
-    path: "/api/clientes/:id",
-    description: "Consultar cliente",
-    seller: true,
-  },
-  {
-    method: "POST",
-    path: "/api/clientes",
-    description: "Crear cliente",
-  },
-  {
-    method: "PUT",
-    path: "/api/clientes/:id",
-    description: "Reemplazar cliente",
-  },
-  {
-    method: "PATCH",
-    path: "/api/clientes/:id",
-    description: "Modificar cliente",
-  },
-  {
-    method: "DELETE",
-    path: "/api/clientes/:id",
-    description: "Eliminar cliente",
-  },
-  {
-    method: "PATCH",
-    path: "/api/clientes/:id/deactivate",
-    description: "Desactivar cliente",
-  },
+  ...crud("/api/clientes", "clientes", { sellerRead: true }),
+  ...crud("/api/planes", "planes", { sellerRead: true }),
+  ...crud("/api/membresias", "membresías", {
+    sellerRead: true,
+    sellerWrite: true,
+  }),
+  ...crud("/api/asistencias", "asistencias", {
+    sellerRead: true,
+    sellerWrite: true,
+  }),
+  ...crud("/api/entrenadores", "entrenadores"),
+  ...crud("/api/rutinas", "rutinas"),
+  ...crud("/api/ejercicios", "ejercicios"),
+  ...crud("/api/rutina-ejercicios", "rutina-ejercicios"),
+  ...crud("/api/mediciones", "mediciones", { deactivate: false }),
+  ...crud("/api/pagos", "pagos", {
+    sellerRead: true,
+    sellerWrite: true,
+    deactivate: false,
+  }),
 
-  // Tipos de producto (7)
-  {
-    method: "GET",
-    path: "/api/tipos-producto",
-    description: "Listar tipos de producto",
-  },
-  {
-    method: "GET",
-    path: "/api/tipos-producto/:id",
-    description: "Consultar tipo de producto",
-  },
-  {
-    method: "POST",
-    path: "/api/tipos-producto",
-    description: "Crear tipo de producto",
-  },
-  {
-    method: "PUT",
-    path: "/api/tipos-producto/:id",
-    description: "Reemplazar tipo de producto",
-  },
-  {
-    method: "PATCH",
-    path: "/api/tipos-producto/:id",
-    description: "Modificar tipo de producto",
-  },
-  {
-    method: "DELETE",
-    path: "/api/tipos-producto/:id",
-    description: "Eliminar tipo de producto",
-  },
-  {
-    method: "PATCH",
-    path: "/api/tipos-producto/:id/deactivate",
-    description: "Desactivar tipo de producto",
-  },
-
-  // Productos (7)
-  {
-    method: "GET",
-    path: "/api/productos",
-    description: "Listar productos",
-    seller: true,
-  },
-  {
-    method: "GET",
-    path: "/api/productos/:id",
-    description: "Consultar producto",
-    seller: true,
-  },
-  {
-    method: "POST",
-    path: "/api/productos",
-    description: "Crear producto",
-  },
-  {
-    method: "PUT",
-    path: "/api/productos/:id",
-    description: "Reemplazar producto",
-  },
-  {
-    method: "PATCH",
-    path: "/api/productos/:id",
-    description: "Modificar producto",
-  },
-  {
-    method: "DELETE",
-    path: "/api/productos/:id",
-    description: "Eliminar producto",
-  },
-  {
-    method: "PATCH",
-    path: "/api/productos/:id/deactivate",
-    description: "Desactivar producto",
-  },
-
-  // Ventas (3)
-  {
-    method: "GET",
-    path: "/api/ventas",
-    description: "Listar ventas",
-    seller: true,
-  },
-  {
-    method: "GET",
-    path: "/api/ventas/:id",
-    description: "Consultar venta",
-    seller: true,
-  },
-  {
-    method: "POST",
-    path: "/api/ventas",
-    description: "Registrar venta",
-    seller: true,
-  },
-
-  // Detalle de ventas (1)
-  {
-    method: "GET",
-    path: "/api/detalle-ventas",
-    description: "Listar detalle de ventas",
-  },
-
-  // Usuarios (9)
-  {
-    method: "GET",
-    path: "/api/usuarios",
-    description: "Listar usuarios",
-  },
-  {
-    method: "GET",
-    path: "/api/usuarios/:id",
-    description: "Consultar usuario",
-  },
-  {
-    method: "POST",
-    path: "/api/usuarios",
-    description: "Crear usuario",
-  },
-  {
-    method: "PUT",
-    path: "/api/usuarios/:id",
-    description: "Reemplazar usuario",
-  },
-  {
-    method: "PATCH",
-    path: "/api/usuarios/:id",
-    description: "Modificar usuario",
-  },
-  {
-    method: "DELETE",
-    path: "/api/usuarios/:id",
-    description: "Eliminar usuario",
-  },
-  {
-    method: "PATCH",
-    path: "/api/usuarios/:id/deactivate",
-    description: "Desactivar usuario",
-  },
+  ...crud("/api/usuarios", "usuarios"),
   {
     method: "PATCH",
     path: "/api/usuarios/:id/password",
@@ -206,82 +102,9 @@ export const RESOURCE_CATALOG: readonly CatalogResource[] = [
     path: "/api/usuarios/:id/permisos",
     description: "Consultar permisos efectivos del usuario",
   },
+  ...crud("/api/roles", "roles"),
+  ...crud("/api/recursos", "recursos"),
 
-  // Roles (7)
-  {
-    method: "GET",
-    path: "/api/roles",
-    description: "Listar roles",
-  },
-  {
-    method: "GET",
-    path: "/api/roles/:id",
-    description: "Consultar rol",
-  },
-  {
-    method: "POST",
-    path: "/api/roles",
-    description: "Crear rol",
-  },
-  {
-    method: "PUT",
-    path: "/api/roles/:id",
-    description: "Reemplazar rol",
-  },
-  {
-    method: "PATCH",
-    path: "/api/roles/:id",
-    description: "Modificar rol",
-  },
-  {
-    method: "DELETE",
-    path: "/api/roles/:id",
-    description: "Eliminar rol",
-  },
-  {
-    method: "PATCH",
-    path: "/api/roles/:id/deactivate",
-    description: "Desactivar rol",
-  },
-
-  // Recursos (7)
-  {
-    method: "GET",
-    path: "/api/recursos",
-    description: "Listar recursos",
-  },
-  {
-    method: "GET",
-    path: "/api/recursos/:id",
-    description: "Consultar recurso",
-  },
-  {
-    method: "POST",
-    path: "/api/recursos",
-    description: "Crear recurso",
-  },
-  {
-    method: "PUT",
-    path: "/api/recursos/:id",
-    description: "Reemplazar recurso",
-  },
-  {
-    method: "PATCH",
-    path: "/api/recursos/:id",
-    description: "Modificar recurso",
-  },
-  {
-    method: "DELETE",
-    path: "/api/recursos/:id",
-    description: "Eliminar recurso",
-  },
-  {
-    method: "PATCH",
-    path: "/api/recursos/:id/deactivate",
-    description: "Desactivar recurso",
-  },
-
-  // Asignaciones usuario-rol (5)
   {
     method: "GET",
     path: "/api/asignaciones-rol",
@@ -308,7 +131,6 @@ export const RESOURCE_CATALOG: readonly CatalogResource[] = [
     description: "Reactivar rol a usuario",
   },
 
-  // Concesiones rol-recurso (5)
   {
     method: "GET",
     path: "/api/concesiones-rol",
@@ -336,11 +158,5 @@ export const RESOURCE_CATALOG: readonly CatalogResource[] = [
   },
 ];
 
-/**
- * Recursos que recibe SELLER.
- * Se derivan directamente del catálogo.
- */
 export const SELLER_RESOURCES: readonly CatalogResource[] =
-  RESOURCE_CATALOG.filter(
-    (resource) => resource.seller === true
-  );
+  RESOURCE_CATALOG.filter((resource) => resource.seller === true);

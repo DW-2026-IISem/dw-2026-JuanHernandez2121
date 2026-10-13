@@ -1,13 +1,15 @@
 /**
  * Cantidad de registros por feature/entidad.
- * Prioridad: CLI (--clients=N) > env (SEED_CLIENTS) > default.
+ * Prioridad: CLI (--clients=N, --users=N) > env (SEED_CLIENTS, SEED_USERS) > default.
  */
 export type SeedCounts = {
   clients: number;
+  users: number;
 };
 
 export const DEFAULT_SEED_COUNTS: SeedCounts = {
   clients: 10,
+  users: 2,
 };
 
 export function resolveSeedCounts(
@@ -16,9 +18,14 @@ export function resolveSeedCounts(
   const counts: SeedCounts = { ...DEFAULT_SEED_COUNTS };
 
   const envClients = process.env.SEED_CLIENTS;
+  const envUsers = process.env.SEED_USERS;
 
   if (envClients !== undefined && envClients !== "") {
     counts.clients = Number(envClients);
+  }
+
+  if (envUsers !== undefined && envUsers !== "") {
+    counts.users = Number(envUsers);
   }
 
   for (const arg of argv) {

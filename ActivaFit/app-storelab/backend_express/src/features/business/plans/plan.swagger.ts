@@ -2,14 +2,13 @@
  * Documentación OpenAPI del feature Plan.
  * Se agrega desde `src/swagger` (registry externo), no se monta aquí.
  *
- * Leyenda: endpoints documentados como SIN AUTH (sin middleware JWT).
  */
 
 export const planSwagger = {
   tags: [
     {
       name: "Planes",
-      description: "CRUD de planes — **SIN AUTH** (sin middleware JWT)",
+      description: "CRUD de planes — JWT + RBAC",
     },
   ],
   paths: {

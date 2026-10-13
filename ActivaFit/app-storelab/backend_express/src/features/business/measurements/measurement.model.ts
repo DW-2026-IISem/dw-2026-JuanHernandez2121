@@ -4,6 +4,7 @@ import { sequelize } from "../../../database/db";
 export interface MeasurementI {
   id?: number;
   clienteId: number;
+  entrenadorId?: number | null;
   peso: number;
   altura: number;
   imc: number;
@@ -15,6 +16,7 @@ export interface MeasurementI {
 export class Measurement extends Model<MeasurementI> implements MeasurementI {
   public id!: number;
   public clienteId!: number;
+  public entrenadorId!: number | null;
   public peso!: number;
   public altura!: number;
   public imc!: number;
@@ -34,6 +36,11 @@ Measurement.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       field: "clienteId",
+    },
+    entrenadorId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      field: "entrenadorId",
     },
     peso: {
       type: DataTypes.DECIMAL(5, 2),

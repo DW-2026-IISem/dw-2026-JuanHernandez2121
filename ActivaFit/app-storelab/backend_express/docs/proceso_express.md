@@ -491,3 +491,13 @@
 ## **24.6 Pruebas HTTP**
 
 ![](images/clipboard-1165826952.png)
+
+## **24.7 Verificación end-to-end de las tres modalidades**
+
+![](images/clipboard-1309603901.png)
+
+# **25. Pruebas funcionales Completas**
+
+## **25.1 Preparación** 
+
+![](images/clipboard-1621229793.png)

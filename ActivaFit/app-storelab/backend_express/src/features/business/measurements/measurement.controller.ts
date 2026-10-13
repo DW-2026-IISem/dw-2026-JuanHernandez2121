@@ -50,6 +50,7 @@ export class MeasurementController {
 
       const measurement = await Measurement.create({
         clienteId: body.clienteId,
+        entrenadorId: body.entrenadorId ?? null,
         peso: body.peso,
         altura: body.altura,
         imc: body.imc,
@@ -81,6 +82,7 @@ export class MeasurementController {
 
       await measurement.update({
         clienteId: body.clienteId,
+        entrenadorId: body.entrenadorId ?? null,
         peso: body.peso,
         altura: body.altura,
         imc: body.imc,
@@ -113,6 +115,9 @@ export class MeasurementController {
       await measurement.update({
         ...(body.clienteId !== undefined && {
           clienteId: body.clienteId,
+        }),
+        ...(body.entrenadorId !== undefined && {
+          entrenadorId: body.entrenadorId,
         }),
         ...(body.peso !== undefined && {
           peso: body.peso,

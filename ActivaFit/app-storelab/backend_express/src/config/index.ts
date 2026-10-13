@@ -13,10 +13,13 @@ import {
 import "../features/business/client/client.model";
 import "../features/business/plans/plan.model";
 import "../features/business/membership/membership.model";
+import "../features/business/attendances/attendance.model";
 import "../features/business/trainers/trainer.model";
 import "../features/business/routines/routine.model";
 import "../features/business/exercises/exercise.model";
+import "../features/business/routine-exercises/routine-exercise.model";
 import "../features/business/measurements/measurement.model";
+import "../features/business/payments/payment.model";
 
 // Auth - modelos
 import "../features/auth/users/user.model";
@@ -28,6 +31,7 @@ import "../features/auth/refresh-tokens/refresh-token.model";
 
 // Auth - asociaciones
 import "../features/auth/rbac.associations";
+import "../features/business/business.associations";
 
 import { Routes } from "../routes/index";
 import { setupSwagger } from "../swagger/index";
@@ -70,11 +74,18 @@ export class App {
     this.routePrv.clientRoutes.routes(this.app);
     this.routePrv.planRoutes.routes(this.app);
     this.routePrv.membershipRoutes.routes(this.app);
+    this.routePrv.attendanceRoutes.routes(this.app);
     this.routePrv.trainerRoutes.routes(this.app);
     this.routePrv.routineRoutes.routes(this.app);
     this.routePrv.exerciseRoutes.routes(this.app);
+    this.routePrv.routineExerciseRoutes.routes(this.app);
     this.routePrv.measurementRoutes.routes(this.app);
+    this.routePrv.paymentRoutes.routes(this.app);
     this.routePrv.usersRoutes.routes(this.app);
+    this.routePrv.rolesRoutes.routes(this.app);
+    this.routePrv.resourcesRoutes.routes(this.app);
+    this.routePrv.roleUsersRoutes.routes(this.app);
+    this.routePrv.resourceRolesRoutes.routes(this.app);
     this.routePrv.refreshTokensRoutes.routes(this.app);
     this.routePrv.sessionRoutes.routes(this.app);
   }

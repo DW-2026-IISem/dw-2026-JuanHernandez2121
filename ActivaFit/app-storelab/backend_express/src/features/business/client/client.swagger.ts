@@ -3,15 +3,14 @@
  *
  * Se agrega desde src/swagger (registry externo).
  *
- * Leyenda: endpoints documentados como SIN AUTH
- * (sin middleware JWT).
+ * Las rutas reales usan JWT + RBAC.
  */
 
 export const clientSwagger = {
   tags: [
     {
       name: "Clientes",
-      description: "CRUD de clientes — SIN AUTH (sin middleware JWT)",
+      description: "CRUD de clientes — JWT + RBAC",
     },
   ],
 
