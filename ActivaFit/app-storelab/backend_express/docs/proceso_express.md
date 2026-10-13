@@ -501,3 +501,9 @@
 ## **25.1 Preparación** 
 
 ![](images/clipboard-1621229793.png)
+
+## **25.2 Bloque A— Sesión login y permisos**
+
+### **A1 — Login admin**
+
+![](images/clipboard-251496984.png)
