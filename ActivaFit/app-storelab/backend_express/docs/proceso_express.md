@@ -507,3 +507,7 @@
 ### **A1 — Login admin**
 
 ![](images/clipboard-251496984.png)
+
+### **A2 — Login Seller**
+
+![](images/clipboard-3082745639.png)
