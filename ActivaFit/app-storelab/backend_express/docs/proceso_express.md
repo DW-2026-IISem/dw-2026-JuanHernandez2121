@@ -578,6 +578,8 @@
 
 #### 4.Actualizar (Put)
 
+![](images/clipboard-2424040841.png)
+
 #### 5.Actualizar (Patch)
 
 #### 6.Delete deleteOwnerPhysical
