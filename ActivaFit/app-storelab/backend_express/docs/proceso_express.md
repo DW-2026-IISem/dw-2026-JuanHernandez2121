@@ -549,3 +549,7 @@
 #### 3.Create
 
 ![](images/clipboard-3360374265.png)
+
+#### 4.Actualizar (Put)
+
+![](images/clipboard-3082804631.png)
