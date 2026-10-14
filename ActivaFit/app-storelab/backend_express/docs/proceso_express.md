@@ -574,6 +574,8 @@
 
 #### 3.Create
 
+![](images/clipboard-2992145986.png)
+
 #### 4.Actualizar (Put)
 
 #### 5.Actualizar (Patch)
