@@ -558,7 +558,7 @@
 
 ![](images/clipboard-2067124708.png)
 
-#### 5.Actualizar (Patch)
+#### 6.Delete deleteOwnerPhysical
 
 ![](images/clipboard-602820778.png)
 
@@ -570,10 +570,12 @@
 
 #### 2.GetOne
 
+![](images/clipboard-1817672300.png)
+
 #### 3.Create
 
 #### 4.Actualizar (Put)
 
 #### 5.Actualizar (Patch)
 
-#### 5.Actualizar (Patch)
+#### 6.Delete deleteOwnerPhysical
