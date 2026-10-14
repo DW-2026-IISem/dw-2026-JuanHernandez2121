@@ -1,6 +1,5 @@
 import { Application } from "express";
 import { MembershipController } from "./membership.controller";
-import { authenticate, authorize } from "../../auth/access";
 
 export class MembershipRoutes {
   public membershipController: MembershipController =

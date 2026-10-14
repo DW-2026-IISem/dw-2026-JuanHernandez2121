@@ -1,6 +1,5 @@
 import { Application } from "express";
 import { ClientController } from "./client.controller";
-import { authenticate, authorize } from "../../auth/access";
 
 export class ClientRoutes {
   public clientController: ClientController =

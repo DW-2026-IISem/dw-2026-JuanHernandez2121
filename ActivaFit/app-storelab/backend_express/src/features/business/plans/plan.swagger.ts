@@ -8,7 +8,7 @@ export const planSwagger = {
   tags: [
     {
       name: "Planes",
-      description: "CRUD de planes — JWT + RBAC",
+      description: "CRUD de planes — SIN AUTH",
     },
   ],
   paths: {

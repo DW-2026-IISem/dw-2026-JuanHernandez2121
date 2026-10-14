@@ -3,7 +3,7 @@ import { businessCrudSwagger } from "../../../shared/http/crud-swagger";
 export const routineExerciseSwagger = businessCrudSwagger({
   tag: "Rutina-ejercicios",
   description:
-    "Relación N:M entre rutina y ejercicio (principal_id / relacionado_id) — JWT + RBAC",
+    "Relación N:M entre rutina y ejercicio (principal_id / relacionado_id) — SIN AUTH",
   path: "/api/rutina-ejercicios",
   schemaName: "RoutineExercise",
   listKey: "routineExercises",

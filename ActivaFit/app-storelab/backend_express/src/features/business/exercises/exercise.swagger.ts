@@ -2,7 +2,7 @@ import { businessCrudSwagger } from "../../../shared/http/crud-swagger";
 
 export const exerciseSwagger = businessCrudSwagger({
   tag: "Ejercicios",
-  description: "Catálogo de ejercicios — JWT + RBAC",
+  description: "Catálogo de ejercicios — SIN AUTH",
   path: "/api/ejercicios",
   schemaName: "Exercise",
   listKey: "exercises",

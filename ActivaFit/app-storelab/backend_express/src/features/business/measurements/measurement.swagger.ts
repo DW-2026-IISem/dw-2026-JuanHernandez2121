@@ -3,7 +3,7 @@ import { businessCrudSwagger } from "../../../shared/http/crud-swagger";
 export const measurementSwagger = businessCrudSwagger({
   tag: "Mediciones",
   description:
-    "Seguimiento físico del cliente, registrado por un entrenador — JWT + RBAC",
+    "Seguimiento físico del cliente, registrado por un entrenador — SIN AUTH",
   path: "/api/mediciones",
   schemaName: "Measurement",
   listKey: "measurements",

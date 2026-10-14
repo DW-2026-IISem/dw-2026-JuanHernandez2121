@@ -3,7 +3,7 @@
  *
  * Se agrega desde src/swagger (registry externo).
  *
- * Las rutas reales usan JWT + RBAC.
+ * Las rutas reales son SIN AUTH (pruebas B2).
  */
 
 export const clientSwagger = {

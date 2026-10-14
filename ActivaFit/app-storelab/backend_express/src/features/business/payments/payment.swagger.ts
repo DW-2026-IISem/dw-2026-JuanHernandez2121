@@ -3,7 +3,7 @@ import { businessCrudSwagger } from "../../../shared/http/crud-swagger";
 export const paymentSwagger = businessCrudSwagger({
   tag: "Pagos",
   description:
-    "Cobros conciliados con una membresía (referencia_tipo + referencia_id) — JWT + RBAC",
+    "Cobros conciliados con una membresía (referencia_tipo + referencia_id) — SIN AUTH",
   path: "/api/pagos",
   schemaName: "Payment",
   listKey: "payments",

@@ -2,7 +2,7 @@ import { businessCrudSwagger } from "../../../shared/http/crud-swagger";
 
 export const membershipSwagger = businessCrudSwagger({
   tag: "Membresías",
-  description: "Membresía de un cliente sobre un plan — JWT + RBAC",
+  description: "Membresía de un cliente sobre un plan — SIN AUTH",
   path: "/api/membresias",
   schemaName: "Membership",
   listKey: "memberships",

@@ -1,9 +1,7 @@
 import {
-  bearerSecurity,
-  forbiddenResponse,
   invalidIdResponse,
   notFoundResponse,
-  unauthorizedResponse,
+  openSecurity,
 } from "./swagger-security";
 
 export type FeatureSwaggerModule = {
@@ -39,32 +37,24 @@ function idParam() {
 export function businessCrudSwagger(
   cfg: CrudSwaggerConfig
 ): FeatureSwaggerModule {
-  const auth = {
-    security: bearerSecurity,
-    "401": unauthorizedResponse,
-    "403": forbiddenResponse,
-  };
-
   const paths: Record<string, unknown> = {
     [cfg.path]: {
       get: {
         tags: [cfg.tag],
         summary: `Listar ${cfg.tag.toLowerCase()}`,
-        description: `JWT + RBAC — GET ${cfg.path}`,
-        security: auth.security,
+        description: `SIN AUTH — GET ${cfg.path}`,
+        security: openSecurity,
         responses: {
           "200": {
             description: `Lista ({ ${cfg.listKey}: [...] })`,
           },
-          "401": auth["401"],
-          "403": auth["403"],
         },
       },
       post: {
         tags: [cfg.tag],
         summary: `Crear`,
-        description: `JWT + RBAC — POST ${cfg.path}`,
-        security: auth.security,
+        description: `SIN AUTH — POST ${cfg.path}`,
+        security: openSecurity,
         requestBody: {
           required: true,
           content: {
@@ -76,8 +66,6 @@ export function businessCrudSwagger(
         responses: {
           "201": { description: "Creado" },
           "400": { description: "Datos inválidos o FK inactiva" },
-          "401": auth["401"],
-          "403": auth["403"],
         },
       },
     },
@@ -85,22 +73,20 @@ export function businessCrudSwagger(
       get: {
         tags: [cfg.tag],
         summary: "Consultar por id",
-        description: `JWT + RBAC — GET ${cfg.path}/:id`,
-        security: auth.security,
+        description: `SIN AUTH — GET ${cfg.path}/:id`,
+        security: openSecurity,
         parameters: idParam(),
         responses: {
           "200": { description: `{ ${cfg.itemKey} }` },
           "400": invalidIdResponse,
-          "401": auth["401"],
-          "403": auth["403"],
           "404": notFoundResponse,
         },
       },
       put: {
         tags: [cfg.tag],
         summary: "Reemplazar",
-        description: `JWT + RBAC — PUT ${cfg.path}/:id`,
-        security: auth.security,
+        description: `SIN AUTH — PUT ${cfg.path}/:id`,
+        security: openSecurity,
         parameters: idParam(),
         requestBody: {
           required: true,
@@ -113,16 +99,14 @@ export function businessCrudSwagger(
         responses: {
           "200": { description: "Actualizado" },
           "400": invalidIdResponse,
-          "401": auth["401"],
-          "403": auth["403"],
           "404": notFoundResponse,
         },
       },
       patch: {
         tags: [cfg.tag],
         summary: "Modificar",
-        description: `JWT + RBAC — PATCH ${cfg.path}/:id`,
-        security: auth.security,
+        description: `SIN AUTH — PATCH ${cfg.path}/:id`,
+        security: openSecurity,
         parameters: idParam(),
         requestBody: {
           content: {
@@ -134,22 +118,18 @@ export function businessCrudSwagger(
         responses: {
           "200": { description: "Actualizado" },
           "400": invalidIdResponse,
-          "401": auth["401"],
-          "403": auth["403"],
           "404": notFoundResponse,
         },
       },
       delete: {
         tags: [cfg.tag],
         summary: "Eliminar físicamente",
-        description: `JWT + RBAC — DELETE ${cfg.path}/:id`,
-        security: auth.security,
+        description: `SIN AUTH — DELETE ${cfg.path}/:id`,
+        security: openSecurity,
         parameters: idParam(),
         responses: {
           "200": { description: "Eliminado" },
           "400": invalidIdResponse,
-          "401": auth["401"],
-          "403": auth["403"],
           "404": notFoundResponse,
         },
       },
@@ -161,13 +141,11 @@ export function businessCrudSwagger(
       patch: {
         tags: [cfg.tag],
         summary: "Desactivar (borrado lógico)",
-        description: `JWT + RBAC — PATCH ${cfg.path}/:id/deactivate`,
-        security: auth.security,
+        description: `SIN AUTH — PATCH ${cfg.path}/:id/deactivate`,
+        security: openSecurity,
         parameters: idParam(),
         responses: {
           "200": { description: "Desactivado" },
-          "401": auth["401"],
-          "403": auth["403"],
           "404": notFoundResponse,
         },
       },

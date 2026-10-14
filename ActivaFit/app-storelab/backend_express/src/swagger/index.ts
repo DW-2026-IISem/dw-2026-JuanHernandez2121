@@ -69,7 +69,7 @@ export function buildOpenApiDocument() {
       title: "ActivaFit API",
       version: "1.0.0",
       description:
-        "API de ActivaFit (Express + Sequelize): membresías, asistencia, rutinas, mediciones y cobros. Las rutas de negocio y administración usan JWT + RBAC. Login, refresh y logout son abiertos.",
+        "API de ActivaFit (Express + Sequelize): membresías, asistencia, rutinas, mediciones y cobros. El CRUD de negocio (clientes, planes, membresías, etc.) es abierto. Usuarios, roles y permisos usan JWT + RBAC. Login, refresh y logout son abiertos.",
     },
 
     servers: [

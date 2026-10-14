@@ -619,3 +619,7 @@
 ### 1.GetAll
 
 ![](images/clipboard-3747734587.png)
+
+### 2.GetOne
+
+![](images/clipboard-2577943981.png)
