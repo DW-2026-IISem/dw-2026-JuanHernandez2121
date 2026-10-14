@@ -594,4 +594,6 @@
 
 ![](images/clipboard-2213238355.png)
 
-###  
+###  2.GetOne
+
+![](images/clipboard-574423054.png)
