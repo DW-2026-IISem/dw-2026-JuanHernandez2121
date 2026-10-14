@@ -631,3 +631,11 @@
 ### 4.Actualizar (Put)
 
 ![](images/clipboard-2178469291.png)
+
+### 5.Actualizar (Patch)
+
+![](images/clipboard-4086919471.png)
+
+#### 6.Delete deleteAppointmentPhysical
+
+![](images/clipboard-3155922288.png)
