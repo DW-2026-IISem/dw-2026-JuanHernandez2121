@@ -10,15 +10,11 @@ export class MembershipRoutes {
     app
       .route("/api/membresias")
       .get(
-        authenticate,
-        authorize,
         this.membershipController.getAll.bind(
           this.membershipController
         )
       )
       .post(
-        authenticate,
-        authorize,
         this.membershipController.create.bind(
           this.membershipController
         )
@@ -27,29 +23,21 @@ export class MembershipRoutes {
     app
       .route("/api/membresias/:id")
       .get(
-        authenticate,
-        authorize,
         this.membershipController.getOne.bind(
           this.membershipController
         )
       )
       .put(
-        authenticate,
-        authorize,
         this.membershipController.updatePut.bind(
           this.membershipController
         )
       )
       .patch(
-        authenticate,
-        authorize,
         this.membershipController.updatePatch.bind(
           this.membershipController
         )
       )
       .delete(
-        authenticate,
-        authorize,
         this.membershipController.deletePhysical.bind(
           this.membershipController
         )
@@ -58,8 +46,6 @@ export class MembershipRoutes {
     app
       .route("/api/membresias/:id/deactivate")
       .patch(
-        authenticate,
-        authorize,
         this.membershipController.deleteLogical.bind(
           this.membershipController
         )

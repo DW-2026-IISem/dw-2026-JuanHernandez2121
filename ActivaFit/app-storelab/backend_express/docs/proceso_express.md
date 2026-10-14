@@ -587,3 +587,11 @@
 #### 6.Delete deleteOwnerPhysical
 
 ![](images/clipboard-828820107.png)
+
+### **B4 Tabla Membership**
+
+### 1.GetAll
+
+![](images/clipboard-2213238355.png)
+
+###  
