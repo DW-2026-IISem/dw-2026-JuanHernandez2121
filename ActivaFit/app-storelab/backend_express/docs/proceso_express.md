@@ -613,3 +613,9 @@
 #### 6.Delete deleteAppointmentPhysical
 
 ![](images/clipboard-1765503008.png)
+
+### **B5 Tablas Membership**
+
+### 1.GetAll
+
+![](images/clipboard-3747734587.png)
