@@ -582,4 +582,6 @@
 
 #### 5.Actualizar (Patch)
 
+![](images/clipboard-2742368017.png)
+
 #### 6.Delete deleteOwnerPhysical
