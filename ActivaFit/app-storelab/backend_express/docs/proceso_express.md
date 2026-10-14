@@ -557,3 +557,7 @@
 #### 5.Actualizar (Patch)
 
 ![](images/clipboard-2067124708.png)
+
+#### 6.Delete deleteOwnerLogical
+
+![](images/clipboard-602820778.png)
