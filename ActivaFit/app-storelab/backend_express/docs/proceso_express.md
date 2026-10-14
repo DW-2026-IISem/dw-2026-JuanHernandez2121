@@ -585,3 +585,5 @@
 ![](images/clipboard-2742368017.png)
 
 #### 6.Delete deleteOwnerPhysical
+
+![](images/clipboard-828820107.png)
