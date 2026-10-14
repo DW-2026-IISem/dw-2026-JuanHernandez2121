@@ -553,3 +553,7 @@
 #### 4.Actualizar (Put)
 
 ![](images/clipboard-3082804631.png)
+
+#### 5.Actualizar (Patch)
+
+![](images/clipboard-2067124708.png)
