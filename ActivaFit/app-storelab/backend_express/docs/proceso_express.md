@@ -558,6 +558,22 @@
 
 ![](images/clipboard-2067124708.png)
 
-#### 6.Delete deleteOwnerLogical
+#### 5.Actualizar (Patch)
 
 ![](images/clipboard-602820778.png)
+
+### **B3 Tablas Client**
+
+#### 1.GetAll
+
+![](images/clipboard-88027839.png)
+
+#### 2.GetOne
+
+#### 3.Create
+
+#### 4.Actualizar (Put)
+
+#### 5.Actualizar (Patch)
+
+#### 5.Actualizar (Patch)
