@@ -528,7 +528,7 @@
 
 ## **25.3 Bloque B — Sin Autenticación**
 
-### **B1 Tabla Client** 
+### **B1 Tabla Client**
 
 ![](images/clipboard-1916524036.png)
 
@@ -594,7 +594,7 @@
 
 ![](images/clipboard-2213238355.png)
 
-###  2.GetOne
+### 2.GetOne
 
 ![](images/clipboard-574423054.png)
 
@@ -605,3 +605,11 @@
 ### 4.Actualizar (Put)
 
 ![](images/clipboard-1562653221.png)
+
+### 5.Actualizar (Patch)
+
+![](images/clipboard-708288725.png)
+
+#### 6.Delete deleteAppointmentPhysical
+
+![](images/clipboard-1765503008.png)
