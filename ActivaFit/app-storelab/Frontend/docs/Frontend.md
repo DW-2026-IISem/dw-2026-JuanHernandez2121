@@ -17,3 +17,7 @@
 ![](images/clipboard-3586229253.png)
 
 ![](images/clipboard-2500710616.png)
+
+## **0.4 Credenciales del seeder**
+
+![](images/clipboard-1232356981.png)
