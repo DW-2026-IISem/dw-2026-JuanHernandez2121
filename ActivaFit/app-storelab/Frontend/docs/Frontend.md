@@ -31,3 +31,9 @@
 ## **Verificación del ISS**
 
 ![](images/clipboard-2444304555.png)
+
+# **1.ISS-01 · Bootstrap Angular 22 con CLI, Tailwind y PrimeNG**
+
+## **1.1 Crear el proyecto en la carpeta actual**
+
+![](images/clipboard-3488756369.png)
