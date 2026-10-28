@@ -15,3 +15,5 @@
 ## **0.3 Login y permisos**
 
 ![](images/clipboard-3586229253.png)
+
+![](images/clipboard-2500710616.png)
