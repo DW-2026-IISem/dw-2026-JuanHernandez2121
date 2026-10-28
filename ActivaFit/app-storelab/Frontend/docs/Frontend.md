@@ -7,3 +7,7 @@
 ![](images/clipboard-1980641002.png)
 
 ![](images/clipboard-3580469171.png)
+
+## **0.2 Backend en marcha (preparación para integrar HTTP)**
+
+![](images/clipboard-2764398181.png)
