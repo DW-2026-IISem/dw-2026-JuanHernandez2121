@@ -11,3 +11,7 @@
 ## **0.2 Backend en marcha (preparación para integrar HTTP)**
 
 ![](images/clipboard-2764398181.png)
+
+## **0.3 Login y permisos**
+
+![](images/clipboard-3586229253.png)
