@@ -5,3 +5,5 @@
 ## **0.1 Node, npm y Angular CLI**
 
 ![](images/clipboard-1980641002.png)
+
+![](images/clipboard-3580469171.png)
