@@ -53,3 +53,9 @@
 ### 1.4.1 Licencia de PrimeNG 22 
 
 ![](images/clipboard-2309890106.png)
+
+## 1.5 Pantalla de arranque
+
+![](images/clipboard-2842979598.png)
+
+![](images/clipboard-3508720367.png)

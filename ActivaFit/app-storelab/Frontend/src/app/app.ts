@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Ejemplo } from './demo/ejemplo/ejemplo';
 
 @Component({
-  imports: [RouterOutlet],
+  host: { class: 'block' },
   selector: 'app-root',
-  styleUrl: './app.css',
+  standalone: true,
+  imports: [Ejemplo],
   templateUrl: './app.html',
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('activa-fit-frontend');
-}
+export class App {}

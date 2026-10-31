@@ -1,0 +1,68 @@
+<section class="py-8">
+  <div class="mb-6">
+    <p-tag value="ACTIVAFIT" severity="success" />
+
+    <h1 class="mt-4 text-3xl font-bold text-slate-800">
+      Bienvenido a ActivaFit
+    </h1>
+
+    <p class="mt-2 text-slate-600">
+      Administra tus planes y membresías desde nuestra plataforma.
+    </p>
+  </div>
+
+  <p-card>
+    <div class="flex flex-col gap-4">
+      <div>
+        <span class="text-sm font-medium text-slate-500">
+          Membresía de gimnasio
+        </span>
+
+        <h2 class="mt-2 text-2xl font-bold text-slate-800">
+          {{ plan.nombre }}
+        </h2>
+
+        <p class="mt-2 text-slate-600">
+          {{ plan.descripcion }}
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <p-tag [value]="plan.estado" severity="success" />
+        <span class="text-sm text-slate-500">
+          Duración: {{ plan.duracion }}
+        </span>
+      </div>
+
+      <div>
+        <p class="text-sm text-slate-500">Precio del plan</p>
+
+        <p class="mt-1 text-3xl font-bold text-primary">
+          {{ plan.precio }}
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <p-button
+          label="Ver detalles"
+          icon="pi pi-eye"
+          (onClick)="verDetalles()"
+        />
+
+        <p-button
+          label="Consultar plan"
+          icon="pi pi-search"
+          severity="secondary"
+          [outlined]="true"
+          (onClick)="consultarPlan()"
+        />
+      </div>
+
+      @if (mensaje) {
+        <p class="text-sm text-green-700" aria-live="polite">
+          {{ mensaje }}
+        </p>
+      }
+    </div>
+  </p-card>
+</section>
