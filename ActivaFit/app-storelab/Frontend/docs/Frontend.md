@@ -79,3 +79,9 @@
 ### 1.9.3 Leer `ejemplo.ts` línea a línea
 
 ![](images/clipboard-2010182241.png)
+
+### **1.9.6 `computed` y `effect`: derivar y reaccionar - 1.9.9 Errores comunes**
+
+![](images/clipboard-1693515319.png)
+
+![](images/clipboard-214505767.png)
