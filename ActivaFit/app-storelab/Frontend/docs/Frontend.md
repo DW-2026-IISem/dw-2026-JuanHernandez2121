@@ -49,3 +49,7 @@
 ## 1.4 Configurar PrimeNG
 
 ![](images/clipboard-4132569259.png)
+
+### 1.4.1 Licencia de PrimeNG 22 
+
+![](images/clipboard-2309890106.png)
