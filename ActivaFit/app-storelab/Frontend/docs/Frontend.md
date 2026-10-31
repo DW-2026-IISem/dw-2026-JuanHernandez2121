@@ -71,3 +71,7 @@
 ## 1.8 Primera ejecución
 
 ![](images/clipboard-1376869419.png)
+
+## 1.9 Anatomía del componente
+
+![](images/clipboard-1000809613.png)
