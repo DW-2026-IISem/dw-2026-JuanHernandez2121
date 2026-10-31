@@ -59,3 +59,7 @@
 ![](images/clipboard-2842979598.png)
 
 ![](images/clipboard-3508720367.png)
+
+## 1.6 Personalizar 
+
+![](images/clipboard-1391943812.png)
