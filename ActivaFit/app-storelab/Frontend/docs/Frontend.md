@@ -75,3 +75,7 @@
 ## 1.9 Anatomía del componente
 
 ![](images/clipboard-1000809613.png)
+
+### 1.9.3 Leer `ejemplo.ts` línea a línea
+
+![](images/clipboard-2010182241.png)
