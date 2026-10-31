@@ -85,3 +85,7 @@
 ![](images/clipboard-1693515319.png)
 
 ![](images/clipboard-214505767.png)
+
+## Verificación del ISS
+
+![](images/clipboard-1744346359.png)
