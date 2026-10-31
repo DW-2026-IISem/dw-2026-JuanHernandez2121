@@ -38,6 +38,10 @@
 
 ![](images/clipboard-3488756369.png)
 
-## **1.2 Instalar PrimeNG compatible con Angula**
+## **1.2 Instalar PrimeNG compatible con Angular**
 
 ![](images/clipboard-681212818.png)
+
+## **1.3 Estilos globales**
+
+![](images/clipboard-2425900239.png)
