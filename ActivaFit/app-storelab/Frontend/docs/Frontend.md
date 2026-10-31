@@ -63,3 +63,7 @@
 ## 1.6 Personalizar 
 
 ![](images/clipboard-1391943812.png)
+
+## 1.7 Ajustar el presupuesto de build
+
+![](images/clipboard-465327057.png)
