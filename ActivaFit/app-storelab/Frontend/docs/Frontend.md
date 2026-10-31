@@ -37,3 +37,7 @@
 ## **1.1 Crear el proyecto en la carpeta actual**
 
 ![](images/clipboard-3488756369.png)
+
+## **1.2 Instalar PrimeNG compatible con Angula**
+
+![](images/clipboard-681212818.png)
