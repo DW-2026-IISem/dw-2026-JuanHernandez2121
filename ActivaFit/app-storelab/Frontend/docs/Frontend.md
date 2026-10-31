@@ -45,3 +45,7 @@
 ## **1.3 Estilos globales**
 
 ![](images/clipboard-2425900239.png)
+
+## 1.4 Configurar PrimeNG
+
+![](images/clipboard-4132569259.png)
