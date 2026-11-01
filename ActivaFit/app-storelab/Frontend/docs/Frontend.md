@@ -195,3 +195,9 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## Verificación del ISS
 
 ![](images/clipboard-699053868.png)
+
+# Fase I: Frontend — ISS-02 — Núcleo: environment, modelos, servicios y layout
+
+## 2.1 `environment`: una sola URL para todo el frente
+
+![](images/clipboard-730668768.png)
