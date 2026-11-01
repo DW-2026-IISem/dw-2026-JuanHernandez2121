@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  imports: [],
+  host: { class: 'block' },
   selector: 'app-header',
-  styleUrl: './header.css',
   templateUrl: './header.html',
+  styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  readonly title = 'ActivaFit · Gestión de Gimnasio';
+}

@@ -117,3 +117,7 @@ En el componente principal se deben importar los componentes que se van a utiliz
 ## 1.2 Generar las tres piezas de `layout/`
 
 ![](images/clipboard-949080365.png)
+
+## 1.3 Contenido de cada componente
+
+![](images/clipboard-1728785338.png)

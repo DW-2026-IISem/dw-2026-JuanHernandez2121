@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
 
+/**
+ * Menú lateral de navegación de ActivaFit.
+ *
+ * ISS-01A: contiene únicamente la presentación del menú.
+ * No consulta la API ni administra permisos.
+ */
 @Component({
-  imports: [],
+  host: { class: 'block h-full' },
   selector: 'app-aside',
-  styleUrl: './aside.css',
   templateUrl: './aside.html',
+  styleUrl: './aside.css',
 })
 export class Aside {}

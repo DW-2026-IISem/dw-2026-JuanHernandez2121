@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
 
+/**
+ * Pie de página de ActivaFit.
+ *
+ * Componente de presentación:
+ * no tiene estado ni depende de servicios.
+ */
 @Component({
-  imports: [],
+  host: { class: 'block' },
   selector: 'app-footer',
-  styleUrl: './footer.css',
   templateUrl: './footer.html',
+  styleUrl: './footer.css',
 })
 export class Footer {}
