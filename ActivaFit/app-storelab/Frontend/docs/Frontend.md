@@ -181,3 +181,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 1.4 `features/construir`: estado local y Drawer móvil
 
 ![](images/clipboard-2429575633.png)
+
+## 1.5 `App` pasa a ser punto de entrada con `router-outlet`
+
+![](images/clipboard-3977332041.png)

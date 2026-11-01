@@ -1,21 +1,17 @@
 import { Component } from '@angular/core';
-import { Header } from './layout/header/header';
-import { Aside } from './layout/aside/aside';
-import { Footer } from './layout/footer/footer';
+import { RouterOutlet } from '@angular/router';
 
 /**
  * Componente principal de ActivaFit.
  *
- * Compone las cuatro regiones de la aplicación:
- * Header, Aside, contenido principal y Footer.
+ * El router selecciona qué componente se muestra
+ * dentro de RouterOutlet según la URL.
  */
 @Component({
   host: { class: 'block' },
   selector: 'app-root',
-  imports: [Header, Aside, Footer],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = 'Inicio';
-}
+export class App {}
