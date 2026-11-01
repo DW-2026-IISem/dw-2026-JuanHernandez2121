@@ -135,3 +135,41 @@ En el componente principal se deben importar los componentes que se van a utiliz
 ## Verificación del ISS
 
 ![](images/clipboard-4045774715.png)
+
+# Fase I: Frontend — ISS-01B — Menú PrimeNG y primera interacción
+
+## 1.1 Los conceptos que se agregan, uno por vez
+
+#### 1. `input()` — Recibir información
+
+Permite que un componente padre le envíe información a un componente hijo.
+
+Por ejemplo, en ActivaFit, el componente `Construir` le enviará al `Aside` las opciones que debe mostrar en el menú.
+
+También podemos enviar el nombre de la aplicación al Header.
+
+#### 2. `output()` — Enviar avisos
+
+Permite que un componente hijo informe al componente padre que ocurrió una acción.
+
+Por ejemplo, cuando el usuario presione el botón del menú en el Header, este enviará un aviso llamado `menuRequested`.
+
+#### 3. `signal()` — Administrar el estado propio
+
+Permite almacenar información que puede cambiar durante la ejecución de la aplicación y actualizar automáticamente la plantilla cuando cambia su valor.
+
+En ActivaFit lo utilizaremos para controlar el título de la pantalla y la visibilidad del menú.
+
+#### 4. Enlaces entre componentes y plantillas
+
+Angular utiliza diferentes formas de comunicación entre la clase TypeScript y el HTML.
+
+| Sintaxis | Función | Ejemplo |
+|----|----|----|
+| `[propiedad]` | Envía un valor desde la clase hacia una propiedad del componente. | `[model]="items()"` |
+| `(evento)` | Escucha una acción o evento. | `(menuRequested)="mobileOpen.set(true)"` |
+| `[(visible)]` | Permite comunicar el estado en ambas direcciones. | `[(visible)]="mobileOpen"` |
+
+## 1.2 El Aside recibe el menú con `input()`
+
+![](images/clipboard-3892466149.png)
