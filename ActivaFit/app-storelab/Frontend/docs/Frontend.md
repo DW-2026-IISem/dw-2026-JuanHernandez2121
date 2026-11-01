@@ -201,3 +201,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 2.1 `environment`: una sola URL para todo el frente
 
 ![](images/clipboard-730668768.png)
+
+### 2.1.1 Licencia PrimeUI (`primeUiLicense`)
+
+![](images/clipboard-3132259616.png)
