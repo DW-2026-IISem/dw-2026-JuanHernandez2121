@@ -131,3 +131,7 @@ En el componente principal se deben importar los componentes que se van a utiliz
 ![](images/clipboard-1633110595.png)
 
 ![](images/clipboard-436455653.png)
+
+## Verificación del ISS
+
+![](images/clipboard-4045774715.png)
