@@ -191,3 +191,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ![](images/clipboard-3021972119.png)
 
 ![](images/clipboard-2644760982.png)
+
+## Verificación del ISS
+
+![](images/clipboard-699053868.png)
