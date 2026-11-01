@@ -50,7 +50,7 @@
 
 ![](images/clipboard-4132569259.png)
 
-### 1.4.1 Licencia de PrimeNG 22 
+### 1.4.1 Licencia de PrimeNG 22
 
 ![](images/clipboard-2309890106.png)
 
@@ -60,7 +60,7 @@
 
 ![](images/clipboard-3508720367.png)
 
-## 1.6 Personalizar 
+## 1.6 Personalizar
 
 ![](images/clipboard-1391943812.png)
 
@@ -89,3 +89,31 @@
 ## Verificación del ISS
 
 ![](images/clipboard-1744346359.png)
+
+# Fase I: Frontend — ISS-01A — Esqueleto Header / Aside / contenido / Footer
+
+## 1.1 Qué es un componente y por qué el padre debe importarlo
+
+Un componente en Angular es una parte independiente de la aplicación que reúne tres elementos principales: una clase TypeScript, una plantilla HTML y un archivo CSS. Estos elementos permiten organizar la aplicación en diferentes secciones y reutilizar partes de la interfaz.
+
+El decorador `@Component` relaciona estos archivos y define cómo se utiliza cada componente.
+
+| Campo | ¿Qué función cumple? | Ejemplo en este ISS |
+|----|----|----|
+| `selector` | Define la etiqueta con la que se utiliza el componente en otra plantilla. | `selector: 'app-header'` → `<app-header />` |
+| `imports` | Indica qué componentes o módulos necesita utilizar su propia plantilla. | `[]` en el Header de ISS-01A. |
+| `templateUrl` | Indica dónde se encuentra el archivo HTML. | `./header.html` |
+| `styleUrl` | Indica dónde se encuentra el archivo de estilos CSS. | `./header.css` |
+| `host` | Permite establecer características o clases en el elemento principal del componente. | `host: { class: 'block' }` |
+
+¿Por qué el componente padre debe importarlo?
+
+En Angular, crear un componente no significa que automáticamente aparezca en la aplicación. Para que un componente pueda mostrarse dentro de otro, se deben realizar dos pasos:
+
+Paso 1. Importar el componente en `app.ts`.
+
+En el componente principal se deben importar los componentes que se van a utilizar:
+
+## 1.2 Generar las tres piezas de `layout/`
+
+![](images/clipboard-949080365.png)
