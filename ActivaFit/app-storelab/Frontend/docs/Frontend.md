@@ -205,3 +205,9 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ### 2.1.1 Licencia PrimeUI (`primeUiLicense`)
 
 ![](images/clipboard-3132259616.png)
+
+![](images/clipboard-3387660265.png)
+
+## 2.2 Modelos: reflejar el backend, no inventarlo
+
+![](images/clipboard-1566435947.png)
