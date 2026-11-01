@@ -121,3 +121,7 @@ En el componente principal se deben importar los componentes que se van a utiliz
 ## 1.3 Contenido de cada componente
 
 ![](images/clipboard-1728785338.png)
+
+## 1.4 Componer las cuatro regiones en `App`
+
+![](images/clipboard-3968905489.png)

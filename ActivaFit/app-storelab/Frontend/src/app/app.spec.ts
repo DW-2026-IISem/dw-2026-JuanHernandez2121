@@ -8,28 +8,37 @@ describe('App', () => {
     }).compileComponents();
   });
 
+  async function crearApp() {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    return fixture.nativeElement as HTMLElement;
+  }
+
   it('should create the app', () => {
     const fixture = TestBed.createComponent(App);
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should render the example component', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    fixture.detectChanges();
+  it('should compose the three layout regions', async () => {
+    const compilado = await crearApp();
 
-    const compiled = fixture.nativeElement as HTMLElement;
-
-    expect(compiled.querySelector('app-ejemplo')).toBeTruthy();
+    expect(compilado.querySelector('app-header')).toBeTruthy();
+    expect(compilado.querySelector('aside app-aside')).toBeTruthy();
+    expect(compilado.querySelector('app-footer')).toBeTruthy();
   });
 
-  it('should show the ActivaFit monthly plan', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    fixture.detectChanges();
+  it('should render the application name in the header', async () => {
+    const compilado = await crearApp();
+    const header = compilado.querySelector('app-header') as HTMLElement;
 
-    const compiled = fixture.nativeElement as HTMLElement;
+    expect(header.textContent).toContain('ActivaFit · Gestión de Gimnasio');
+  });
 
-    expect(compiled.textContent).toContain('Plan Mensual');
+  it('should render the initial title in the content', async () => {
+    const compilado = await crearApp();
+    const main = compilado.querySelector('main') as HTMLElement;
+
+    expect(main.textContent).toContain('Inicio');
+    expect(main.textContent).toContain('Bienvenido a ActivaFit.');
   });
 });

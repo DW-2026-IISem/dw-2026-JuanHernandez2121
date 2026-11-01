@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { Ejemplo } from './demo/ejemplo/ejemplo';
+import { Header } from './layout/header/header';
+import { Aside } from './layout/aside/aside';
+import { Footer } from './layout/footer/footer';
 
+/**
+ * Componente principal de ActivaFit.
+ *
+ * Compone las cuatro regiones de la aplicación:
+ * Header, Aside, contenido principal y Footer.
+ */
 @Component({
   host: { class: 'block' },
   selector: 'app-root',
-  standalone: true,
-  imports: [Ejemplo],
+  imports: [Header, Aside, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {}
+export class App {
+  protected readonly title = 'Inicio';
+}
