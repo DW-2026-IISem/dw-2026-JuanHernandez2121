@@ -173,3 +173,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 1.2 El Aside recibe el menú con `input()`
 
 ![](images/clipboard-3892466149.png)
+
+## 1.3 El Header avisa al padre con `output()`
+
+![](images/clipboard-1167556448.png)
