@@ -185,3 +185,9 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 1.5 `App` pasa a ser punto de entrada con `router-outlet`
 
 ![](images/clipboard-3977332041.png)
+
+## 1.6 Comprobar antes de avanzar
+
+![](images/clipboard-3021972119.png)
+
+![](images/clipboard-2644760982.png)
