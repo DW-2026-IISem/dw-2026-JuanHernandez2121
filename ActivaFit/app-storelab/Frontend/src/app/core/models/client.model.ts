@@ -1,9 +1,6 @@
 import { Status, Timestamps } from './api.model';
 
-/**
- * Cliente devuelto por el backend.
- * Nunca incluye la contraseña.
- */
+/** Cliente devuelto por el backend. No incluye password. */
 export interface Client extends Timestamps {
   id: number;
   name: string;
@@ -13,9 +10,7 @@ export interface Client extends Timestamps {
   status: Status;
 }
 
-/**
- * Datos enviados al backend para crear o actualizar un cliente.
- */
+/** Datos para crear o actualizar un cliente. */
 export interface ClientPayload {
   name: string;
   address?: string | null;

@@ -211,3 +211,15 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 2.2 Modelos: reflejar el backend, no inventarlo
 
 ![](images/clipboard-1566435947.png)
+
+![](images/clipboard-2180547244.png)
+
+![](images/clipboard-363295401.png)
+
+## 2.3 Servicios HTTP por feature: desenvolver la respuesta
+
+![](images/clipboard-453966537.png)
+
+![](images/clipboard-2726904436.png)
+
+![](images/clipboard-1188614369.png)

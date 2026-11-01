@@ -1,7 +1,10 @@
+
 import {
   ApplicationConfig,
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
+
+import { provideHttpClient } from '@angular/common/http';
 
 import {
   provideRouter,
@@ -19,6 +22,9 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
+
+    // Cliente HTTP para conectar con el backend
+    provideHttpClient(),
 
     provideRouter(
       routes,
