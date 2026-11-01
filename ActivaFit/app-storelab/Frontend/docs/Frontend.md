@@ -177,3 +177,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 1.3 El Header avisa al padre con `output()`
 
 ![](images/clipboard-1167556448.png)
+
+## 1.4 `features/construir`: estado local y Drawer móvil
+
+![](images/clipboard-2429575633.png)
