@@ -233,3 +233,11 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ![](images/clipboard-735128766.png)
 
 ![](images/clipboard-1208803899.png)
+
+## 2.6 `Shell`: conservar el esqueleto al navegar
+
+![](images/clipboard-57753537.png)
+
+![](images/clipboard-852704591.png)
+
+![](images/clipboard-2766466897.png)
