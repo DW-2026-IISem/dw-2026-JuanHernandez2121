@@ -99,7 +99,7 @@ Un componente en Angular es una parte independiente de la aplicación que reúne
 El decorador `@Component` relaciona estos archivos y define cómo se utiliza cada componente.
 
 | Campo | ¿Qué función cumple? | Ejemplo en este ISS |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `selector` | Define la etiqueta con la que se utiliza el componente en otra plantilla. | `selector: 'app-header'` → `<app-header />` |
 | `imports` | Indica qué componentes o módulos necesita utilizar su propia plantilla. | `[]` en el Header de ISS-01A. |
 | `templateUrl` | Indica dónde se encuentra el archivo HTML. | `./header.html` |
@@ -165,7 +165,7 @@ En ActivaFit lo utilizaremos para controlar el título de la pantalla y la visib
 Angular utiliza diferentes formas de comunicación entre la clase TypeScript y el HTML.
 
 | Sintaxis | Función | Ejemplo |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `[propiedad]` | Envía un valor desde la clase hacia una propiedad del componente. | `[model]="items()"` |
 | `(evento)` | Escucha una acción o evento. | `(menuRequested)="mobileOpen.set(true)"` |
 | `[(visible)]` | Permite comunicar el estado en ambas direcciones. | `[(visible)]="mobileOpen"` |
@@ -268,4 +268,6 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 
 ![](images/clipboard-2547283670.png)
 
-![](images/clipboard-2579978237.png)
+## 3.6 Baja lógica vs baja física
+
+![](images/clipboard-510164470.png)
