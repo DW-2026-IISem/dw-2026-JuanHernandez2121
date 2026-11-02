@@ -263,3 +263,9 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ![](images/clipboard-910061443.png)
 
 ![](images/clipboard-3939016248.png)
+
+## 3.4 Lista con estado en Signals
+
+![](images/clipboard-2547283670.png)
+
+![](images/clipboard-2579978237.png)

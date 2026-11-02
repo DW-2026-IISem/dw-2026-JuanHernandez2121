@@ -1,1 +1,225 @@
-<p>client-list works!</p>
+<!-- Encabezado de la página -->
+<app-page-header
+  title="Gestión de clientes"
+  subtitle="Administra los clientes registrados en ActivaFit."
+>
+
+  <button
+    pButton
+    type="button"
+    (click)="openCreate()"
+  >
+    <i pButtonIcon class="pi pi-plus"></i>
+    <span pButtonLabel>Nuevo cliente</span>
+  </button>
+
+</app-page-header>
+
+<!-- Mensaje de error -->
+@if (error()) {
+  <p-message
+    severity="error"
+    size="small"
+    class="mb-4 w-full"
+  >
+    {{ error() }}
+  </p-message>
+
+  <div class="mb-4">
+    <button
+      pButton
+      type="button"
+      severity="secondary"
+      outlined
+      (click)="load()"
+    >
+      <i pButtonIcon class="pi pi-refresh"></i>
+      <span pButtonLabel>Reintentar</span>
+    </button>
+  </div>
+}
+
+<!-- Contenido principal -->
+<section class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+
+  <!-- Buscador -->
+  <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+
+    <div>
+      <h2 class="text-lg font-semibold text-slate-800">
+        Clientes registrados
+      </h2>
+
+      <p class="text-sm text-slate-500">
+        Total de clientes: {{ rows().length }}
+      </p>
+    </div>
+
+    <div class="w-full sm:max-w-sm">
+
+      <input
+        pInputText
+        type="search"
+        [value]="filter()"
+        (input)="filter.set($any($event.target).value)"
+        placeholder="Buscar por nombre, correo o teléfono..."
+        class="w-full"
+      />
+
+    </div>
+
+  </div>
+
+  <!-- Tabla de clientes -->
+  @if (!loading() && visibleRows().length > 0) {
+
+    <p-table
+      [value]="visibleRows()"
+      [loading]="loading()"
+      dataKey="id"
+      [rowHover]="true"
+      stripedRows
+      responsiveLayout="scroll"
+    >
+
+      <ng-template #header>
+        <tr>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Correo electrónico</th>
+          <th>Dirección</th>
+          <th>Estado</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+      </ng-template>
+
+      <ng-template #body let-client>
+
+        <tr>
+
+          <td>
+            <span class="font-medium text-slate-800">
+              {{ client.name }}
+            </span>
+          </td>
+
+          <td>
+            {{ client.phone || 'No registrado' }}
+          </td>
+
+          <td>
+            {{ client.email || 'No registrado' }}
+          </td>
+
+          <td>
+            {{ client.address || 'No registrada' }}
+          </td>
+
+          <td>
+            <app-status-tag
+              [status]="client.status"
+            />
+          </td>
+
+          <td>
+            <div class="flex items-center justify-center gap-2">
+
+              <button
+                pButton
+                type="button"
+                severity="info"
+                text
+                rounded
+                aria-label="Editar cliente"
+                (click)="openEdit(client)"
+              >
+                <i class="pi pi-pencil"></i>
+              </button>
+
+              <button
+                pButton
+                type="button"
+                severity="danger"
+                text
+                rounded
+                aria-label="Desactivar cliente"
+                (click)="confirmDeactivate(client)"
+              >
+                <i class="pi pi-ban"></i>
+              </button>
+
+            </div>
+          </td>
+
+        </tr>
+
+      </ng-template>
+
+    </p-table>
+
+  }
+
+  <!-- Indicador de carga -->
+  @if (loading()) {
+
+    <div class="py-8 text-center text-slate-500">
+      <i class="pi pi-spin pi-spinner mr-2"></i>
+      Cargando clientes...
+    </div>
+
+  }
+
+  <!-- Sin resultados -->
+  @if (!loading() && visibleRows().length === 0) {
+
+    <app-empty-state
+      icon="pi pi-users"
+      [title]="filter() ? 'No se encontraron clientes' : 'No hay clientes registrados'"
+      [message]="filter()
+        ? 'Intenta realizar otra búsqueda.'
+        : 'Todavía no tienes clientes registrados en ActivaFit.'"
+    >
+
+      @if (!filter()) {
+        <button
+          pButton
+          type="button"
+          (click)="openCreate()"
+        >
+          <i pButtonIcon class="pi pi-plus"></i>
+          <span pButtonLabel>Registrar primer cliente</span>
+        </button>
+      }
+
+    </app-empty-state>
+
+  }
+
+</section>
+
+<!-- Diálogo para crear y editar -->
+<p-dialog
+  [visible]="dialogVisible()"
+  (visibleChange)="dialogVisible.set($event)"
+  [header]="title()"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [closable]="!saving()"
+  [style]="{ width: 'min(95vw, 640px)' }"
+  (onHide)="closeDialog()"
+>
+
+  <app-client-form
+    [client]="editing()"
+    [resetKey]="resetKey()"
+    [saving]="saving()"
+    (saved)="save($event)"
+    (cancelled)="closeDialog()"
+  />
+
+</p-dialog>
+
+<!-- Confirmación de desactivación -->
+<p-confirmdialog />
+
