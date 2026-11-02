@@ -3,7 +3,10 @@ import {
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 
-import { provideHttpClient } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
 
 import {
   provideRouter,
@@ -15,6 +18,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 
+import { jwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 
@@ -22,8 +26,10 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
 
-    // HttpClient sin interceptores de sesión. La autenticación llega en ISS-08.
-    provideHttpClient(),
+    // HttpClient con autenticación JWT.
+    provideHttpClient(
+      withInterceptors([jwtInterceptor])
+    ),
 
     provideRouter(
       routes,

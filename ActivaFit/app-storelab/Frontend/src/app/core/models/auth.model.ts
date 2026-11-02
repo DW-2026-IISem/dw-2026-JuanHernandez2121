@@ -1,7 +1,7 @@
 import { User } from './user.model';
 
 export interface LoginPayload {
-  username: string;
+  identifier: string;
   password: string;
 }
 

@@ -38,6 +38,11 @@ export class Shell {
       routerLink: '/clientes',
     },
     {
+      label: 'Entrenadores',
+      icon: 'pi pi-id-card',
+      routerLink: '/entrenadores',
+    },
+    {
       label: 'Prototipo',
       icon: 'pi pi-desktop',
       routerLink: '/construir',
