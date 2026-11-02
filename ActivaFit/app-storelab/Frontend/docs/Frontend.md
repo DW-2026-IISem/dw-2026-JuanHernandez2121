@@ -253,3 +253,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ![](images/clipboard-197253342.png)
 
 ![](images/clipboard-2635317684.png)
+
+## 3.2 Utilidad de filtro local
+
+![](images/clipboard-3750828179.png)
