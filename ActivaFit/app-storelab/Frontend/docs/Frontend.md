@@ -277,3 +277,21 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ![](images/clipboard-3883381042.png)
 
 ![](images/clipboard-1976315240.png)
+
+# Fase I: Business — ISS-04 — Entrenadores
+
+## 4.1 Endpoint y contrato
+
+| Operación   | Método y ruta propuesta                  |
+|-------------|------------------------------------------|
+| Listar      | `GET /api/entrenadores`                  |
+| Obtener uno | `GET /api/entrenadores/:id`              |
+| Crear       | `POST /api/entrenadores`                 |
+| Actualizar  | `PATCH /api/entrenadores/:id`            |
+| Reemplazar  | `PUT /api/entrenadores/:id`              |
+| Desactivar  | `PATCH /api/entrenadores/:id/deactivate` |
+| Eliminar    | `DELETE /api/entrenadores/:id`           |
+
+## 4.2 Generar con CLI
+
+![](images/clipboard-3403182418.png)
