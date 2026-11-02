@@ -311,3 +311,31 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ![](images/clipboard-211731440.png)
 
 ![](images/clipboard-396206528.png)
+
+# Fase I: Business — ISS-05 — Membresias
+
+### Operaciones de Membresías
+
+| Operación | Método y ruta | Respuesta esperada |
+|----|----|----|
+| Listar | `GET /api/membresias` | `{ memberships: [...] }` |
+| Obtener una | `GET /api/membresias/:id` | `{ membership }` |
+| Crear | `POST /api/membresias` | `{ membership }` |
+| Editar parcial | `PATCH /api/membresias/:id` | `{ membership }` |
+| Reemplazar | `PUT /api/membresias/:id` | `{ membership }` |
+| Baja lógica | `PATCH /api/membresias/:id/deactivate` | `{ message, membership }` |
+| Baja física | `DELETE /api/membresias/:id` | Pendiente de verificar |
+
+### Campos de Membresías
+
+| Campo          | Tipo                           | Al crear      | Al editar     |
+|----------------|--------------------------------|---------------|---------------|
+| `cliente_id`   | Número (ID)                    | Por verificar | Por verificar |
+| `plan_id`      | Número (ID)                    | Por verificar | Por verificar |
+| `fecha_inicio` | Fecha                          | Por verificar | Por verificar |
+| `fecha_fin`    | Fecha                          | Por verificar | Por verificar |
+| `status`       | Estado (`ACTIVE` / `INACTIVE`) | Por verificar | Por verificar |
+
+## 5.2 Generar con CLI
+
+![](images/clipboard-1400383219.png)
