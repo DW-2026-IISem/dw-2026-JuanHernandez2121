@@ -1,9 +1,123 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  effect,
+  inject,
+  input,
+  output,
+} from '@angular/core';
+
+import {
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { MessageModule } from 'primeng/message';
+import { SelectModule } from 'primeng/select';
+import { TextareaModule } from 'primeng/textarea';
+
+import { Status } from '../../../core/models/api.model';
+import {
+  Client,
+  ClientPayload,
+} from '../../../core/models/client.model';
 
 @Component({
-  imports: [],
   selector: 'app-client-form',
-  styleUrl: './client-form.css',
+  host: { class: 'block' },
+  imports: [
+    ReactiveFormsModule,
+    ButtonModule,
+    InputTextModule,
+    MessageModule,
+    SelectModule,
+    TextareaModule,
+  ],
   templateUrl: './client-form.html',
+  styleUrl: './client-form.css',
 })
-export class ClientForm {}
+export class ClientForm {
+
+  readonly client = input<Client | null>(null);
+
+  readonly resetKey = input(0);
+
+  readonly saving = input(false);
+
+  readonly saved = output<ClientPayload>();
+
+  readonly cancelled = output<void>();
+
+  private readonly fb = inject(NonNullableFormBuilder);
+
+  readonly statusOptions = [
+    { label: 'Activo', value: 'active' },
+    { label: 'Inactivo', value: 'inactive' },
+  ];
+
+  readonly form = this.fb.group({
+    name: [
+      '',
+      [
+        Validators.required,
+        Validators.maxLength(120),
+      ],
+    ],
+    address: [''],
+    phone: [''],
+    email: ['', [Validators.email]],
+    status: [
+      'active' as Status,
+      [Validators.required],
+    ],
+  });
+
+  constructor() {
+    effect(() => {
+      const current = this.client();
+
+      this.resetKey();
+
+      this.form.reset({
+        name: current?.name ?? '',
+        address: current?.address ?? '',
+        phone: current?.phone ?? '',
+        email: current?.email ?? '',
+        status: current?.status ?? 'active',
+      });
+
+      if (current) {
+        this.form.controls.status.disable();
+      } else {
+        this.form.controls.status.enable();
+      }
+    });
+  }
+
+  submit(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    const value = this.form.getRawValue();
+
+    const payload: ClientPayload = {
+      name: value.name.trim(),
+      address: value.address.trim() || null,
+      phone: value.phone.trim() || null,
+      email: value.email.trim() || null,
+    };
+
+    if (this.client()) {
+      this.saved.emit(payload);
+    } else {
+      this.saved.emit({
+        ...payload,
+        status: value.status,
+      });
+    }
+  }
+}

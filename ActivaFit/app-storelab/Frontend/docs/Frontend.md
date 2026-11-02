@@ -257,3 +257,9 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 3.2 Utilidad de filtro local
 
 ![](images/clipboard-3750828179.png)
+
+## 3.3 Formulario reactivo reutilizable
+
+![](images/clipboard-910061443.png)
+
+![](images/clipboard-3939016248.png)
