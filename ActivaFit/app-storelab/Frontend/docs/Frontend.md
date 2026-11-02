@@ -245,3 +245,11 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## Verificación del ISS
 
 ![](images/clipboard-1223189939.png)
+
+# ISS-03 · CRUD de clientes con Signals
+
+## 3.1 Generar componentes con CLI
+
+![](images/clipboard-197253342.png)
+
+![](images/clipboard-2635317684.png)
