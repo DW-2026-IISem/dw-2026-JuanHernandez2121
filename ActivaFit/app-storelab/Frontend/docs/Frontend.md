@@ -223,3 +223,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ![](images/clipboard-2726904436.png)
 
 ![](images/clipboard-1188614369.png)
+
+## 2.4 Utilidades transversales: `toApiMessage` y `NotificationService`
+
+![](images/clipboard-1666269276.png)
