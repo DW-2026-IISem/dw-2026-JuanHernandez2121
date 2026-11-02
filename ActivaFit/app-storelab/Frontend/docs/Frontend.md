@@ -227,3 +227,9 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 2.4 Utilidades transversales: `toApiMessage` y `NotificationService`
 
 ![](images/clipboard-1666269276.png)
+
+## 2.5 Componentes compartidos: `PageHeader`, `EmptyState`, `StatusTag`
+
+![](images/clipboard-735128766.png)
+
+![](images/clipboard-1208803899.png)
