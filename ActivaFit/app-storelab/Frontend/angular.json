@@ -43,7 +43,8 @@
               ],
               "outputHashing": "all"
             },
-            "development": { "optimization": false,
+            "development": {
+              "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
               "fileReplacements": [
@@ -52,9 +53,10 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
-            },
-            "defaultConfiguration": "production"
+            }
           },
+          "defaultConfiguration": "production"
+        },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {

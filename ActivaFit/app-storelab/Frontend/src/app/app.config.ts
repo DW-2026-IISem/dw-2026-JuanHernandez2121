@@ -3,7 +3,7 @@ import {
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 import {
   provideRouter,
@@ -17,15 +17,13 @@ import Aura from '@primeuix/themes/aura';
 
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
-import { jwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
 
-    provideHttpClient(
-      withInterceptors([jwtInterceptor])
-    ),
+    // HttpClient sin interceptores de sesión. La autenticación llega en ISS-08.
+    provideHttpClient(),
 
     provideRouter(
       routes,

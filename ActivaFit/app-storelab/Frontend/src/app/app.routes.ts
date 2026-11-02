@@ -1,10 +1,5 @@
 import { Routes } from '@angular/router';
 
-/**
- * Rutas principales de ActivaFit.
- *
- * Construir se carga de forma diferida mediante loadComponent.
- */
 export const routes: Routes = [
   {
     path: 'construir',
@@ -13,8 +8,20 @@ export const routes: Routes = [
   },
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'construir',
+    loadComponent: () =>
+      import('./layout/shell/shell').then((m) => m.Shell),
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'construir',
+      },
+      {
+        path: 'construir',
+        loadComponent: () =>
+          import('./features/construir/construir').then((m) => m.Construir),
+      },
+    ],
   },
   {
     path: '**',
