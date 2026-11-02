@@ -271,3 +271,9 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 3.6 Baja lógica vs baja física
 
 ![](images/clipboard-510164470.png)
+
+## Verificación del ISS
+
+![](images/clipboard-3883381042.png)
+
+![](images/clipboard-1976315240.png)

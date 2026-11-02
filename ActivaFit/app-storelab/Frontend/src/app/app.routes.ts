@@ -13,12 +13,14 @@ export const routes: Routes = [
       },
       {
         path: 'clientes',
+        title: 'Clientes · ActivaFit',
         loadComponent: () =>
           import('./features/clients/client-list/client-list')
             .then((m) => m.ClientList),
       },
       {
         path: 'construir',
+        title: 'Prototipo · ActivaFit',
         loadComponent: () =>
           import('./features/construir/construir')
             .then((m) => m.Construir),
