@@ -353,3 +353,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 6.1 Generar con CLI
 
 ![](images/clipboard-387743210.png)
+
+## 6.2 Servicio
+
+![](images/clipboard-2155509786.png)
