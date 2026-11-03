@@ -317,7 +317,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ### Operaciones de Membresías
 
 | Operación | Método y ruta | Respuesta esperada |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Listar | `GET /api/membresias` | `{ memberships: [...] }` |
 | Obtener una | `GET /api/membresias/:id` | `{ membership }` |
 | Crear | `POST /api/membresias` | `{ membership }` |
@@ -329,7 +329,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ### Campos de Membresías
 
 | Campo          | Tipo                           | Al crear      | Al editar     |
-|----------------|--------------------------------|---------------|---------------|
+|---------------|--------------------------|---------------|---------------|
 | `cliente_id`   | Número (ID)                    | Por verificar | Por verificar |
 | `plan_id`      | Número (ID)                    | Por verificar | Por verificar |
 | `fecha_inicio` | Fecha                          | Por verificar | Por verificar |
@@ -343,3 +343,7 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 5.3 Servicio
 
 ![](images/clipboard-100399453.png)
+
+## Pruebas![](images/clipboard-2030027600.png)
+
+![](images/clipboard-1675261244.png)

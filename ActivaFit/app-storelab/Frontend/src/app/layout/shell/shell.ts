@@ -43,6 +43,11 @@ export class Shell {
       routerLink: '/entrenadores',
     },
     {
+      label: 'Membresías',
+      icon: 'pi pi-credit-card',
+      routerLink: '/membresias',
+    },
+    {
       label: 'Prototipo',
       icon: 'pi pi-desktop',
       routerLink: '/construir',

@@ -1,1 +1,141 @@
-<p>membership-form works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+  @if (optionsError()) {
+    <p-message severity="error" size="small">
+      {{ optionsError() }}
+    </p-message>
+  }
+
+  <!-- Nombre -->
+  <div>
+    <label for="membership-name" class="mb-1 block text-sm font-medium">
+      Nombre de la membresía *
+    </label>
+
+    <input
+      id="membership-name"
+      pInputText
+      formControlName="nombre"
+      placeholder="Ej. Membresía mensual"
+      class="w-full"
+    />
+
+    @if (form.controls.nombre.touched && form.controls.nombre.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        El nombre es obligatorio y no debe superar los 150 caracteres.
+      </p-message>
+    }
+  </div>
+
+  <!-- Descripción -->
+  <div>
+    <label for="membership-description" class="mb-1 block text-sm font-medium">
+      Descripción
+    </label>
+
+    <textarea
+      id="membership-description"
+      pTextarea
+      formControlName="descripcion"
+      rows="3"
+      placeholder="Descripción de la membresía"
+      class="w-full"
+    ></textarea>
+  </div>
+
+  <!-- Plan -->
+  <div>
+    <label for="membership-plan" class="mb-1 block text-sm font-medium">
+      Plan *
+    </label>
+
+    <p-select
+      inputId="membership-plan"
+      formControlName="planId"
+      [options]="plans()"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      [loading]="loadingOptions()"
+      placeholder="Seleccionar plan"
+    />
+
+    @if (form.controls.planId.touched && form.controls.planId.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        Debes seleccionar un plan.
+      </p-message>
+    }
+  </div>
+
+  <!-- Cliente -->
+  <div>
+    <label for="membership-client" class="mb-1 block text-sm font-medium">
+      Cliente *
+    </label>
+
+    <p-select
+      inputId="membership-client"
+      formControlName="clienteId"
+      [options]="clients()"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      [loading]="loadingOptions()"
+      placeholder="Seleccionar cliente"
+    />
+
+    @if (form.controls.clienteId.touched && form.controls.clienteId.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        Debes seleccionar un cliente.
+      </p-message>
+    }
+  </div>
+
+  <!-- Estado -->
+  <div>
+    <label for="membership-status" class="mb-1 block text-sm font-medium">
+      Estado
+    </label>
+
+    <p-select
+      inputId="membership-status"
+      formControlName="status"
+      [options]="statusOptions"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      placeholder="Seleccionar estado"
+    />
+
+    @if (membership()) {
+      <p class="mt-1 text-xs text-slate-500">
+        El estado de una membresía existente se modifica mediante la opción
+        de desactivación.
+      </p>
+    }
+  </div>
+
+  <!-- Botones -->
+  <div class="flex justify-end gap-2 border-t border-slate-100 pt-4">
+    <button
+      pButton
+      type="button"
+      severity="secondary"
+      outlined
+      (click)="cancelled.emit()"
+    >
+      <span pButtonLabel>Cancelar</span>
+    </button>
+
+    <button
+      pButton
+      type="submit"
+      [loading]="saving()"
+      [disabled]="saving() || loadingOptions()"
+    >
+      <i pButtonIcon class="pi pi-check"></i>
+      <span pButtonLabel>Guardar membresía</span>
+    </button>
+  </div>
+
+</form>

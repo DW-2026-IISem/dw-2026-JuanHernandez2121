@@ -1,1 +1,181 @@
-<p>membership-list works!</p>
+<app-page-header
+  title="Membresías"
+  subtitle="Administra las membresías y consulta los planes y clientes asociados."
+>
+  <p-tag
+    [value]="rows().length + ' activas'"
+    severity="info"
+    [rounded]="true"
+  />
+
+  <button pButton type="button" (click)="openCreate()">
+    <i pButtonIcon class="pi pi-plus"></i>
+    <span pButtonLabel>Nueva membresía</span>
+  </button>
+</app-page-header>
+
+@if (error()) {
+  <p-message severity="error" styleClass="mb-4 w-full">
+    {{ error() }}
+  </p-message>
+}
+
+<div class="rounded-xl border border-slate-200 bg-white">
+  <p-table
+    [value]="visibleRows()"
+    [loading]="loading()"
+    [paginator]="visibleRows().length > 10"
+    [rows]="10"
+    dataKey="id"
+    tableStyleClass="min-w-3xl"
+  >
+    <ng-template #caption>
+      <div class="flex items-center gap-2">
+        <i class="pi pi-search text-slate-400"></i>
+
+        <input
+          pInputText
+          type="search"
+          aria-label="Buscar membresías"
+          placeholder="Buscar por nombre, cliente o plan..."
+          [value]="filter()"
+          (input)="filter.set($any($event.target).value)"
+          class="w-full"
+        />
+      </div>
+
+      @if (filter()) {
+        <p class="mt-2 text-xs text-slate-500">
+          {{ visibleRows().length }} de {{ rows().length }}
+          coinciden con «{{ filter() }}».
+        </p>
+      }
+    </ng-template>
+
+    <ng-template #header>
+      <tr>
+        <th pSortableColumn="nombre">
+          <div class="flex items-center gap-1">
+            Membresía
+            <p-sort-icon field="nombre" />
+          </div>
+        </th>
+
+        <th>Cliente</th>
+        <th>Plan</th>
+        <th>Estado</th>
+        <th class="w-40 text-right">Acciones</th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-membership>
+      <tr>
+        <td>
+          <p class="font-medium text-slate-800">
+            {{ membership.nombre }}
+          </p>
+          <p class="text-xs text-slate-400">
+            #{{ membership.id }}
+          </p>
+        </td>
+
+        <td>
+          <p class="text-sm text-slate-700">
+            {{ clientName(membership.clienteId) }}
+          </p>
+        </td>
+
+        <td>
+          <p class="text-sm text-slate-700">
+            {{ planName(membership.planId) }}
+          </p>
+        </td>
+
+        <td>
+          <app-status-tag [status]="membership.status" />
+        </td>
+
+        <td>
+          <div class="flex justify-end gap-1">
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="secondary"
+              icon="pi pi-pencil"
+              aria-label="Editar membresía"
+              pTooltip="Editar"
+              (click)="openEdit(membership)"
+            ></button>
+
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="warn"
+              icon="pi pi-ban"
+              aria-label="Desactivar membresía"
+              pTooltip="Desactivar"
+              (click)="deactivate(membership)"
+            ></button>
+
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="danger"
+              icon="pi pi-trash"
+              aria-label="Eliminar membresía"
+              pTooltip="Eliminar"
+              (click)="remove(membership)"
+            ></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="5">
+          @if (filter()) {
+            <app-empty-state
+              icon="pi pi-search"
+              title="Sin coincidencias"
+              message="Ninguna membresía coincide con la búsqueda."
+            />
+          } @else {
+            <app-empty-state
+              icon="pi pi-id-card"
+              title="Sin membresías activas"
+              message="Crea la primera membresía con el botón «Nueva membresía»."
+            />
+          }
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [visible]="dialogVisible()"
+  (visibleChange)="dialogVisible.set($event)"
+  [header]="title()"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [dismissableMask]="true"
+  styleClass="w-full max-w-2xl mx-4"
+>
+  <app-membership-form
+    [membership]="editing()"
+    [saving]="saving()"
+    [resetKey]="resetKey()"
+    (saved)="save($event)"
+    (cancelled)="closeDialog()"
+  />
+</p-dialog>
+
+<p-confirmdialog />

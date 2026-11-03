@@ -34,6 +34,13 @@ export const routes: Routes = [
             .then((m) => m.TrainerList),
       },
       {
+        path: 'membresias',
+        title: 'Membresías · ActivaFit',
+        loadComponent: () =>
+          import('./features/memberships/membership-list/membership-list')
+            .then((m) => m.MembershipList),
+      },
+      {
         path: 'construir',
         title: 'Prototipo · ActivaFit',
         loadComponent: () =>
