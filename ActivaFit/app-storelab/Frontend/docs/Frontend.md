@@ -347,3 +347,9 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## Pruebas![](images/clipboard-2030027600.png)
 
 ![](images/clipboard-1675261244.png)
+
+# Fase I: Business — ISS-06 — Asistencias
+
+## 6.1 Generar con CLI
+
+![](images/clipboard-387743210.png)
