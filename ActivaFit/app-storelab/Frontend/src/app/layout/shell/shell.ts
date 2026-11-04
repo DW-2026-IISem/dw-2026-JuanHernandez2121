@@ -48,6 +48,11 @@ export class Shell {
       routerLink: '/membresias',
     },
     {
+      label: 'Asistencias',
+      icon: 'pi pi-calendar-check',
+      routerLink: '/asistencias',
+    },
+    {
       label: 'Prototipo',
       icon: 'pi pi-desktop',
       routerLink: '/construir',

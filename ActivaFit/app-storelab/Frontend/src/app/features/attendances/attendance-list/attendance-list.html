@@ -1,1 +1,188 @@
-<p>attendance-list works!</p>
+<app-page-header
+  title="Asistencias"
+  subtitle="Administra las asistencias y consulta los clientes y membresías asociados."
+>
+  <p-tag
+    [value]="activeAttendanceCount() + ' activas'"
+    severity="info"
+    [rounded]="true"
+  />
+
+  <button pButton type="button" (click)="openCreate()">
+    <i pButtonIcon class="pi pi-plus"></i>
+    <span pButtonLabel>Nueva asistencia</span>
+  </button>
+</app-page-header>
+
+@if (error()) {
+  <p-message severity="error" styleClass="mb-4 w-full">
+    {{ error() }}
+  </p-message>
+}
+
+<div class="rounded-xl border border-slate-200 bg-white">
+  <p-table
+    [value]="visibleRows()"
+    [loading]="loading()"
+    [paginator]="visibleRows().length > 10"
+    [rows]="10"
+    dataKey="id"
+    tableStyleClass="min-w-4xl"
+  >
+    <ng-template #caption>
+      <div class="flex items-center gap-2">
+        <i class="pi pi-search text-slate-400"></i>
+
+        <input
+          pInputText
+          type="search"
+          aria-label="Buscar asistencias"
+          placeholder="Buscar por cliente, membresía, fecha u observaciones..."
+          [value]="filter()"
+          (input)="filter.set($any($event.target).value)"
+          class="w-full"
+        />
+      </div>
+
+      @if (filter()) {
+        <p class="mt-2 text-xs text-slate-500">
+          {{ visibleRows().length }} de {{ rows().length }}
+          coinciden con «{{ filter() }}».
+        </p>
+      }
+    </ng-template>
+
+    <ng-template #header>
+      <tr>
+        <th pSortableColumn="fecha">
+          <div class="flex items-center gap-1">
+            Fecha
+            <p-sort-icon field="fecha" />
+          </div>
+        </th>
+
+        <th>Cliente</th>
+        <th>Membresía</th>
+        <th>Observaciones</th>
+        <th>Estado</th>
+        <th class="w-40 text-right">Acciones</th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-attendance>
+      <tr>
+        <td>
+          <p class="font-medium text-slate-800">
+            {{ formatDate(attendance.fecha) }}
+          </p>
+          <p class="text-xs text-slate-400">
+            #{{ attendance.id }}
+          </p>
+        </td>
+
+        <td>
+          <p class="text-sm text-slate-700">
+            {{ clientName(attendance.membresiaId) }}
+          </p>
+        </td>
+
+        <td>
+          <p class="text-sm text-slate-700">
+            {{ membershipName(attendance.membresiaId) }}
+          </p>
+        </td>
+
+        <td>
+          <p class="text-sm text-slate-600">
+            {{ attendance.observaciones || 'Sin observaciones' }}
+          </p>
+        </td>
+
+        <td>
+          <app-status-tag [status]="attendance.status" />
+        </td>
+
+        <td>
+          <div class="flex justify-end gap-1">
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="secondary"
+              icon="pi pi-pencil"
+              aria-label="Editar asistencia"
+              pTooltip="Editar"
+              (click)="openEdit(attendance)"
+            ></button>
+
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="warn"
+              icon="pi pi-ban"
+              aria-label="Desactivar asistencia"
+              pTooltip="Desactivar"
+              (click)="deactivate(attendance)"
+            ></button>
+
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="danger"
+              icon="pi pi-trash"
+              aria-label="Eliminar asistencia"
+              pTooltip="Eliminar"
+              (click)="remove(attendance)"
+            ></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="6">
+          @if (filter()) {
+            <app-empty-state
+              icon="pi pi-search"
+              title="Sin coincidencias"
+              message="Ninguna asistencia coincide con la búsqueda."
+            />
+          } @else {
+            <app-empty-state
+              icon="pi pi-calendar"
+              title="Sin asistencias registradas"
+              message="Registra la primera asistencia con el botón «Nueva asistencia»."
+            />
+          }
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [visible]="dialogVisible()"
+  (visibleChange)="dialogVisible.set($event)"
+  [header]="title()"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [dismissableMask]="true"
+  styleClass="w-full max-w-2xl mx-4"
+>
+  <app-attendance-form
+    [attendance]="editing()"
+    [saving]="saving()"
+    [resetKey]="resetKey()"
+    (saved)="save($event)"
+    (cancelled)="closeDialog()"
+  />
+</p-dialog>
+
+<p-confirmdialog />

@@ -1,1 +1,123 @@
-<p>attendance-form works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+  @if (optionsError()) {
+    <p-message severity="error" size="small">
+      {{ optionsError() }}
+    </p-message>
+  }
+
+  <!-- Membresía -->
+  <div>
+    <label for="attendance-membership" class="mb-1 block text-sm font-medium">
+      Membresía *
+    </label>
+
+    <p-select
+      inputId="attendance-membership"
+      formControlName="membresiaId"
+      [options]="memberships()"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      [loading]="loadingOptions()"
+      placeholder="Seleccionar membresía"
+    />
+
+    @if (
+      form.controls.membresiaId.touched &&
+      form.controls.membresiaId.invalid
+    ) {
+      <p-message severity="error" size="small" variant="simple">
+        Debes seleccionar una membresía.
+      </p-message>
+    }
+  </div>
+
+  <!-- Fecha -->
+  <div>
+    <label for="attendance-date" class="mb-1 block text-sm font-medium">
+      Fecha de asistencia *
+    </label>
+
+    <input
+      id="attendance-date"
+      pInputText
+      type="date"
+      formControlName="fecha"
+      class="w-full"
+    />
+
+    @if (form.controls.fecha.touched && form.controls.fecha.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        La fecha de asistencia es obligatoria.
+      </p-message>
+    }
+  </div>
+
+  <!-- Observaciones -->
+  <div>
+    <label
+      for="attendance-observations"
+      class="mb-1 block text-sm font-medium"
+    >
+      Observaciones
+    </label>
+
+    <textarea
+      id="attendance-observations"
+      pTextarea
+      formControlName="observaciones"
+      rows="3"
+      placeholder="Escribe alguna observación sobre la asistencia"
+      class="w-full"
+    ></textarea>
+  </div>
+
+  <!-- Estado -->
+  <div>
+    <label for="attendance-status" class="mb-1 block text-sm font-medium">
+      Estado
+    </label>
+
+    <p-select
+      inputId="attendance-status"
+      formControlName="status"
+      [options]="statusOptions"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      placeholder="Seleccionar estado"
+    />
+
+    @if (attendance()) {
+      <p class="mt-1 text-xs text-slate-500">
+        El estado de una asistencia existente se modifica mediante la opción
+        de desactivación.
+      </p>
+    }
+  </div>
+
+  <!-- Botones -->
+  <div class="flex justify-end gap-2 border-t border-slate-100 pt-4">
+    <button
+      pButton
+      type="button"
+      severity="secondary"
+      outlined
+      (click)="cancelled.emit()"
+    >
+      <span pButtonLabel>Cancelar</span>
+    </button>
+
+    <button
+      pButton
+      type="submit"
+      [loading]="saving()"
+      [disabled]="saving() || loadingOptions()"
+    >
+      <i pButtonIcon class="pi pi-check"></i>
+      <span pButtonLabel>Guardar asistencia</span>
+    </button>
+  </div>
+
+</form>
