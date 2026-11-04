@@ -357,3 +357,19 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ## 6.2 Servicio
 
 ![](images/clipboard-2155509786.png)
+
+## **6.4 Formulario**
+
+![](images/clipboard-2424982662.png)
+
+![](images/clipboard-2089105606.png)
+
+## **6.5 Lista**
+
+![](images/clipboard-1715468711.png)
+
+## Pruebas
+
+![](images/clipboard-2542469537.png)
+
+![](images/clipboard-1565234798.png)
