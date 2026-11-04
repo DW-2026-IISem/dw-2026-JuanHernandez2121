@@ -1,0 +1,112 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+  @if (optionsError()) {
+    <p-message severity="error" size="small">
+      {{ optionsError() }}
+    </p-message>
+  }
+
+  <!-- Nombre -->
+  <div>
+    <label for="routine-name" class="mb-1 block text-sm font-medium">
+      Nombre de la rutina *
+    </label>
+
+    <input
+      id="routine-name"
+      pInputText
+      formControlName="nombre"
+      placeholder="Ej. Rutina de fuerza"
+      class="w-full"
+    />
+
+    @if (form.controls.nombre.touched && form.controls.nombre.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        El nombre es obligatorio y no debe superar los 150 caracteres.
+      </p-message>
+    }
+  </div>
+
+  <!-- Descripción -->
+  <div>
+    <label for="routine-description" class="mb-1 block text-sm font-medium">
+      Descripción
+    </label>
+
+    <textarea
+      id="routine-description"
+      pTextarea
+      formControlName="descripcion"
+      rows="3"
+      placeholder="Describe brevemente la rutina de entrenamiento"
+      class="w-full"
+    ></textarea>
+  </div>
+
+  <!-- Entrenador -->
+  <div>
+    <label for="routine-trainer" class="mb-1 block text-sm font-medium">
+      Entrenador
+    </label>
+
+    <p-select
+      inputId="routine-trainer"
+      formControlName="entrenadorId"
+      [options]="trainers()"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      [loading]="loadingOptions()"
+      [showClear]="true"
+      placeholder="Seleccionar entrenador (opcional)"
+    />
+  </div>
+
+  <!-- Cliente -->
+  <div>
+    <label for="routine-client" class="mb-1 block text-sm font-medium">
+      Cliente
+    </label>
+
+    <p-select
+      inputId="routine-client"
+      formControlName="clienteId"
+      [options]="clients()"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      [loading]="loadingOptions()"
+      [showClear]="true"
+      placeholder="Seleccionar cliente (opcional)"
+    />
+  </div>
+
+  <p class="text-xs text-slate-500">
+    El entrenador y el cliente son opcionales. Puedes asignarlos ahora o
+    dejar la rutina sin asociación.
+  </p>
+
+  <!-- Botones -->
+  <div class="flex justify-end gap-2 border-t border-slate-100 pt-4">
+    <button
+      pButton
+      type="button"
+      severity="secondary"
+      outlined
+      (click)="cancelled.emit()"
+    >
+      <span pButtonLabel>Cancelar</span>
+    </button>
+
+    <button
+      pButton
+      type="submit"
+      [loading]="saving()"
+      [disabled]="saving() || loadingOptions()"
+    >
+      <i pButtonIcon class="pi pi-check"></i>
+      <span pButtonLabel>Guardar rutina</span>
+    </button>
+  </div>
+
+</form>

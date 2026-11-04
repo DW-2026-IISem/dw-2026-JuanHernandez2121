@@ -373,3 +373,27 @@ Angular utiliza diferentes formas de comunicación entre la clase TypeScript y e
 ![](images/clipboard-2542469537.png)
 
 ![](images/clipboard-1565234798.png)
+
+# Fase I: Business — ISS-07 — Rutinas
+
+## 7.1 Generar con CLI
+
+![](images/clipboard-3517616971.png)
+
+## 7.2 Servicio
+
+![](images/clipboard-2828221810.png)
+
+## **7.3 Formulario**
+
+![](images/clipboard-3498015995.png)
+
+## **7.5 Lista** 
+
+![](images/clipboard-3793963414.png)
+
+## Pruebas
+
+![](images/clipboard-3869355844.png)
+
+![](images/clipboard-3876330948.png)

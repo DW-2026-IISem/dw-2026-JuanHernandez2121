@@ -48,6 +48,13 @@ export const routes: Routes = [
             .then((m) => m.AttendanceList),
       },
       {
+        path: 'rutinas',
+        title: 'Rutinas · ActivaFit',
+        loadComponent: () =>
+          import('./features/routines/routine-list/routine-list')
+            .then((m) => m.RoutineList),
+      },
+      {
         path: 'construir',
         title: 'Prototipo · ActivaFit',
         loadComponent: () =>
