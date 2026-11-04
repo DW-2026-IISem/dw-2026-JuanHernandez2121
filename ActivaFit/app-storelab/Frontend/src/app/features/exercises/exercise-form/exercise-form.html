@@ -1,0 +1,124 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+  <!-- Nombre -->
+  <div>
+    <label for="exercise-name" class="mb-1 block text-sm font-medium">
+      Nombre del ejercicio *
+    </label>
+
+    <input
+      id="exercise-name"
+      pInputText
+      formControlName="nombre"
+      placeholder="Ej. Press de banca"
+      class="w-full"
+    />
+
+    @if (form.controls.nombre.touched && form.controls.nombre.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        El nombre es obligatorio y no debe superar los 150 caracteres.
+      </p-message>
+    }
+  </div>
+
+  <!-- Descripción -->
+  <div>
+    <label for="exercise-description" class="mb-1 block text-sm font-medium">
+      Descripción
+    </label>
+
+    <textarea
+      id="exercise-description"
+      pTextarea
+      formControlName="descripcion"
+      rows="3"
+      placeholder="Describe brevemente el ejercicio"
+      class="w-full"
+    ></textarea>
+  </div>
+
+  <!-- Tipo -->
+  <div>
+    <label for="exercise-type" class="mb-1 block text-sm font-medium">
+      Tipo de ejercicio *
+    </label>
+
+    <input
+      id="exercise-type"
+      pInputText
+      formControlName="tipo"
+      placeholder="Ej. Fuerza, cardio, flexibilidad"
+      class="w-full"
+    />
+
+    @if (form.controls.tipo.touched && form.controls.tipo.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        El tipo es obligatorio y no debe superar los 100 caracteres.
+      </p-message>
+    }
+  </div>
+
+  <!-- Nivel -->
+  <div>
+    <label for="exercise-level" class="mb-1 block text-sm font-medium">
+      Nivel de dificultad *
+    </label>
+
+    <p-select
+      inputId="exercise-level"
+      formControlName="nivel"
+      [options]="levels"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      placeholder="Seleccionar nivel"
+    />
+  </div>
+
+  <!-- Estado -->
+  <div>
+    <label for="exercise-status" class="mb-1 block text-sm font-medium">
+      Estado *
+    </label>
+
+    <p-select
+      inputId="exercise-status"
+      formControlName="status"
+      [options]="statuses"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      placeholder="Seleccionar estado"
+    />
+  </div>
+
+  <p class="text-xs text-slate-500">
+    Los campos marcados con * son obligatorios.
+  </p>
+
+  <!-- Botones -->
+  <div class="flex justify-end gap-2 border-t border-slate-100 pt-4">
+
+    <button
+      pButton
+      type="button"
+      severity="secondary"
+      outlined
+      (click)="cancelled.emit()"
+    >
+      <span pButtonLabel>Cancelar</span>
+    </button>
+
+    <button
+      pButton
+      type="submit"
+      [loading]="saving()"
+      [disabled]="saving()"
+    >
+      <i pButtonIcon class="pi pi-check"></i>
+      <span pButtonLabel>Guardar ejercicio</span>
+    </button>
+
+  </div>
+
+</form>

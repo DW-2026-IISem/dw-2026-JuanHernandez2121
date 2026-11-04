@@ -58,6 +58,11 @@ export class Shell {
       routerLink: '/rutinas',
     },
     {
+      label: 'Ejercicios',
+      icon: 'pi pi-heart',
+      routerLink: '/ejercicios',
+    },
+    {
       label: 'Prototipo',
       icon: 'pi pi-desktop',
       routerLink: '/construir',

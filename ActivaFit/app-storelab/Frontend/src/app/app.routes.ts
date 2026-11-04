@@ -55,6 +55,13 @@ export const routes: Routes = [
             .then((m) => m.RoutineList),
       },
       {
+        path: 'ejercicios',
+        title: 'Ejercicios · ActivaFit',
+        loadComponent: () =>
+          import('./features/exercises/exercise-list/exercise-list')
+            .then((m) => m.ExerciseList),
+      },
+      {
         path: 'construir',
         title: 'Prototipo · ActivaFit',
         loadComponent: () =>

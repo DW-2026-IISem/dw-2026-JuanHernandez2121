@@ -1,0 +1,190 @@
+<app-page-header
+  title="Ejercicios"
+  subtitle="Administra el catálogo de ejercicios y sus niveles de dificultad."
+>
+  <p-tag
+    [value]="rows().length + ' activos'"
+    severity="info"
+    [rounded]="true"
+  />
+
+  <button pButton type="button" (click)="openCreate()">
+    <i pButtonIcon class="pi pi-plus"></i>
+    <span pButtonLabel>Nuevo ejercicio</span>
+  </button>
+</app-page-header>
+
+@if (error()) {
+  <p-message severity="error" styleClass="mb-4 w-full">
+    {{ error() }}
+  </p-message>
+}
+
+<div class="rounded-xl border border-slate-200 bg-white">
+  <p-table
+    [value]="visibleRows()"
+    [loading]="loading()"
+    [paginator]="visibleRows().length > 10"
+    [rows]="10"
+    dataKey="id"
+    tableStyleClass="min-w-4xl"
+  >
+    <ng-template #caption>
+      <div class="flex items-center gap-2">
+        <i class="pi pi-search text-slate-400"></i>
+
+        <input
+          pInputText
+          type="search"
+          aria-label="Buscar ejercicios"
+          placeholder="Buscar por nombre, tipo o nivel..."
+          [value]="filter()"
+          (input)="filter.set($any($event.target).value)"
+          class="w-full"
+        />
+      </div>
+
+      @if (filter()) {
+        <p class="mt-2 text-xs text-slate-500">
+          {{ visibleRows().length }} de {{ rows().length }}
+          coinciden con «{{ filter() }}».
+        </p>
+      }
+    </ng-template>
+
+    <ng-template #header>
+      <tr>
+        <th pSortableColumn="nombre">
+          <div class="flex items-center gap-1">
+            Ejercicio
+            <p-sort-icon field="nombre" />
+          </div>
+        </th>
+
+        <th>Tipo</th>
+        <th>Nivel</th>
+        <th>Estado</th>
+        <th class="w-40 text-right">Acciones</th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-exercise>
+      <tr>
+        <td>
+          <p class="font-medium text-slate-800">
+            {{ exercise.nombre }}
+          </p>
+
+          <p class="text-xs text-slate-400">
+            #{{ exercise.id }}
+          </p>
+
+          @if (exercise.descripcion) {
+            <p class="mt-1 text-xs text-slate-500">
+              {{ exercise.descripcion }}
+            </p>
+          }
+        </td>
+
+        <td>
+          <span class="text-sm text-slate-700">
+            {{ exercise.tipo }}
+          </span>
+        </td>
+
+        <td>
+          <p-tag
+            [value]="levelName(exercise.nivel)"
+            [severity]="levelSeverity(exercise.nivel)"
+            [rounded]="true"
+          />
+        </td>
+
+        <td>
+          <app-status-tag [status]="exercise.status" />
+        </td>
+
+        <td>
+          <div class="flex justify-end gap-1">
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="secondary"
+              icon="pi pi-pencil"
+              aria-label="Editar ejercicio"
+              pTooltip="Editar"
+              (click)="openEdit(exercise)"
+            ></button>
+
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="warn"
+              icon="pi pi-ban"
+              aria-label="Desactivar ejercicio"
+              pTooltip="Desactivar"
+              (click)="deactivate(exercise)"
+            ></button>
+
+            <button
+              pButton
+              type="button"
+              text
+              rounded
+              severity="danger"
+              icon="pi pi-trash"
+              aria-label="Eliminar ejercicio"
+              pTooltip="Eliminar"
+              (click)="remove(exercise)"
+            ></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="5">
+          @if (filter()) {
+            <app-empty-state
+              icon="pi pi-search"
+              title="Sin coincidencias"
+              message="Ningún ejercicio coincide con la búsqueda."
+            />
+          } @else {
+            <app-empty-state
+              icon="pi pi-list"
+              title="Sin ejercicios activos"
+              message="Registra el primer ejercicio con el botón «Nuevo ejercicio»."
+            />
+          }
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [visible]="dialogVisible()"
+  (visibleChange)="dialogVisible.set($event)"
+  [header]="title()"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [dismissableMask]="true"
+  styleClass="w-full max-w-2xl mx-4"
+>
+  <app-exercise-form
+    [exercise]="editing()"
+    [saving]="saving()"
+    [resetKey]="resetKey()"
+    (saved)="save($event)"
+    (cancelled)="closeDialog()"
+  />
+</p-dialog>
+
+<p-confirmdialog />
