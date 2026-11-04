@@ -1,5 +1,6 @@
+
 import { Component, computed, inject, signal } from '@angular/core';
-import { forkJoin } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
 
 import { ConfirmationService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -14,6 +15,8 @@ import { TooltipModule } from 'primeng/tooltip';
 import { Routine, RoutinePayload } from '../../../core/models/routine.model';
 import { Trainer } from '../../../core/models/trainer.model';
 import { Client } from '../../../core/models/client.model';
+import { Exercise } from '../../../core/models/exercise.model';
+import { RoutineExercise } from '../../../core/models/routine-exercise.model';
 
 import { NotificationService } from '../../../core/services/notification';
 import { toApiMessage } from '../../../core/utils/api-error';
@@ -24,9 +27,11 @@ import { PageHeader } from '../../../shared/ui/page-header/page-header';
 import { StatusTag } from '../../../shared/ui/status-tag/status-tag';
 
 import { RoutineApi } from '../routine-api.service';
-import { RoutineForm } from '../routine-form/routine-form';
+import { RoutineForm, RoutineFormPayload } from '../routine-form/routine-form';
 import { TrainerApi } from '../../trainers/trainer-api.service';
 import { ClientApi } from '../../clients/client-api.service';
+import { ExerciseApi } from '../../exercises/exercise-api.service';
+import { RoutineExerciseApi } from '../../routine-exercises/routine-exercise-api.service';
 
 @Component({
   selector: 'app-routine-list',
@@ -52,12 +57,17 @@ export class RoutineList {
   private readonly api = inject(RoutineApi);
   private readonly trainerApi = inject(TrainerApi);
   private readonly clientApi = inject(ClientApi);
+  private readonly exerciseApi = inject(ExerciseApi);
+  private readonly routineExerciseApi = inject(RoutineExerciseApi);
+
   private readonly notify = inject(NotificationService);
   private readonly confirmation = inject(ConfirmationService);
 
   readonly rows = signal<Routine[]>([]);
   readonly trainers = signal<Trainer[]>([]);
   readonly clients = signal<Client[]>([]);
+  readonly exercises = signal<Exercise[]>([]);
+  readonly routineExercises = signal<RoutineExercise[]>([]);
 
   readonly loading = signal(true);
   readonly saving = signal(false);
@@ -68,6 +78,16 @@ export class RoutineList {
   readonly editing = signal<Routine | null>(null);
   readonly resetKey = signal(0);
 
+  readonly editingExerciseIds = computed(() => {
+    const routine = this.editing();
+
+    if (!routine) return [];
+
+    return this.routineExercises()
+      .filter(relation => relation.rutinaId === routine.id)
+      .map(relation => relation.ejercicioId);
+  });
+
   readonly title = computed(() =>
     this.editing() ? 'Editar rutina' : 'Nueva rutina',
   );
@@ -76,11 +96,12 @@ export class RoutineList {
     filterRows(
       this.rows(),
       this.filter(),
-      (routine) => [
+      routine => [
         routine.nombre,
         routine.descripcion,
         this.trainerName(routine.entrenadorId),
         this.clientName(routine.clienteId),
+        this.exerciseNames(routine.id),
       ],
     ),
   );
@@ -97,11 +118,21 @@ export class RoutineList {
       routines: this.api.list(),
       trainers: this.trainerApi.list(),
       clients: this.clientApi.list(),
+      exercises: this.exerciseApi.list(),
+      routineExercises: this.routineExerciseApi.list(),
     }).subscribe({
-      next: ({ routines, trainers, clients }) => {
+      next: ({
+        routines,
+        trainers,
+        clients,
+        exercises,
+        routineExercises,
+      }) => {
         this.rows.set(routines);
         this.trainers.set(trainers);
         this.clients.set(clients);
+        this.exercises.set(exercises);
+        this.routineExercises.set(routineExercises);
         this.loading.set(false);
       },
       error: (error: unknown) => {
@@ -125,6 +156,21 @@ export class RoutineList {
       ?? `Cliente #${clientId}`;
   }
 
+  exerciseNames(routineId: number): string {
+    const ids = this.routineExercises()
+      .filter(relation => relation.rutinaId === routineId)
+      .map(relation => relation.ejercicioId);
+
+    if (ids.length === 0) return 'Sin ejercicios asignados';
+
+    return ids
+      .map(id =>
+        this.exercises().find(exercise => exercise.id === id)?.nombre
+          ?? `Ejercicio #${id}`,
+      )
+      .join(', ');
+  }
+
   openCreate(): void {
     this.editing.set(null);
     this.resetKey.update(key => key + 1);
@@ -137,30 +183,85 @@ export class RoutineList {
     this.dialogVisible.set(true);
   }
 
-  save(payload: RoutinePayload): void {
+  save(payload: RoutineFormPayload): void {
     const current = this.editing();
+    const { ejercicioIds, ...routinePayload } = payload;
+
     this.saving.set(true);
 
     const request = current
-      ? this.api.update(current.id, payload)
-      : this.api.create(payload);
+      ? this.api.update(current.id, routinePayload)
+      : this.api.create(routinePayload);
 
     request.subscribe({
-      next: () => {
-        this.saving.set(false);
-        this.dialogVisible.set(false);
+      next: savedRoutine => {
+        this.syncExercises(savedRoutine.id, ejercicioIds).subscribe({
+          next: () => {
+            this.saving.set(false);
+            this.dialogVisible.set(false);
 
-        this.notify.success(
-          current ? 'Rutina actualizada' : 'Rutina creada',
-        );
+            this.notify.success(
+              current
+                ? 'Rutina actualizada correctamente'
+                : 'Rutina creada correctamente',
+            );
 
-        this.load();
+            this.load();
+          },
+          error: (error: unknown) => {
+            this.saving.set(false);
+            this.dialogVisible.set(false);
+
+            this.notify.error(
+              'La rutina se guardó, pero hubo un problema actualizando sus ejercicios',
+              toApiMessage(error),
+            );
+
+            this.load();
+          },
+        });
       },
       error: (error: unknown) => {
         this.saving.set(false);
-        this.notify.error('No se pudo guardar', toApiMessage(error));
+
+        this.notify.error(
+          'No se pudo guardar la rutina',
+          toApiMessage(error),
+        );
       },
     });
+  }
+
+  private syncExercises(
+    rutinaId: number,
+    selectedIds: number[],
+  ) {
+    const currentRelations = this.routineExercises()
+      .filter(relation => relation.rutinaId === rutinaId);
+
+    const selectedSet = new Set(selectedIds);
+
+    const requests = [
+      ...currentRelations
+        .filter(relation => !selectedSet.has(relation.ejercicioId))
+        .map(relation => this.routineExerciseApi.deactivate(relation.id)),
+
+      ...selectedIds
+        .filter(
+          id => !currentRelations.some(
+            relation => relation.ejercicioId === id,
+          ),
+        )
+        .map(ejercicioId =>
+          this.routineExerciseApi.create({
+            rutinaId,
+            ejercicioId,
+            status: 'active',
+          }),
+        ),
+    ];
+
+    return requests.length > 0 ? forkJoin(requests) : of([]);
   }
 
   deactivate(routine: Routine): void {

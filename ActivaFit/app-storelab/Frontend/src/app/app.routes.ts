@@ -41,6 +41,13 @@ export const routes: Routes = [
             .then((m) => m.MembershipList),
       },
       {
+        path: 'pagos',
+        title: 'Pagos · ActivaFit',
+        loadComponent: () =>
+          import('./features/payments/payment-list/payment-list')
+            .then((m) => m.PaymentList),
+      },
+      {
         path: 'asistencias',
         title: 'Asistencias · ActivaFit',
         loadComponent: () =>

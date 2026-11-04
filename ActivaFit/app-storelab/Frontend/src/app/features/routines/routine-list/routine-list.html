@@ -1,6 +1,7 @@
+
 <app-page-header
   title="Rutinas"
-  subtitle="Administra las rutinas de entrenamiento y consulta sus clientes y entrenadores asociados."
+  subtitle="Administra las rutinas de entrenamiento y consulta sus clientes, entrenadores y ejercicios asociados."
 >
   <p-tag
     [value]="rows().length + ' activas'"
@@ -37,7 +38,7 @@
           pInputText
           type="search"
           aria-label="Buscar rutinas"
-          placeholder="Buscar por nombre, entrenador o cliente..."
+          placeholder="Buscar por nombre, entrenador, cliente o ejercicio..."
           [value]="filter()"
           (input)="filter.set($any($event.target).value)"
           class="w-full"
@@ -63,6 +64,7 @@
 
         <th>Entrenador</th>
         <th>Cliente</th>
+        <th>Ejercicios</th>
         <th>Estado</th>
         <th class="w-40 text-right">Acciones</th>
       </tr>
@@ -74,9 +76,11 @@
           <p class="font-medium text-slate-800">
             {{ routine.nombre }}
           </p>
+
           <p class="text-xs text-slate-400">
             #{{ routine.id }}
           </p>
+
           @if (routine.descripcion) {
             <p class="mt-1 text-xs text-slate-500">
               {{ routine.descripcion }}
@@ -93,6 +97,12 @@
         <td>
           <p class="text-sm text-slate-700">
             {{ clientName(routine.clienteId) }}
+          </p>
+        </td>
+
+        <td>
+          <p class="max-w-64 whitespace-normal text-sm text-slate-700">
+            {{ exerciseNames(routine.id) }}
           </p>
         </td>
 
@@ -144,7 +154,7 @@
 
     <ng-template #emptymessage>
       <tr>
-        <td colspan="5">
+        <td colspan="6">
           @if (filter()) {
             <app-empty-state
               icon="pi pi-search"
@@ -178,6 +188,7 @@
     [routine]="editing()"
     [saving]="saving()"
     [resetKey]="resetKey()"
+    [initialExerciseIds]="editingExerciseIds()"
     (saved)="save($event)"
     (cancelled)="closeDialog()"
   />

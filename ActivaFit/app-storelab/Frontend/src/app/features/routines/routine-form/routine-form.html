@@ -1,3 +1,4 @@
+
 <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
 
   @if (optionsError()) {
@@ -6,7 +7,6 @@
     </p-message>
   }
 
-  <!-- Nombre -->
   <div>
     <label for="routine-name" class="mb-1 block text-sm font-medium">
       Nombre de la rutina *
@@ -27,7 +27,6 @@
     }
   </div>
 
-  <!-- Descripción -->
   <div>
     <label for="routine-description" class="mb-1 block text-sm font-medium">
       Descripción
@@ -43,7 +42,6 @@
     ></textarea>
   </div>
 
-  <!-- Entrenador -->
   <div>
     <label for="routine-trainer" class="mb-1 block text-sm font-medium">
       Entrenador
@@ -62,7 +60,6 @@
     />
   </div>
 
-  <!-- Cliente -->
   <div>
     <label for="routine-client" class="mb-1 block text-sm font-medium">
       Cliente
@@ -81,12 +78,37 @@
     />
   </div>
 
+  <!-- Ejercicios -->
+  <div>
+    <label for="routine-exercises" class="mb-1 block text-sm font-medium">
+      Ejercicios de la rutina
+    </label>
+
+    <p-multiselect
+      inputId="routine-exercises"
+      formControlName="ejercicioIds"
+      [options]="exercises()"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      [loading]="loadingOptions()"
+      [filter]="true"
+      [showClear]="true"
+      display="chip"
+      placeholder="Seleccionar uno o varios ejercicios"
+      emptyMessage="No hay ejercicios disponibles"
+      emptyFilterMessage="No se encontraron ejercicios"
+    />
+
+    <p class="mt-1 text-xs text-slate-500">
+      Puedes seleccionar varios ejercicios para incluirlos en esta rutina.
+    </p>
+  </div>
+
   <p class="text-xs text-slate-500">
-    El entrenador y el cliente son opcionales. Puedes asignarlos ahora o
-    dejar la rutina sin asociación.
+    El entrenador y el cliente son opcionales.
   </p>
 
-  <!-- Botones -->
   <div class="flex justify-end gap-2 border-t border-slate-100 pt-4">
     <button
       pButton

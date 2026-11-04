@@ -1,0 +1,141 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+  @if (optionsError()) {
+    <p-message severity="error" size="small">
+      {{ optionsError() }}
+    </p-message>
+  }
+
+  <!-- Membresía -->
+  <div>
+    <label for="payment-membership" class="mb-1 block text-sm font-medium">
+      Membresía *
+    </label>
+
+    <p-select
+      inputId="payment-membership"
+      formControlName="referenciaId"
+      [options]="memberships()"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      [loading]="loadingOptions()"
+      placeholder="Seleccionar membresía"
+    />
+
+    @if (form.controls.referenciaId.touched && form.controls.referenciaId.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        Debes seleccionar una membresía.
+      </p-message>
+    }
+  </div>
+
+  <!-- Método -->
+  <div>
+    <label for="payment-method" class="mb-1 block text-sm font-medium">
+      Método de pago *
+    </label>
+
+    <p-select
+      inputId="payment-method"
+      formControlName="metodo"
+      [options]="methodOptions"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      placeholder="Seleccionar método"
+    />
+
+    @if (form.controls.metodo.touched && form.controls.metodo.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        Debes seleccionar un método de pago.
+      </p-message>
+    }
+  </div>
+
+  <!-- Monto -->
+  <div>
+    <label for="payment-amount" class="mb-1 block text-sm font-medium">
+      Monto *
+    </label>
+
+    <input
+      id="payment-amount"
+      pInputText
+      type="number"
+      min="0.01"
+      step="0.01"
+      formControlName="monto"
+      placeholder="Ej. 50000"
+      class="w-full"
+    />
+
+    @if (form.controls.monto.touched && form.controls.monto.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        El monto debe ser mayor que cero.
+      </p-message>
+    }
+  </div>
+
+  <!-- Fecha -->
+  <div>
+    <label for="payment-date" class="mb-1 block text-sm font-medium">
+      Fecha del pago *
+    </label>
+
+    <input
+      id="payment-date"
+      pInputText
+      type="date"
+      formControlName="fecha"
+      class="w-full"
+    />
+
+    @if (form.controls.fecha.touched && form.controls.fecha.invalid) {
+      <p-message severity="error" size="small" variant="simple">
+        Debes seleccionar una fecha.
+      </p-message>
+    }
+  </div>
+
+  <!-- Estado -->
+  <div>
+    <label for="payment-status" class="mb-1 block text-sm font-medium">
+      Estado *
+    </label>
+
+    <p-select
+      inputId="payment-status"
+      formControlName="estado"
+      [options]="statusOptions"
+      optionLabel="label"
+      optionValue="value"
+      [fluid]="true"
+      placeholder="Seleccionar estado"
+    />
+  </div>
+
+  <!-- Botones -->
+  <div class="flex justify-end gap-2 border-t border-slate-100 pt-4">
+    <button
+      pButton
+      type="button"
+      severity="secondary"
+      outlined
+      (click)="cancelled.emit()"
+    >
+      <span pButtonLabel>Cancelar</span>
+    </button>
+
+    <button
+      pButton
+      type="submit"
+      [loading]="saving()"
+      [disabled]="saving() || loadingOptions()"
+    >
+      <i pButtonIcon class="pi pi-check"></i>
+      <span pButtonLabel>Guardar pago</span>
+    </button>
+  </div>
+
+</form>
